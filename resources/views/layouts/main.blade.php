@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <!-- Bootstrap CSS -->
     <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <!-- Bootstrap JS -->
-    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Animate CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- Fontawesome CSS -->
@@ -41,6 +39,12 @@
     {{-- Footer End --}}
 
     @yield('sub-footer')
+
+    {{-- Main JS --}}
+    <script src="{{ asset('assets/js/script.js') }}"></script>
+    <!-- Bootstrap JS -->
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    
 </body>
 
 </html>
