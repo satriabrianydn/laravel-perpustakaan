@@ -301,6 +301,10 @@ footer {
         transform: translate(-50%, -50%);
     }
 
+    .footer h4 {
+        margin-top: 20px;
+    }
+
     .copyright {
         text-align: center;
         margin-top: 20px;

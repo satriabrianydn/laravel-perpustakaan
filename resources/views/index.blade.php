@@ -20,37 +20,14 @@
                     <li class="nav-item dropdown" id="auto-dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            TENTANG HIMPUNAN
+                            DROPDOWN
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Pengurus Himpunan</a></li>
-                            <li><a class="dropdown-item" href="#">Anggota Nonaktif</a></li>
-                            <li><a class="dropdown-item" href="#">Visi & Misi</a></li>
+                            <li><a class="dropdown-item disabled" href="#">Pengurus Himpunan</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ARTIKEL</a>
-                    </li>
-                    <li class="nav-item dropdown" id="auto-dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            EVENTS
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item disabled" href="#">Coming Soon</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown" id="auto-dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            GALERI
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item disabled" href="#">Coming Soon</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">CONTACT US</a>
+                        <a class="nav-link" href="#contact-us">CONTACT US</a>
                     </li>
                 </ul>
             </div>
@@ -160,7 +137,7 @@
 @section('footer')
     <div class="container footer">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" id="contact-us">
                 <h4>Contact Us</h4>
                 <address>
                     <p>Email: <a href="mailto:info@perpus-sejahtera.id">info@perpus-sejahtera.id</a></p>
