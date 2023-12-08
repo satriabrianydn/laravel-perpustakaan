@@ -7,19 +7,20 @@
     <title>@yield('title')</title>
     {{-- Favicon --}}
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <!-- Bootstrap CSS -->
+    <!-- Vendor CSS -->
     <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <!-- Animate CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/vendor/fontawesome-6/css/all.css') }}" />
+    <link href="{{ asset('assets/vendor/fontawesome-6/css/all.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/fakeloader/css/fakeLoader.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
 
 </head>
 
 <body>
-  
+    @yield('body')
+
     {{-- Header --}}
     <header>
         @yield('header')
@@ -42,9 +43,19 @@
 
     {{-- Main JS --}}
     <script src="{{ asset('assets/js/script.js') }}"></script>
-    <!-- Bootstrap JS -->
+    <!-- Vendor JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    
+    <script src="{{ asset('assets/vendor/fakeloader/js/fakeLoader.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            $.fakeLoader({
+                timeToHide:1200,
+                bgColor:"#fff",
+                spinner:"spinner6"
+            });
+        });
+    </script>
 </body>
 
 </html>
