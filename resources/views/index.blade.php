@@ -150,7 +150,7 @@
                 <h4>Our Social Media</h4>
                 <ul class="social-media-icons mt-3">
                     <li><a href="https://www.facebook.com/universitasdutabangsa/" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
-                    <li><a href="https://twitter.com/udbofficial" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+                    <li><a href="https://twitter.com/udbofficial" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
                     <li><a href="https://instagram.com/udb.official" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
                 </ul>
             </div>
