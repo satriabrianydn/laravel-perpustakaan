@@ -19,6 +19,23 @@ body::before {
     z-index: -1;
 }
 
+.carousel {
+    font-family: 'Poppins', sans-serif;
+}
+
+#carouselExampleInterval h5 {
+    color: #000;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+#carouselExampleInterval p {
+    color: #000;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+
 /* Navigation Bar */
 nav {
     font-family: 'Poppins', sans-serif;
