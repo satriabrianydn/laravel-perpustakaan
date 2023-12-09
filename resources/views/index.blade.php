@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Halaman Utama | Perpustakaan Sejahtera')
+@section('title', 'Halaman Utama | Perpustakaan Online Universitas Duta Bangsa Surakarta')
 @section('body')
 <div class="fakeLoader"></div>
 @endsection
@@ -140,7 +140,7 @@
             <div class="col-md-6" id="contact-us">
                 <h4>Contact Us</h4>
                 <address>
-                    <p>Email: <a href="mailto:info@perpus-sejahtera.id">info@perpus-sejahtera.id</a></p>
+                    <p>Email: <a href="mailto:info@perpus-sejahtera.id">info@perpus-udb.ac.id</a></p>
                     <p>Alamat: Jl. Bhayangkara No. 55</p>
                     <p>Kel. Tipes, Kec. Serengan, Kota Surakarta</p>
                     <p>Jawa Tengah, 57154</p>
@@ -149,9 +149,9 @@
             <div class="col-md-6 text-end">
                 <h4>Our Social Media</h4>
                 <ul class="social-media-icons mt-3">
-                    <li><a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="https://www.facebook.com/universitasdutabangsa/" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/udbofficial" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+                    <li><a href="https://instagram.com/udb.official" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -168,7 +168,7 @@
 @section('sub-footer')
     <div class="sub-footer">
         <div class="container copyright">
-            <p>&copy; 2023 Dikelola Tim IT <strong>Universitas Sejahtera</strong> All Rights Reserved.</p>
+            <p>&copy; 2023 Dikelola Tim IT <strong>Universitas Duta Bangsa Surakarta</strong> All Rights Reserved.</p>
         </div>
     </div>
 @endsection
