@@ -23,7 +23,7 @@
                             DROPDOWN
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item disabled" href="#">Pengurus Himpunan</a></li>
+                            <li><a class="dropdown-item disabled" href="#">Disabled</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
