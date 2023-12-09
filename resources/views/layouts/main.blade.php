@@ -49,7 +49,7 @@
     <script>
         $(document).ready(function(){
             $.fakeLoader({
-                timeToHide:1200,
+                timeToHide:100,
                 bgColor:"#fff",
                 spinner:"spinner6"
             });

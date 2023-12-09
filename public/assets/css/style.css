@@ -1,5 +1,5 @@
 /* Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 body {
     position: relative;
@@ -19,21 +19,57 @@ body::before {
     z-index: -1;
 }
 
-.carousel {
-    font-family: 'Poppins', sans-serif;
+/* Carousel */
+.carousel-control-next, .carousel-control-prev {
+    opacity: 0;
+    transition: opacity 0.5s;
 }
 
-#carouselExampleInterval h5 {
-    color: #000;
-    font-weight: 700;
-    font-size: 20px;
+.carousel:hover .carousel-control-next, .carousel:hover .carousel-control-prev {
+    opacity: 1;
 }
 
-#carouselExampleInterval p {
+.custom-caption {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
     color: #000;
-    font-weight: 400;
+    padding: 20px;
+}
+.custom-caption h5 {
+    display: block;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    margin-bottom: 10px;
+}
+
+.custom-caption p {
+    display: block;
+    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 0;
 }
+
+.carousel-button {
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.carousel-button a {
+    color: #fff;
+    cursor: pointer;
+}
+
+.carousel-button a::hover {
+    color: #000;
+}
+
+
 
 
 /* Navigation Bar */

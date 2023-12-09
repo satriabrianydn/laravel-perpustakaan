@@ -47,21 +47,24 @@
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="5000">
                 <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Slide 1">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+                <div class="custom-caption">
+                    <h5 class="animate__animated animate__fadeInDown">Selamat Datang Di Perpustakaan Online Universitas Duta Bangsa Surakarta</h5>
+                    <p class="animate__animated animate__fadeInUp">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore natus dolores quas debitis ad impedit, laboriosam iste quae doloremque earum reprehenderit, in animi facilis rerum dolorem suscipit qui non quibusdam? Modi quaerat quia neque accusantium, porro laborum atque vero corporis aliquid tempora. Error et atque aspernatur soluta delectus necessitatibus possimus.</p>
+                    <div class="carousel-button">
+                        <a class="btn btn-warning" href="">Baca Selengkapnya</a>
+                    </div>
                   </div>
               </div>
               <div class="carousel-item" data-bs-interval="5000">
                 <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Slide 2">
-                <div class="carousel-caption d-none d-md-block">
+                <div class="custom-caption">
                     <h5>Second slide label</h5>
                     <p>Some representative placeholder content for the first slide.</p>
                   </div>
               </div>  
               <div class="carousel-item" data-bs-interval="5000">
                 <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Slide 3">
-                <div class="carousel-caption d-none d-md-block">
+                <div class="custom-caption">
                     <h5>Third slide label</h5>
                     <p>Some representative placeholder content for the first slide.</p>
                   </div>

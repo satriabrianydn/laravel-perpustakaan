@@ -37,3 +37,30 @@ $(document).ready(function() {
        }
     });
  });
+
+// Hilangkan tombol carousel ketika cursor tidak diarahkan
+document.addEventListener('DOMContentLoaded', function () {
+    const carousel = document.getElementById('carouselExampleInterval');
+
+    carousel.addEventListener('mouseover', function () {
+      showControls();
+    });
+
+    carousel.addEventListener('mouseout', function () {
+      hideControls();
+    });
+
+    function showControls() {
+      const controls = document.querySelectorAll('.carousel-control-next, .carousel-control-prev');
+      controls.forEach(control => {
+        control.style.opacity = '1';
+      });
+    }
+
+    function hideControls() {
+      const controls = document.querySelectorAll('.carousel-control-next, .carousel-control-prev');
+      controls.forEach(control => {
+        control.style.opacity = '0';
+      });
+    }
+  });
