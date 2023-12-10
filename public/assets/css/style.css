@@ -260,8 +260,7 @@ footer {
     }
 
     .carousel-item img {
-        height: auto;
-        max-height: 300px;
+        max-height: 200px;
     }
 
     /* Mengatur tinggi otomatis untuk caption */
@@ -298,7 +297,7 @@ footer {
 
     .perkenalan p {
         font-size: 14px;
-        line-height: 22px;
+        line-height: 20px;
     }
 
     /* Box Berita */

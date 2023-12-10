@@ -46,7 +46,9 @@
                     <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Slide 1">
                     <div class="carousel-caption d-md-block">
                         <h5 class="animate__animated animate__fadeInDown">First slide label</h5>
-                        <p class="animate__animated animate__fadeInUp">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, voluptatum!</p>
+                        <div class="animate__animated animate__fadeInUp">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        </div>
                         <div class="carousel-button animate__animated animate__fadeInLeft">
                             <a class="btn btn-warning" href="#">Read More</a>
                         </div>
@@ -56,7 +58,8 @@
                     <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Slide 2">
                     <div class="carousel-caption d-md-block">
                         <h5 class="animate__animated animate__fadeInDown">Second slide label</h5>
-                        <p class="animate__animated animate__fadeInUp">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem, provident!</p>
+                        <p class="animate__animated animate__fadeInUp">Lorem, ipsum dolor sit amet consectetur adipisicing
+                            elit. Quidem, provident!</p>
                         <div class="carousel-button animate__animated animate__fadeInLeft">
                             <a class="btn btn-warning" href="#">Read More</a>
                         </div>
@@ -66,7 +69,8 @@
                     <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Slide 3">
                     <div class="carousel-caption d-md-block">
                         <h5 class="animate__animated animate__fadeInDown">Third slide label</h5>
-                        <p class="animate__animated animate__fadeInUp">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, enim?</p>
+                        <p class="animate__animated animate__fadeInUp">Lorem, ipsum dolor sit amet consectetur adipisicing
+                            elit. Nesciunt, enim?</p>
                         <div class="carousel-button animate__animated animate__fadeInLeft">
                             <a class="btn btn-warning" href="#">Read More</a>
                         </div>
