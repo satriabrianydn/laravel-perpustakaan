@@ -15,19 +15,21 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">BERANDA</a>
+                        <a class="nav-link active" href="#">
+                            <i class="fa-solid fa-house"></i><span class="icon-text">BERANDA</span></a>
                     </li>
                     <li class="nav-item dropdown" id="auto-dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            DROPDOWN
+                            <i class="fa-solid fa-list"></i><span class="icon-text">Kategori</span>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item disabled" href="#">Disabled</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact-us">CONTACT US</a>
+                        <a class="nav-link" href="#contact-us">
+                            <i class="fa-solid fa-phone"></i><span class="icon-text">CONTACT US</span></a>
                     </li>
                 </ul>
             </div>
@@ -39,46 +41,49 @@
     {{-- Carousel --}}
     <div class="carousel">
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-              </div>
             <div class="carousel-inner">
-              <div class="carousel-item active" data-bs-interval="5000">
-                <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Slide 1">
-                <div class="custom-caption">
-                    <h5 class="animate__animated animate__fadeInDown">Selamat Datang Di Perpustakaan Online Universitas Duta Bangsa Surakarta</h5>
-                    <p class="animate__animated animate__fadeInUp">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore natus dolores quas debitis ad impedit, laboriosam iste quae doloremque earum reprehenderit, in animi facilis rerum dolorem suscipit qui non quibusdam? Modi quaerat quia neque accusantium, porro laborum atque vero corporis aliquid tempora. Error et atque aspernatur soluta delectus necessitatibus possimus.</p>
-                    <div class="carousel-button">
-                        <a class="btn btn-warning" href="">Baca Selengkapnya</a>
+                <div class="carousel-item active" data-bs-interval="5000">
+                    <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Slide 1">
+                    <div class="carousel-caption d-md-block">
+                        <h5 class="animate__animated animate__fadeInDown">First slide label</h5>
+                        <p class="animate__animated animate__fadeInUp">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, voluptatum!</p>
+                        <div class="carousel-button animate__animated animate__fadeInLeft">
+                            <a class="btn btn-warning" href="#">Read More</a>
+                        </div>
                     </div>
-                  </div>
-              </div>
-              <div class="carousel-item" data-bs-interval="5000">
-                <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Slide 2">
-                <div class="custom-caption">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
-                  </div>
-              </div>  
-              <div class="carousel-item" data-bs-interval="5000">
-                <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Slide 3">
-                <div class="custom-caption">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
-                  </div>
-              </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                    <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Slide 2">
+                    <div class="carousel-caption d-md-block">
+                        <h5 class="animate__animated animate__fadeInDown">Second slide label</h5>
+                        <p class="animate__animated animate__fadeInUp">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem, provident!</p>
+                        <div class="carousel-button animate__animated animate__fadeInLeft">
+                            <a class="btn btn-warning" href="#">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                    <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Slide 3">
+                    <div class="carousel-caption d-md-block">
+                        <h5 class="animate__animated animate__fadeInDown">Third slide label</h5>
+                        <p class="animate__animated animate__fadeInUp">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, enim?</p>
+                        <div class="carousel-button animate__animated animate__fadeInLeft">
+                            <a class="btn btn-warning" href="#">Read More</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
             </button>
-          </div>
+        </div>
     </div>
     {{-- Carousel End --}}
 
