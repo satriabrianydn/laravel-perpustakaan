@@ -31,6 +31,10 @@
                         <a class="nav-link" href="#contact-us">
                             <i class="fa-solid fa-phone"></i><span class="icon-text">CONTACT US</span></a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">
+                            <i class="fa-solid fa-right-to-bracket"></i><span class="icon-text">Login</span></a>
+                    </li>
                 </ul>
             </div>
         </div>

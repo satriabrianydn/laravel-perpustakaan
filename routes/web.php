@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,8 +24,11 @@ use Illuminate\Support\Facades\Route;
 // Routing Halaman Utama
 Route::get('/', [HomeController::class, 'index']);
 
-// Route Auth
+// Route Login
 Route::get('/login', [LoginController::class, 'showLogin']);
+
+// Route Register
+Route::get('/register', [RegisterController::class, 'showRegister']);
 
 // Routing Admin
 Route::get('/admin/dashboard', [AdminController::class, 'index']);
