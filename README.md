@@ -64,3 +64,14 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Catatan
+Setelah cloning project Laravel ini, lakukan langkah-langkah berikut:
+1. Jalankan perintah "cp .env.example .env"
+2. Kemudian jalankan perintah "composer update"
+3. Setelah itu jalankan perintah "php artisan key:generate"
+4. Setting nama database (terserah mau dinamain apa) di file .env
+5. Jalankan perintah "php artisan migrate:fresh --seed"
+6. Kemudian jalankan local server dengan menjalankan perintah "php artisan serve"
+7. Buka link http://127.0.0.1:8000
+8. Done!
