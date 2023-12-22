@@ -14,21 +14,37 @@
                                     <img src="{{ asset('assets/img/logo/logo.png') }}" width="180" alt="">
                                 </a>
                                 <p class="text-center">Perpustakaan Online Universitas Duta Bangsa Surakarta</p>
+                                
+                                @if (session('error'))
+                                    <div class="alert alert-danger">
+                                        {{ session('error') }}
+                                    </div>
+                                @endif
+
                                 @if (session('success'))
                                     <div class="alert alert-success">
                                         {{ session('success') }}
                                     </div>
                                 @endif
-                                <form action="#" method="POST">
+
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+                                <form action="/processLogin" method="POST">
                                     @csrf
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email Address</label>
-                                        <input type="email" class="form-control" id="email"
-                                            aria-describedby="emailHelp">
+                                        <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}">
                                     </div>
                                     <div class="mb-4">
                                         <label for="password" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="password">
+                                        <input type="password" class="form-control" id="password" name="password">
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mb-4">
                                         {{-- <div class="form-check">
@@ -40,8 +56,8 @@
                                         </div> --}}
                                         <a class="text-primary fw-bold" href="#">Lupa Password?</a>
                                     </div>
-                                    <a href="#" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign
-                                        In</a>
+                                    <button type="submit"
+                                        class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Login</button>
                                     <div class="d-flex align-items-center justify-content-center">
                                         <p class="fs-4 mb-0 fw-bold">Belum punya akun?</p>
                                         <a class="text-primary fw-bold ms-2" href="/register">Daftar Sekarang</a>
