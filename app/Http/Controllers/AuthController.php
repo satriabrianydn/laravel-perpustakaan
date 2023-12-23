@@ -15,11 +15,11 @@ class AuthController extends Controller
         // Cek Pengguna apakah sudah ada session
         if (Auth::check()) {
             switch (auth()->user()->role) {
-                case 'admin':
+                case 'Administrator':
                     return redirect()->route('admin.dashboard');
-                case 'petugas':
+                case 'Petugas':
                     return redirect()->route('petugas.dashboard');
-                case 'mahasiswa':
+                case 'Mahasiswa':
                     return redirect()->route('mahasiswa.dashboard');
                 default:
                     return redirect('/');
@@ -45,14 +45,12 @@ class AuthController extends Controller
             'password.min' => 'Password minimal harus 8 karakter.',
         ]);
 
-        $request->merge(['role' => 'user']);
 
         // Simpan data ke database
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => $request->role,
         ]);
 
         return redirect('/login')->with('success', 'Registrasi berhasil! Silahkan masuk.');
@@ -63,11 +61,11 @@ class AuthController extends Controller
         // Cek Pengguna apakah sudah ada session
         if (Auth::check()) {
             switch (auth()->user()->role) {
-                case 'admin':
+                case 'Administrator':
                     return redirect()->route('admin.dashboard');
-                case 'petugas':
+                case 'Petugas':
                     return redirect()->route('petugas.dashboard');
-                case 'mahasiswa':
+                case 'Mahasiswa':
                     return redirect()->route('mahasiswa.dashboard');
                 default:
                     return redirect('/');
@@ -107,11 +105,11 @@ class AuthController extends Controller
     
         if (Auth::attempt($credentials)) {
             switch (auth()->user()->role) {
-                case 'admin':
+                case 'Administrator':
                     return redirect()->route('admin.dashboard');
-                case 'petugas':
+                case 'Petugas':
                     return redirect()->route('petugas.dashboard');
-                case 'mahasiswa':
+                case 'Mahasiswa':
                     return redirect()->route('mahasiswa.dashboard');
                 default:
                     return redirect('/');
