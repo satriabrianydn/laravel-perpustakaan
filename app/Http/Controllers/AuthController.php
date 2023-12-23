@@ -14,17 +14,9 @@ class AuthController extends Controller
     {
         // Cek Pengguna apakah sudah ada session
         if (Auth::check()) {
-            switch (auth()->user()->role) {
-                case 'Administrator':
-                    return redirect()->route('admin.dashboard');
-                case 'Petugas':
-                    return redirect()->route('petugas.dashboard');
-                case 'Mahasiswa':
-                    return redirect()->route('mahasiswa.dashboard');
-                default:
-                    return redirect('/');
-            }
+            return redirect()->route('dashboard');
         }
+
         // Jika belum login, tampilkan halaman register
         return view('auth.register');
     }
@@ -45,12 +37,12 @@ class AuthController extends Controller
             'password.min' => 'Password minimal harus 8 karakter.',
         ]);
 
-
         // Simpan data ke database
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => 'user', // Atur role ke default 'user'
         ]);
 
         return redirect('/login')->with('success', 'Registrasi berhasil! Silahkan masuk.');
@@ -60,31 +52,11 @@ class AuthController extends Controller
     public function showLogin() {
         // Cek Pengguna apakah sudah ada session
         if (Auth::check()) {
-            switch (auth()->user()->role) {
-                case 'Administrator':
-                    return redirect()->route('admin.dashboard');
-                case 'Petugas':
-                    return redirect()->route('petugas.dashboard');
-                case 'Mahasiswa':
-                    return redirect()->route('mahasiswa.dashboard');
-                default:
-                    return redirect('/');
-            }
+            return redirect()->route('dashboard');
         }
+
         // Jika belum login, tampilkan halaman login
         return view('auth.login');
-    }
-
-    public function mahasiswaDashboard() {
-        return 'Ini adalah dashboard mahasiswa';
-    }
-
-    public function petugasDashboard() {
-        return 'Ini adalah dashboard Petugas';
-    }
-
-    public function adminDashboard() {
-        return view('admin.index');
     }
 
     public function processLogin(Request $request) {
@@ -104,16 +76,7 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
     
         if (Auth::attempt($credentials)) {
-            switch (auth()->user()->role) {
-                case 'Administrator':
-                    return redirect()->route('admin.dashboard');
-                case 'Petugas':
-                    return redirect()->route('petugas.dashboard');
-                case 'Mahasiswa':
-                    return redirect()->route('mahasiswa.dashboard');
-                default:
-                    return redirect('/');
-            }
+            return redirect()->route('dashboard');
         }
 
         // Jika autentikasi gagal
@@ -124,5 +87,15 @@ class AuthController extends Controller
         Auth::logout();
     
         return redirect('/login')->with('success', 'Anda telah berhasil logout.');
+    }
+
+    public function dashboard() {
+        // Cek Pengguna apakah sudah ada session
+        if (Auth::check()) {
+            return view('dashboard.index', ['role' => auth()->user()->role]);
+        }
+
+        // Jika belum login, redirect ke halaman login
+        return redirect('/login');
     }
 }

@@ -33,11 +33,10 @@ Route::post('/processRegister', [AuthController::class, 'processRegister']);
 
 // Route Dashboard
 Route::middleware('auth')->group(function () {
+  // Dashboard
+  Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
+  
 
-  // Akses Dashboard (Login First)
-  Route::get('/admin/dashboard', [AuthController::class, 'adminDashboard'])->name('admin.dashboard');
-  Route::get('/mahasiswa/dashboard', [AuthController::class, 'mahasiswaDashboard'])->name('mahasiswa.dashboard');
-  Route::get('/petugas/dashboard', [AuthController::class, 'petugasDashboard'])->name('petugas.dashboard');
 });
 
 

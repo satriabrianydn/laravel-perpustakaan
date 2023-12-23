@@ -35,7 +35,7 @@
 
 
 {{-- Footer --}}
-@include('admin.partials.footer')
+@include('dashboard.partials.footer')
 <!-- jQuery -->
 <script src="{{ asset('assets/vendor/adminlte/plugins/jquery/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
