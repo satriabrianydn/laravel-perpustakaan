@@ -26,10 +26,14 @@ Route::get('/', [HomeController::class, 'index']);
 
 // Route Login
 Route::get('/login', [LoginController::class, 'showLogin']);
+Route::post('/processLogin', [LoginController::class, 'processLogin']);
+Route::get('/admin/dashboard', [LoginController::class, 'adminDashboard'])->name('admin.dashboard');
+Route::get('/mahasiswa/dashboard', [LoginController::class, 'mahasiswaDashboard'])->name('mahasiswa.dashboard');
+Route::get('/petugas/dashboard', [LoginController::class, 'petugasDashboard'])->name('petugas.dashboard');
 
 // Route Register
 Route::get('/register', [RegisterController::class, 'showRegister']);
 Route::post('/processRegister', [RegisterController::class, 'processRegister']);
 
 // Routing Admin
-Route::get('/admin/dashboard', [AdminController::class, 'index']);
+// Route::get('/admin/dashboard', [AdminController::class, 'index']);
