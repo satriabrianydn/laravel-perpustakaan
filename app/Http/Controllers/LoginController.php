@@ -41,7 +41,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             switch (auth()->user()->role) {
                 case 'admin':
-                    return redirect()->route('dashboard.admin'); // bug
+                    return redirect()->route('admin.dashboard');
                 case 'petugas':
                     return redirect()->route('petugas.dashboard');
                 case 'mahasiswa':
