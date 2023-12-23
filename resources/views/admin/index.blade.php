@@ -1,16 +1,16 @@
-@extends('layouts.admin-layouts.main')
-@section('title', 'Dashboard Admin')
+@extends('admin.layouts.main')
+@section('title', 'Dashboard Admin | Perpustakaan Online Universitas Duta Bangsa Surakarta')
 
 @section('wrapper')
 
 {{-- Preloader --}}
-@include('layouts.admin-layouts.preloader')
+@include('admin.partials.preloader')
 
 {{-- Navbar --}}
-@include('layouts.admin-layouts.navbar')
+@include('admin.partials.navbar')
 
 {{-- Left Sidebar --}}
-@include('layouts.admin-layouts.sidebar')
+@include('admin.partials.sidebar')
 
 
 

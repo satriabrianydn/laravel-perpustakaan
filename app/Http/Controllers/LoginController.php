@@ -20,18 +20,19 @@ class LoginController extends Controller
     }
 
     public function adminDashboard() {
-        return 'Ini adalah dashboard admin';
+        return view('admin.index');
     }
 
     public function processLogin(Request $request) {
 
         // Validasi Input
         $request->validate([
-            'email' => 'required|email',
+            'email' => 'required|email|exists:users,email',
             'password' => 'required|min:8',
         ], [
             'email.required' => 'Email wajib diisi.',
             'email.email' => 'Email harus berupa alamat email yang valid.',
+            'email.exists' => 'Email tidak ditemukan.',
             'password.required' => 'Password wajib diisi.',
             'password.min' => 'Password minimal harus 8 karakter.',
         ]);

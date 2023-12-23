@@ -36,4 +36,3 @@ Route::get('/register', [RegisterController::class, 'showRegister']);
 Route::post('/processRegister', [RegisterController::class, 'processRegister']);
 
 // Routing Admin
-// Route::get('/admin/dashboard', [AdminController::class, 'index']);

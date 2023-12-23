@@ -33,6 +33,9 @@
   @yield('wrapper')
 </div>
 
+
+{{-- Footer --}}
+@include('admin.partials.footer')
 <!-- jQuery -->
 <script src="{{ asset('assets/vendor/adminlte/plugins/jquery/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
