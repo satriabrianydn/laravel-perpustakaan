@@ -37,7 +37,7 @@
                     <!-- Menu untuk Admin -->
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="fa-solid fa-book nav-icon "></i>
+                            <i class="fa-solid fa-database nav-icon "></i>
                             <p>
                                 Data Master
                                 <i class="right fas fa-angle-left"></i>
@@ -46,27 +46,27 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="fa-regular fa-circle-dot nav-icon"></i>
-                                    <p>Data Buku</p>
+                                    {{-- <i class="fa-solid fa-book nav-icon"></i> --}}
+                                    <p>- <strong>Data Buku</strong></p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="fa-regular fa-circle-dot nav-icon"></i>
-                                    <p>Data User</p>
+                                    {{-- <i class="fa-regular fa-circle-user nav-icon"></i> --}}
+                                    <p>- <strong>Data User</strong></p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="fa-regular fa-circle-dot nav-icon"></i>
-                                    <p>Data Petugas</p>
+                                    {{-- <i class="fa-solid fa-user-tie nav-icon"></i> --}}
+                                    <p>- <strong> Data Petugas</strong></p>
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="fa-solid fa-database nav-icon "></i>
+                            <i class="fa-solid fa-cart-shopping nav-icon "></i>
                             <p>
                                 Data Transaksi
                                 <i class="right fas fa-angle-left"></i>
@@ -75,20 +75,20 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="fa-regular fa-circle-dot nav-icon"></i>
-                                    <p>Data Buku</p>
+                                    {{-- <i class="fa-regular fa-circle-dot nav-icon"></i> --}}
+                                    <p>- <strong>Data Pinjaman</strong></p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="fa-regular fa-circle-dot nav-icon"></i>
-                                    <p>Data User</p>
+                                    {{-- <i class="fa-regular fa-circle-dot nav-icon"></i> --}}
+                                    <p>- <strong>Data Denda</strong></p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="fa-regular fa-circle-dot nav-icon"></i>
-                                    <p>Data Petugas</p>
+                                    {{-- <i class="fa-regular fa-circle-dot nav-icon"></i> --}}
+                                    <p>- <strong>History Pengguna</strong></p>
                                 </a>
                             </li>
                         </ul>
@@ -97,7 +97,7 @@
                     <!-- Menu untuk Petugas -->
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="fa-solid fa-database nav-icon "></i>
+                            <i class="fa-solid fa-cart-shopping nav-icon "></i>
                             <p>
                                 Data Transaksi
                                 <i class="right fas fa-angle-left"></i>
@@ -106,20 +106,20 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="fa-regular fa-circle-dot nav-icon"></i>
-                                    <p>Data Buku</p>
+                                    {{-- <i class="fa-regular fa-circle-dot nav-icon"></i> --}}
+                                    <p>- <strong>Data Pinjaman</strong></p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="fa-regular fa-circle-dot nav-icon"></i>
-                                    <p>Data User</p>
+                                    {{-- <i class="fa-regular fa-circle-dot nav-icon"></i> --}}
+                                    <p>- <strong>Data Denda</strong></p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="fa-regular fa-circle-dot nav-icon"></i>
-                                    <p>Data Petugas</p>
+                                    {{-- <i class="fa-regular fa-circle-dot nav-icon"></i> --}}
+                                    <p>- <strong>History Pengguna</strong></p>
                                 </a>
                             </li>
                         </ul>
