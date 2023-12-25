@@ -1,5 +1,5 @@
 @extends('dashboard.layouts.main')
-@section('title', 'Dashboard Admin')
+@section('title', 'Dashboard')
 
 @section('container-fluid')
     <div class="row">

@@ -16,4 +16,8 @@ class DashboardController extends Controller
         // Jika belum login, redirect ke halaman login
         return view('auth.login');
     }
+
+    public function showBook () {
+        return view('dashboard.buku');
+    }
 }

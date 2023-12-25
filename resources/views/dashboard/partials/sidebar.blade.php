@@ -17,8 +17,8 @@
             <span class="hide-menu">Home</span>
           </li> --}}
           <li class="sidebar-item">
-            <a class="sidebar-link" href="{{ route('dashboard.index') }}" aria-expanded="false">
-              <span>
+            <a class="sidebar-link {{ request()->routeIs('dashboard.index') ? 'active' : '' }}" href="{{ route('dashboard.index') }}" aria-expanded="false">
+              <span>  
                 <i class="ti ti-home"></i>
               </span>
               <span class="hide-menu">Beranda</span>
@@ -32,13 +32,13 @@
           <li class="sidebar-item">
             <a class="sidebar-link" href="#" aria-expanded="false">
               <span>
-                <i class="ti ti-article"></i>
+                <i class="ti ti-user-check"></i>
               </span>
-              <span class="hide-menu">Data Master</span>
+              <span class="hide-menu">Data Petugas</span>
             </a>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+            <a class="sidebar-link {{ request()->routeIs('dashboard.buku') ? 'active' : '' }}" href="{{ route('dashboard.buku') }}" aria-expanded="false">
               <span>
                 <i class="ti ti-book-2"></i>
               </span>
@@ -46,9 +46,9 @@
             </a>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+            <a class="sidebar-link" href="#" aria-expanded="false">
               <span>
-                <i class="ti ti-user"></i>
+                <i class="ti ti-users"></i>
               </span>
               <span class="hide-menu">Data User</span>
             </a>
@@ -60,7 +60,7 @@
             <span class="hide-menu">TRANSACTION DATA</span>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+            <a class="sidebar-link" href="#" aria-expanded="false">
               <span>
                 <i class="ti ti-shopping-cart"></i>
               </span>
@@ -75,6 +75,21 @@
               <span class="hide-menu">Data Peminjaman</span>
             </a>
           </li>
+
+          <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">USER AREA</span>
+          </li>
+
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="#" aria-expanded="false">
+              <span>
+                <i class="ti ti-pencil"></i>
+              </span>
+              <span class="hide-menu">Edit Profile</span>
+            </a>
+          </li>
+          
         </ul>
       </nav>
       <!-- End Sidebar navigation -->

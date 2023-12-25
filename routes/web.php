@@ -33,6 +33,7 @@ Route::post('/processRegister', [AuthController::class, 'processRegister']);
 Route::middleware('auth')->group(function () {
   // Dashboard
   Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard.index');
+  Route::get('/dashboard/data-buku', [DashboardController::class, 'showBook'])->name('dashboard.buku');
 
 });
 
