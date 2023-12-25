@@ -14,7 +14,7 @@ class AuthController extends Controller
     {
         // Cek Pengguna apakah sudah ada session
         if (Auth::check()) {
-            return redirect()->route('dashboard');
+            return redirect()->route('dashboard.index');
         }
 
         // Jika belum login, tampilkan halaman register
@@ -42,17 +42,16 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => 'user', // Atur role ke default 'user'
         ]);
 
-        return redirect('/login')->with('success', 'Registrasi berhasil! Silahkan masuk.');
+        return redirect()->route('auth.login')->with('success', 'Registrasi berhasil! Silahkan masuk.');
     }
 
     // Login Controller
     public function showLogin() {
         // Cek Pengguna apakah sudah ada session
         if (Auth::check()) {
-            return redirect()->route('dashboard');
+            return redirect()->route('dashboard.index');
         }
 
         // Jika belum login, tampilkan halaman login
@@ -76,26 +75,17 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
     
         if (Auth::attempt($credentials)) {
-            return redirect()->route('dashboard');
+            return redirect()->route('dashboard.index');
         }
 
         // Jika autentikasi gagal
-        return redirect('/login')->with('error', 'Login gagal. Email atau password tidak valid.');
+        return redirect()->route('auth.login')->with('error', 'Login gagal. Email atau password tidak valid.');
     }
 
     public function logout() {
         Auth::logout();
     
-        return redirect('/login')->with('success', 'Anda telah berhasil logout.');
+        return redirect()->route('auth.login')->with('success', 'Anda telah berhasil logout.');
     }
 
-    public function dashboard() {
-        // Cek Pengguna apakah sudah ada session
-        if (Auth::check()) {
-            return view('dashboard.index', ['role' => auth()->user()->role]);
-        }
-
-        // Jika belum login, redirect ke halaman login
-        return redirect('/login');
-    }
 }
