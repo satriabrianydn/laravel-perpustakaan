@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 // Routing Halaman Utama
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/kategori/horror', [HomeController::class, 'showCategoryHorror'])->name('category.horror');
 
 // Route Auth
 Route::get('/login', [AuthController::class, 'showLogin'])->name('auth.login');
