@@ -1,149 +1,99 @@
-<!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="#" class="brand-link">
-        <img src="{{ asset('assets/img/logo/logo-circle.png') }}" alt="AdminLTE Logo"
-            class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Dashboard</span>
-    </a>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <img src="{{ asset('assets/vendor/adminlte/dist/img/user2-160x160.jpg') }}"
-                    class="img-circle elevation-2" alt="User Image">
-            </div>
-            <div class="info">
-                <a href="#" class="d-block">{{ auth()->user()->name }}</a>
-                <span class="d-block text-light">{{ auth()->user()->role }}</span>
-            </div>
+<aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div>
+      <div class="brand-logo d-flex align-items-center justify-content-between">
+        <a href="#" class="text-nowrap logo-img">
+          <img src="{{ asset('assets/img/logo/logo-circle.png') }}" width="180" alt="" />
+        </a>
+        <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+          <i class="ti ti-x fs-8"></i>
         </div>
+      </div>
+      <!-- Sidebar navigation-->
+      <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+        <ul id="sidebarnav">
+          {{-- <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">Home</span>
+          </li> --}}
+          <li class="sidebar-item">
+            <a class="sidebar-link {{ request()->routeIs('dashboard.index') ? 'active' : '' }}" href="{{ route('dashboard.index') }}" aria-expanded="false">
+              <span>  
+                <i class="ti ti-home"></i>
+              </span>
+              <span class="hide-menu">Beranda</span>
+            </a>
+          </li>
 
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                data-accordion="false">
+          <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">MANAGE DATA</span>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="#" aria-expanded="false">
+              <span>
+                <i class="ti ti-user-check"></i>
+              </span>
+              <span class="hide-menu">Data Petugas</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link {{ request()->routeIs('dashboard.buku') ? 'active' : '' }}" href="{{ route('dashboard.buku') }}" aria-expanded="false">
+              <span>
+                <i class="ti ti-book-2"></i>
+              </span>
+              <span class="hide-menu">Data Buku</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="#" aria-expanded="false">
+              <span>
+                <i class="ti ti-users"></i>
+              </span>
+              <span class="hide-menu">Data User</span>
+            </a>
+          </li>
+    
 
-                <li class="nav-item">
-                    <a href="#" class="nav-link active">
-                        <i class="fa-solid fa-house nav-icon"></i>
-                        <p>Beranda</p>
-                    </a>
-                </li>
+          <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">TRANSACTION DATA</span>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="#" aria-expanded="false">
+              <span>
+                <i class="ti ti-shopping-cart"></i>
+              </span>
+              <span class="hide-menu">Data Transaksi</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="#" aria-expanded="false">
+              <span>
+                <i class="ti ti-user-plus"></i>
+              </span>
+              <span class="hide-menu">Data Peminjaman</span>
+            </a>
+          </li>
 
-                @if (auth()->user()->role == 'Administrator')
-                    <!-- Menu untuk Admin -->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fa-solid fa-database nav-icon "></i>
-                            <p>
-                                Data Master
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    {{-- <i class="fa-solid fa-book nav-icon"></i> --}}
-                                    <p>- <strong>Data Buku</strong></p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    {{-- <i class="fa-regular fa-circle-user nav-icon"></i> --}}
-                                    <p>- <strong>Data User</strong></p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    {{-- <i class="fa-solid fa-user-tie nav-icon"></i> --}}
-                                    <p>- <strong> Data Petugas</strong></p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fa-solid fa-cart-shopping nav-icon "></i>
-                            <p>
-                                Data Transaksi
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    {{-- <i class="fa-regular fa-circle-dot nav-icon"></i> --}}
-                                    <p>- <strong>Data Pinjaman</strong></p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    {{-- <i class="fa-regular fa-circle-dot nav-icon"></i> --}}
-                                    <p>- <strong>Data Denda</strong></p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    {{-- <i class="fa-regular fa-circle-dot nav-icon"></i> --}}
-                                    <p>- <strong>History Pengguna</strong></p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                @elseif(auth()->user()->role == 'Petugas')
-                    <!-- Menu untuk Petugas -->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fa-solid fa-cart-shopping nav-icon "></i>
-                            <p>
-                                Data Transaksi
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    {{-- <i class="fa-regular fa-circle-dot nav-icon"></i> --}}
-                                    <p>- <strong>Data Pinjaman</strong></p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    {{-- <i class="fa-regular fa-circle-dot nav-icon"></i> --}}
-                                    <p>- <strong>Data Denda</strong></p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    {{-- <i class="fa-regular fa-circle-dot nav-icon"></i> --}}
-                                    <p>- <strong>History Pengguna</strong></p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                @elseif(auth()->user()->role == 'Mahasiswa')
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fa-solid fa-pencil nav-icon"></i>
-                            <p>Edit Profil</p>
-                        </a>
-                    </li>
-                @endif
+          <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">USER AREA</span>
+          </li>
 
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="fa-solid fa-file nav-icon"></i>
-                        <p>Pengumuman</p>
-                    </a>
-                </li>
-
-                <a href="/logout" class="btn btn-danger text-light">Logout</a>
-            </ul>
-        </nav>
-        <!-- /.sidebar-menu -->
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="#" aria-expanded="false">
+              <span>
+                <i class="ti ti-pencil"></i>
+              </span>
+              <span class="hide-menu">Edit Profile</span>
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+      <!-- End Sidebar navigation -->
     </div>
-    <!-- /.sidebar -->
-</aside>
+    <!-- End Sidebar scroll-->
+  </aside>
+  <!--  Sidebar End -->

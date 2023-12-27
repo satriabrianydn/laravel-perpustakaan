@@ -1,72 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>@yield('title')</title>
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link href="{{ asset('assets/vendor/fontawesome-6/css/all.css') }}" rel="stylesheet">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="{{ asset('assets/vendor/adminlte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="{{ asset('assets/vendor/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
-  <!-- JQVMap -->
-  <link rel="stylesheet" href="{{ asset('assets/vendor/adminlte/plugins/jqvmap/jqvmap.min.css') }}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('assets/vendor/adminlte/dist/css/adminlte.min.css') }}">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="{{ asset('assets/vendor/adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="{{ asset('assets/vendor/adminlte/plugins/daterangepicker/daterangepicker.css') }}">
-  <!-- summernote -->
-  <link rel="stylesheet" href="{{ asset('assets/vendor/adminlte/plugins/summernote/summernote-bs4.min.css') }}">
+  <link rel="shortcut icon" type="image/png" href="{{ asset('favicon.ico') }}" />
+  <link rel="stylesheet" href="{{ asset('assets/vendor/modernize/css/styles.css') }}" />
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body>
+  
+  {{-- Body Wrapper --}}
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    @yield('page-wrapper')
 
-<div class="wrapper">
-  @yield('wrapper')
-</div>
+    {{-- Sidebar --}}
+    @include('dashboard.partials.sidebar')
+
+    {{-- Body Wrapper --}}
+    <div class="body-wrapper">
+      {{-- Navbar --}}
+      @include('dashboard.partials.navbar')
+      
+      @yield('body-wrapper')
+
+      <div class="container-fluid">
+        @yield('container-fluid')
+      </div>
+    </div>
 
 
-{{-- Footer --}}
-@include('dashboard.partials.footer')
-<!-- jQuery -->
-<script src="{{ asset('assets/vendor/adminlte/plugins/jquery/jquery.min.js') }}"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="{{ asset('assets/vendor/adminlte/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="{{ asset('assets/vendor/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- ChartJS -->
-<script src="{{ asset('assets/vendor/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- Sparkline -->
-<script src="{{ asset('assets/vendor/adminlte/plugins/sparklines/sparkline.js') }}"></script>
-<!-- JQVMap -->
-<script src="{{ asset('assets/vendor/adminlte/plugins/jqvmap/jquery.vmap.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/adminlte/plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
-<!-- jQuery Knob Chart -->
-<script src="{{ asset('assets/vendor/adminlte/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
-<!-- daterangepicker -->
-<script src="{{ asset('assets/vendor/adminlte/plugins/moment/moment.min.js') }}"></script>
-<script src="{{ asset('assets/vendor/adminlte/plugins/daterangepicker/daterangepicker.js') }}"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="{{ asset('assets/vendor/adminlte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
-<!-- Summernote -->
-<script src="{{ asset('assets/vendor/adminlte/plugins/summernote/summernote-bs4.min.js') }}"></script>
-<!-- overlayScrollbars -->
-<script src="{{ asset('assets/vendor/adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('assets/vendor/adminlte/dist/js/adminlte.js') }}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('assets/vendor/adminlte/dist/js/pages/dashboard.js') }}"></script>
+
+
+
+    {{-- Footer --}}
+    @include('dashboard.partials.footer')
+  </div>
+
+  <script src="{{ asset('assets/vendor/modernize/libs/jquery/dist/jquery.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/modernize/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/modernize/js/sidebarmenu.js') }}"></script>
+  <script src="{{ asset('assets/vendor/modernize/js/app.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/modernize/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/modernize/libs/simplebar/dist/simplebar.js') }}"></script>
+  <script src="{{ asset('assets/vendor/modernize/js/dashboard.js') }}"></script>
 </body>
 </html>

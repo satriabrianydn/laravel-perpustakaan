@@ -18,7 +18,7 @@
                         <i class="fa-solid fa-list"></i><span class="icon-text">Kategori</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item disabled" href="#">Disabled</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.horror') }}">Horror</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
