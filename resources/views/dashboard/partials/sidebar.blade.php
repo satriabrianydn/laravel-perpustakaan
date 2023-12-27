@@ -78,21 +78,42 @@
                             <span class="hide-menu">Data Peminjaman</span>
                         </a>
                     </li>
-                @endif
+                @elseif(auth()->user()->role == 'Petugas')
+                    <li class="nav-small-cap">
+                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                        <span class="hide-menu">TRANSACTION DATA</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-shopping-cart"></i>
+                            </span>
+                            <span class="hide-menu">Data Transaksi</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-user-plus"></i>
+                            </span>
+                            <span class="hide-menu">Data Peminjaman</span>
+                        </a>
+                    </li>
+                    @endif
+                    
+                    <li class="nav-small-cap">
+                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                        <span class="hide-menu">USER AREA</span>
+                    </li>
 
-                <li class="nav-small-cap">
-                    <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                    <span class="hide-menu">USER AREA</span>
-                </li>
-
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="#" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-pencil"></i>
-                        </span>
-                        <span class="hide-menu">Edit Profile</span>
-                    </a>
-                </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-pencil"></i>
+                            </span>
+                            <span class="hide-menu">Edit Profile</span>
+                        </a>
+                    </li>
 
             </ul>
         </nav>
