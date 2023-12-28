@@ -1,0 +1,29 @@
+.btn-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+}
+
+.btn-edit {
+    margin-right: 3px;
+    background-color: #ffc107;
+    color: #ffffff;
+}
+
+.btn-edit:hover {
+    background-color: #e1ab09;
+    color: #ffffff;
+}
+
+.btn-delete {
+    background-color: #dc3545; /* Warna latar belakang merah */
+    color: #fff; /* Warna teks putih */
+}
+
+.btn-delete:hover {
+    background-color: #bd2130;
+    color: #fff; /* Warna latar belakang merah saat hover */
+}

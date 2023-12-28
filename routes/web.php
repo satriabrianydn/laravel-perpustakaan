@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
@@ -28,6 +29,7 @@ Route::get('/kategori/horror', [HomeController::class, 'showCategoryHorror'])->n
 // Route Auth
 Route::get('/login', [AuthController::class, 'showLogin'])->name('auth.login');
 Route::get('/register', [AuthController::class, 'showRegister'])->name('auth.register');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/processLogin', [AuthController::class, 'processLogin']);
 Route::post('/processRegister', [AuthController::class, 'processRegister']);
 
@@ -35,11 +37,9 @@ Route::post('/processRegister', [AuthController::class, 'processRegister']);
 Route::middleware('auth')->group(function () {
   // Dashboard
   Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard.index');
-  Route::get('/dashboard/data-buku', [DashboardController::class, 'showBook'])->name('dashboard.buku');
   Route::get('/dashboard/edit-profil',[ProfileController::class, 'showEditProfile'])->name('dashboard.profile');
- 
 
+  // Route Data Buku
+  Route::get('/dashboard/data-buku', [BookController::class, 'showBook'])->name('dashboard.buku');
 });
 
-// Route Logout
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

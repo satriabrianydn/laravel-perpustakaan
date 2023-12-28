@@ -7,6 +7,8 @@
   <title>@yield('title')</title>
   <link rel="shortcut icon" type="image/png" href="{{ asset('favicon.ico') }}" />
   <link rel="stylesheet" href="{{ asset('assets/vendor/modernize/css/styles.css') }}" />
+  <link rel="stylesheet" href="{{ asset('assets/vendor/fontawesome-6/css/all.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/vendor/modernize/css/mystyle.css') }}">
 </head>
 
 <body>
