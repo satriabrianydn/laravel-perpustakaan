@@ -67,11 +67,12 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Catatan
 Setelah cloning project Laravel ini, lakukan langkah-langkah berikut:
-1. Jalankan perintah "cp .env.example .env"
-2. Kemudian jalankan perintah "composer update"
-3. Setelah itu jalankan perintah "php artisan key:generate"
-4. Setting nama database (terserah mau dinamain apa) di file .env
-5. Jalankan perintah "php artisan migrate:fresh --seed"
-6. Kemudian jalankan local server dengan menjalankan perintah "php artisan serve"
-7. Buka link http://127.0.0.1:8000
-8. Done!
+1. Masuk ke dalam folder project dengan mengetikkan perintah "cd laravel-perpustakaan"
+2. Jalankan perintah "cp .env.example .env"
+3. Kemudian jalankan perintah "composer update"
+4. Setelah itu jalankan perintah "php artisan key:generate"
+5. Setting nama database (terserah mau dinamain apa) di file .env
+6. Jalankan perintah "php artisan migrate:fresh --seed"
+7. Kemudian jalankan local server dengan menjalankan perintah "php artisan serve"
+8. Buka link http://127.0.0.1:8000
+9. Done!
