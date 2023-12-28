@@ -99,7 +99,7 @@
                             <span class="hide-menu">Data Peminjaman</span>
                         </a>
                     </li>
-                    @endif
+                    @elseif(auth()->user()->role == 'Mahasiswa')
                     
                     <li class="nav-small-cap">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
@@ -107,14 +107,14 @@
                     </li>
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="#" aria-expanded="false">
+                        <a class="sidebar-link" href="{{ route('dashboard.profile') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-pencil"></i>
                             </span>
                             <span class="hide-menu">Edit Profile</span>
                         </a>
                     </li>
-
+                    @endif
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

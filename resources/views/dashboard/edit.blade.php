@@ -17,42 +17,23 @@
                         <div class="col-xxl-8 mb-5 mb-xxl-0">
                             <div class="bg-secondary-soft px-4 py-5 rounded">
                                 <div class="row g-3">
-                                    <h4 class="mb-4 mt-0">Contact detail</h4>
-                                    <!-- First Name -->
-                                    <div class="col-md-6">
-                                        <label class="form-label">First Name *</label>
-                                        <input type="text" class="form-control" placeholder="" aria-label="First name"
-                                            value="Scaralet">
-                                    </div>
-                                    <!-- Last name -->
-                                    <div class="col-md-6">
-                                        <label class="form-label">Last Name *</label>
-                                        <input type="text" class="form-control" placeholder="" aria-label="Last name"
-                                            value="Doe">
+                                    <h4 class="mb-4 mt-0">Detail Profil</h4>
+                                    <!-- Nama Lengkap -->
+                                    <div class="col-md-12">
+                                        <label for="name" class="form-label">Nama Lengkap</label>
+                                        <input type="name" class="form-control" id="name" value="Nama Lengkap">
                                     </div>
                                     <!-- Phone number -->
                                     <div class="col-md-6">
-                                        <label class="form-label">Phone number *</label>
-                                        <input type="text" class="form-control" placeholder="" aria-label="Phone number"
-                                            value="(333) 000 555">
-                                    </div>
-                                    <!-- Mobile number -->
-                                    <div class="col-md-6">
-                                        <label class="form-label">Mobile number *</label>
-                                        <input type="text" class="form-control" placeholder="" aria-label="Phone number"
-                                            value="+91 9852 8855 252">
+                                        <label class="form-label">Nomor Telepon</label>
+                                        <input type="text" class="form-control" placeholder="Nomor Telepon"
+                                        id="no_telp" name="no_telp" value="(333) 000 555">
                                     </div>
                                     <!-- Email -->
                                     <div class="col-md-6">
-                                        <label for="inputEmail4" class="form-label">Email *</label>
-                                        <input type="email" class="form-control" id="inputEmail4"
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" name="email"
                                             value="example@homerealty.com">
-                                    </div>
-                                    <!-- Skype -->
-                                    <div class="col-md-6">
-                                        <label class="form-label">Skype *</label>
-                                        <input type="text" class="form-control" placeholder="" aria-label="Phone number"
-                                            value="Scaralet D">
                                     </div>
                                 </div> <!-- Row END -->
                             </div>
@@ -70,8 +51,8 @@
                                         </div>
                                         <!-- Button -->
                                         <input type="file" id="customFile" name="file" hidden="">
-                                        <label class="btn btn-success-soft btn-block" for="customFile">Upload</label>
-                                        <button type="button" class="btn btn-danger-soft">Remove</button>
+                                        <label class="btn btn-success btn-block" for="customFile">Upload</label>
+                                        <button type="button" class="btn btn-danger">Remove</button>
                                         <!-- Content -->
                                         <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px
                                             x 300px</p>
@@ -81,54 +62,35 @@
                         </div>
                     </div> <!-- Row END -->
 
-                    <!-- Social media detail -->
+                    <!-- Info Mahasiswa -->
                     <div class="row mb-5 gx-5">
                         <div class="col-xxl-6 mb-5 mb-xxl-0">
                             <div class="bg-secondary-soft px-4 py-5 rounded">
                                 <div class="row g-3">
-                                    <h4 class="mb-4 mt-0">Social media detail</h4>
-                                    <!-- Facebook -->
+                                    <h4 class="mb-4 mt-0">Detail Mahasiswa</h4>
+                                    <!-- NIM -->
                                     <div class="col-md-6">
-                                        <label class="form-label"><i
-                                                class="fab fa-fw fa-facebook me-2 text-facebook"></i>Facebook *</label>
-                                        <input type="text" class="form-control" placeholder="" aria-label="Facebook"
-                                            value="http://www.facebook.com">
+                                        <label class="form-label">NIM</label>
+                                        <input type="text" id="nim" name="nim" class="form-control" placeholder="NIM"
+                                            value="220103001">
                                     </div>
-                                    <!-- Twitter -->
+                                    <!-- Program Studi -->
                                     <div class="col-md-6">
-                                        <label class="form-label"><i
-                                                class="fab fa-fw fa-twitter text-twitter me-2"></i>Twitter *</label>
-                                        <input type="text" class="form-control" placeholder="" aria-label="Twitter"
-                                            value="http://www.twitter.com">
+                                        <label class="form-label">Program Studi</label>
+                                        <input type="text" id="prodi" name="prodi" class="form-control" placeholder="Program Studi"
+                                            value="Teknik Informatika">
                                     </div>
-                                    <!-- Linkedin -->
+                                    <!-- Kelas -->
                                     <div class="col-md-6">
-                                        <label class="form-label"><i
-                                                class="fab fa-fw fa-linkedin-in text-linkedin me-2"></i>Linkedin *</label>
-                                        <input type="text" class="form-control" placeholder="" aria-label="Linkedin"
-                                            value="http://www.linkedin.com">
+                                        <label class="form-label">Kelas</label>
+                                        <input type="text" class="form-control" placeholder="Kelas"
+                                            value="TIA5">
                                     </div>
-                                    <!-- Instragram -->
+                                    <!-- Angkatan -->
                                     <div class="col-md-6">
-                                        <label class="form-label"><i
-                                                class="fab fa-fw fa-instagram text-instagram me-2"></i>Instagram *</label>
-                                        <input type="text" class="form-control" placeholder=""
-                                            aria-label="Instragram" value="http://www.instragram.com">
-                                    </div>
-                                    <!-- Dribble -->
-                                    <div class="col-md-6">
-                                        <label class="form-label"><i
-                                                class="fas fa-fw fa-basketball-ball text-dribbble me-2"></i>Dribble
-                                            *</label>
-                                        <input type="text" class="form-control" placeholder="" aria-label="Dribble"
-                                            value="http://www.dribble.com">
-                                    </div>
-                                    <!-- Pinterest -->
-                                    <div class="col-md-6">
-                                        <label class="form-label"><i
-                                                class="fab fa-fw fa-pinterest text-pinterest"></i>Pinterest *</label>
-                                        <input type="text" class="form-control" placeholder="" aria-label="Pinterest"
-                                            value="http://www.pinterest.com">
+                                        <label class="form-label">Angkatan</label>
+                                        <input type="text" class="form-control" placeholder="Angkatan"
+                                            value="2022">
                                     </div>
                                 </div> <!-- Row END -->
                             </div>

@@ -1,3 +1,4 @@
 <div class="py-6 px-6 text-center">
-  <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">AdminMart.com</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a></p>
+  <p class="mb-0 fs-4">Dikelola Oleh Tim IT Perpustakaan <a href="{{ route('home.index') }}" target="_blank" class="pe-1 text-primary text-decoration-none">Universitas Duta Bangsa Surakarta</a></p>
+  <p class="mb-0 mt-1 fs-4">&copy; 2023 All Right Reserved.</p>
 </div>

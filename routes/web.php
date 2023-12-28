@@ -30,12 +30,13 @@ Route::get('/login', [AuthController::class, 'showLogin'])->name('auth.login');
 Route::get('/register', [AuthController::class, 'showRegister'])->name('auth.register');
 Route::post('/processLogin', [AuthController::class, 'processLogin']);
 Route::post('/processRegister', [AuthController::class, 'processRegister']);
-Route::get('/edit-profil',[ProfileController::class, 'showEditProfile'])->name('dashboard.profile');
+
 // Route Dashboard
 Route::middleware('auth')->group(function () {
   // Dashboard
   Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard.index');
   Route::get('/dashboard/data-buku', [DashboardController::class, 'showBook'])->name('dashboard.buku');
+  Route::get('/dashboard/edit-profil',[ProfileController::class, 'showEditProfile'])->name('dashboard.profile');
  
 
 });

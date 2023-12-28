@@ -28,8 +28,8 @@
                 @if (Auth::check())
                     {{-- Perlu Di Fix Ukuran Icon e --}}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fa-regular fa-circle-user"></i>
+                        <a class="nav-link" href="{{ route('dashboard.index') }}">
+                            Hai, Mahasiswa !
                         </a>
                     </li> 
                 @else
