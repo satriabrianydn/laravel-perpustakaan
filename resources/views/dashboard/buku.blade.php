@@ -50,7 +50,8 @@
                                                 <img src="{{ asset('storage/covers/' . $book->foto_buku) }}"
                                                     alt="Cover Buku" width="50">
                                             @else
-                                                No Image
+                                                <img src="{{ asset('storage/covers/no_image_available.png' . $book->foto_buku) }}"
+                                                    alt="No Images" width="50">
                                             @endif
                                         </td>
                                         <td>{{ $book->nama_buku }}</td>
@@ -75,7 +76,7 @@
                             </tbody>
                         </table>
                     </div>
-                    {{ $books->links() }}
+                    {{-- {{ $books->links() }} --}}
                 </div>
             </div>
         </div>
