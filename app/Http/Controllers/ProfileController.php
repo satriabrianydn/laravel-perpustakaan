@@ -25,6 +25,7 @@ class ProfileController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'sometimes|nullable|email',
             'nim' => 'sometimes|nullable|string',
+            'gender' => 'sometimes|nullable|in:Laki-Laki,Perempuan',
             'prodi' => 'sometimes|nullable|string',
             'no_telp' => 'sometimes|nullable|string',
             'kelas' => 'sometimes|nullable|string',
@@ -53,6 +54,7 @@ class ProfileController extends Controller
         // Lakukan pembaruan data mahasiswa
         $mahasiswa = $user->mahasiswa;
         $mahasiswa->nim = $request->input('nim');
+        $mahasiswa->gender = $request->input('gender');
         $mahasiswa->prodi = $request->input('prodi');
         $mahasiswa->no_telp = $request->input('no_telp');
         $mahasiswa->kelas = $request->input('kelas');
@@ -66,10 +68,8 @@ class ProfileController extends Controller
             $mahasiswa->save();
         }
 
-        // Tampilkan pesan SweetAlert setelah pembaruan berhasil
         Alert::success('Success', 'Profil berhasil diperbarui!');
 
-        // Redirect kembali ke halaman profil
         return redirect()->route('dashboard.profile');
     }
 }

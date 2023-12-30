@@ -22,19 +22,30 @@
                                     <!-- Nama Lengkap -->
                                     <div class="col-md-12">
                                         <label for="name" class="form-label">Nama Lengkap</label>
-                                        <input type="text" class="form-control" id="name" name="name" value="{{ auth()->user()->name }}">
+                                        <input type="text" class="form-control" id="name" name="name"
+                                            value="{{ auth()->user()->name }}">
                                     </div>
                                     <!-- Phone number -->
                                     <div class="col-md-6">
                                         <label class="form-label">Nomor Telepon</label>
                                         <input type="text" class="form-control" placeholder="Nomor Telepon"
-                                        id="no_telp" name="no_telp" value="{{ auth()->user()->mahasiswa->no_telp}}">
+                                            id="no_telp" name="no_telp" value="{{ auth()->user()->mahasiswa->no_telp }}">
                                     </div>
                                     <!-- Email -->
                                     <div class="col-md-6">
                                         <label for="email" class="form-label">Email</label>
                                         <input type="email" class="form-control" id="email" name="email"
                                             value="{{ auth()->user()->email }}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="gender" class="form-label">Jenis Kelamin</label>
+                                        <select class="form-select" id="gender" name="gender">
+                                            <option value="" selected disabled>Pilih Jenis Kelamin</option>
+                                            <option value="Laki-Laki" @if (auth()->user()->mahasiswa->gender == 'Laki-Laki') selected @endif>
+                                                Laki-Laki</option>
+                                            <option value="Perempuan" @if (auth()->user()->mahasiswa->gender == 'Perempuan') selected @endif>
+                                                Perempuan</option>
+                                        </select>
                                     </div>
                                 </div> <!-- Row END -->
                             </div>
@@ -43,11 +54,12 @@
                         <div class="col-xxl-4">
                             <div class="bg-secondary-soft px-4 py-5 rounded">
                                 <div class="row g-3">
-                                    <h4 class="mb-4 mt-0">Upload your profile photo</h4>
+                                    <h4 class="mb-4 mt-0">Upload Foto Profil</h4>
                                     <div class="text-center">
                                         <!-- Image upload -->
                                         <div class="square position-relative display-2 mb-3">
-                                            <img src="{{ asset('storage/' . auth()->user()->mahasiswa->avatar) }}" alt="Avatar" class="img-fluid">
+                                            <img src="{{ asset('storage/' . auth()->user()->mahasiswa->avatar) }}"
+                                                alt="Avatar" class="img-fluid">
                                         </div>
                                         <!-- Button -->
                                         <input type="file" id="avatar" name="avatar" hidden="">
@@ -71,24 +83,26 @@
                                     <!-- NIM -->
                                     <div class="col-md-6">
                                         <label class="form-label">NIM</label>
-                                        <input type="text" id="nim" name="nim" class="form-control" placeholder="NIM"
-                                            value="{{ auth()->user()->mahasiswa->nim }}">
+                                        <input type="text" id="nim" name="nim" class="form-control"
+                                            placeholder="NIM" value="{{ auth()->user()->mahasiswa->nim }}">
                                     </div>
                                     <!-- Program Studi -->
                                     <div class="col-md-6">
                                         <label class="form-label">Program Studi</label>
-                                        <input type="text" id="prodi" name="prodi" class="form-control" placeholder="Program Studi"
-                                            value="{{ auth()->user()->mahasiswa->prodi }}">
+                                        <input type="text" id="prodi" name="prodi" class="form-control"
+                                            placeholder="Program Studi" value="{{ auth()->user()->mahasiswa->prodi }}">
                                     </div>
                                     <!-- Kelas -->
                                     <div class="col-md-6">
                                         <label class="form-label">Kelas</label>
-                                        <input type="text" class="form-control" placeholder="Kelas" id="kelas" name="kelas" value="{{ auth()->user()->mahasiswa->kelas }}">
+                                        <input type="text" class="form-control" placeholder="Kelas" id="kelas"
+                                            name="kelas" value="{{ auth()->user()->mahasiswa->kelas }}">
                                     </div>
                                     <!-- Angkatan -->
                                     <div class="col-md-6">
                                         <label class="form-label">Angkatan</label>
-                                        <input type="text" class="form-control" placeholder="Angkatan" id="angkatan" name="angkatan" value="{{ auth()->user()->mahasiswa->angkatan }}">
+                                        <input type="text" class="form-control" placeholder="Angkatan" id="angkatan"
+                                            name="angkatan" value="{{ auth()->user()->mahasiswa->angkatan }}">
                                     </div>
                                 </div> <!-- Row END -->
                             </div>
@@ -98,21 +112,24 @@
                         <div class="col-xxl-6">
                             <div class="bg-secondary-soft px-4 py-5 rounded">
                                 <div class="row g-3">
-                                    <h4 class="my-4">Change Password</h4>
+                                    <h4 class="my-4">Ganti Password</h4>
                                     <!-- Old password -->
                                     <div class="col-md-6">
                                         <label for="old_password" class="form-label">Password Lama *</label>
-                                        <input type="password" class="form-control" id="old_password" name="old_password">
+                                        <input type="password" class="form-control" id="old_password"
+                                            name="old_password">
                                     </div>
                                     <!-- New password -->
                                     <div class="col-md-6">
                                         <label for="new_password" class="form-label">Password Baru</label>
-                                        <input type="password" class="form-control" id="new_password" name="new_password">
+                                        <input type="password" class="form-control" id="new_password"
+                                            name="new_password">
                                     </div>
                                     <!-- Confirm password -->
                                     <div class="col-md-12">
                                         <label for="confirm_password" class="form-label">Konfirmasi Password Baru</label>
-                                        <input type="password" class="form-control" id="new_password_confirmation" name="new_password_confirmation">
+                                        <input type="password" class="form-control" id="new_password_confirmation"
+                                            name="new_password_confirmation">
                                     </div>
                                 </div>
                             </div>
@@ -120,8 +137,7 @@
                     </div> <!-- Row END -->
                     <!-- button -->
                     <div class="gap-3 d-md-flex justify-content-md-end text-center">
-                        <button type="button" class="btn btn-danger btn-lg">Delete profile</button>
-                        <button type="submit" class="btn btn-primary btn-lg">Update profile</button>
+                        <button type="submit" class="btn btn-primary btn-lg">Update Profile</button>
                     </div>
                 </form> <!-- Form END -->
             </div>
