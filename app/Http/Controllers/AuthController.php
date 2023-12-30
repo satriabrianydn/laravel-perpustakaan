@@ -49,11 +49,12 @@ class AuthController extends Controller
         Mahasiswa::create([
             'user_id' => $user->id,
             'nim' => null,
+            'gender' => null,
             'prodi' => null,
             'kelas' => null,
             'angkatan' => null,
             'no_telp' => null,
-            'avatar' => 'avatar/default_avatar.jpg',
+            'avatar' => 'default_avatar.jpg',
         ]);
     
         return redirect()->route('auth.login')->with('success', 'Registrasi berhasil! Silahkan masuk.');

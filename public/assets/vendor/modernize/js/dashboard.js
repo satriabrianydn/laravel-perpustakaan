@@ -209,3 +209,32 @@ $(function () {
   };
   new ApexCharts(document.querySelector("#earning"), earning).render();
 })
+
+// Preview Avatar
+function previewAvatar(input) {
+  var preview = document.getElementById('avatarPreview');
+  var file = input.files[0];
+  var reader = new FileReader();
+
+  reader.onloadend = function () {
+      preview.src = reader.result;
+  };
+
+  if (file) {
+      reader.readAsDataURL(file);
+  } else {
+      preview.src = "public/storage/' . auth()->user()->mahasiswa->avatar)";
+  }
+}
+
+function removeAvatarPreview() {
+  var preview = document.getElementById('avatarPreview');
+  var input = document.getElementById('avatar');
+  var oldAvatarPath = document.getElementById('oldAvatarPath').value;
+
+  // Reset preview to the old avatar
+  preview.src = oldAvatarPath;
+
+  // Reset the file input
+  input.value = "";
+}

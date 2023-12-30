@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class ProfileController extends Controller
@@ -30,7 +31,7 @@ class ProfileController extends Controller
             'no_telp' => 'sometimes|nullable|string',
             'kelas' => 'sometimes|nullable|string',
             'angkatan' => 'sometimes|nullable|string',
-            'avatar' => 'sometimes|nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'avatar' => 'sometimes|nullable|image|mimes:jpeg,png,jpg|max:5120',
             'old_password' => 'sometimes|nullable|string',
             'new_password' => 'sometimes|nullable|string|min:8|confirmed',
         ]);
@@ -47,9 +48,7 @@ class ProfileController extends Controller
         if ($request->filled('new_password')) {
             $user->password = Hash::make($request->input('new_password'));
         }
-        
 
-        $user->save();
 
         // Lakukan pembaruan data mahasiswa
         $mahasiswa = $user->mahasiswa;
@@ -59,14 +58,22 @@ class ProfileController extends Controller
         $mahasiswa->no_telp = $request->input('no_telp');
         $mahasiswa->kelas = $request->input('kelas');
         $mahasiswa->angkatan = $request->input('angkatan');
+    
+
+        // Hapus avatar lama jika ada
+        if ($request->hasFile('avatar') && $user->mahasiswa->avatar && $user->mahasiswa->avatar !== 'default_avatar.jpg') {
+            Storage::delete('avatar/' . $user->mahasiswa->avatar);
+        }
+
+        // Simpan avatar baru jika ada
+        if ($request->hasFile('avatar')) {
+            $avatarPath = $request->file('avatar')->store('avatar', 'public');
+            $user->mahasiswa->avatar = basename($avatarPath);
+        }
+
+        $user->save();
         $mahasiswa->save();
 
-        // Update Avatar
-        if ($request->hasFile('avatar')) {
-            $avatarPath = $request->file('avatar')->store(' /avatars');
-            $mahasiswa->avatar = basename($avatarPath);
-            $mahasiswa->save();
-        }
 
         Alert::success('Success', 'Profil berhasil diperbarui!');
 

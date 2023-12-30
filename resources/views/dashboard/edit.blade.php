@@ -11,7 +11,7 @@
                     <hr>
                 </div>
                 <!-- Form START -->
-                <form class="file-upload" action="{{ route('dashboard.update') }}" method="POST">
+                <form class="file-upload" action="{{ route('dashboard.update') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row mb-5 gx-5">
                         <!-- Contact detail -->
@@ -58,16 +58,22 @@
                                     <div class="text-center">
                                         <!-- Image upload -->
                                         <div class="square position-relative display-2 mb-3">
-                                            <img src="{{ asset('storage/' . auth()->user()->mahasiswa->avatar) }}"
+                                            <!-- Hidden input for old avatar path -->
+                                            <input type="hidden" id="oldAvatarPath" name="oldAvatarPath"
+                                                value="{{ asset('storage/avatar/' . auth()->user()->mahasiswa->avatar) }}">
+                                            <img id="avatarPreview"
+                                                src="{{ asset('storage/avatar/' . auth()->user()->mahasiswa->avatar) }}"
                                                 alt="Avatar" class="img-fluid">
                                         </div>
                                         <!-- Button -->
-                                        <input type="file" id="avatar" name="avatar" hidden="">
+                                        <input type="file" id="avatar" name="avatar" hidden=""
+                                            onchange="previewAvatar(this)">
                                         <label class="btn btn-success btn-block" for="avatar">Upload</label>
-                                        <button type="button" class="btn btn-danger">Remove</button>
+                                        <button type="button" class="btn btn-danger"
+                                            onclick="removeAvatarPreview()">Remove</button>
                                         <!-- Content -->
-                                        <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px
-                                            x 300px</p>
+                                        <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Maksimal ukuran file 5MB</p>
+                                        <p class="text-muted mt-1 mb-0"><span class="me-1">Format:</span>(JPG, JPEG, PNG)</p>
                                     </div>
                                 </div>
                             </div>
