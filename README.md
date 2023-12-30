@@ -65,14 +65,19 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## Catatan
+## Catatan Untuk Menggunakan Project Ini
 Setelah cloning project Laravel ini, lakukan langkah-langkah berikut:
 1. Masuk ke dalam folder project dengan mengetikkan perintah "cd laravel-perpustakaan"
 2. Jalankan perintah "cp .env.example .env"
-3. Kemudian jalankan perintah "composer update"
+3. Kemudian jalankan perintah "composer install"
 4. Setelah itu jalankan perintah "php artisan key:generate"
-5. Setting nama database (terserah mau dinamain apa) di file .env
+5. Setting nama database (terserah mau dinamain apa) di file .env (Buka dengan Visual Studio Code ataupun Text editor lainnya)
 6. Jalankan perintah "php artisan migrate:fresh --seed"
-7. Kemudian jalankan local server dengan menjalankan perintah "php artisan serve"
-8. Buka link http://127.0.0.1:8000
-9. Done!
+7. Setelah itu jalankan perintah "php artisan storage:link"
+8. Download untuk gambar Default Avatar [Disini](https://drive.google.com/file/d/15dyodlKak2tM-xqNZsi4nnw5q-grJGW1/view?usp=sharing)
+9. Paste gambar Default Avatar yang telah di download di "public/storage/avatar/"
+10. Setelah semua langkah diatas kira-kira sudah dilakukan, jalankan local server dengan menjalankan perintah "php artisan serve"
+11. Buka link http://127.0.0.1:8000
+12. Done!
+
+**Update: 30 December 2023**
