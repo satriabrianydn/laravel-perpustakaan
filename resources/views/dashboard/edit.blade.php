@@ -11,7 +11,8 @@
                     <hr>
                 </div>
                 <!-- Form START -->
-                <form class="file-upload">
+                <form class="file-upload" action="{{ route('dashboard.update') }}" method="POST">
+                    @csrf
                     <div class="row mb-5 gx-5">
                         <!-- Contact detail -->
                         <div class="col-xxl-8 mb-5 mb-xxl-0">
@@ -21,19 +22,19 @@
                                     <!-- Nama Lengkap -->
                                     <div class="col-md-12">
                                         <label for="name" class="form-label">Nama Lengkap</label>
-                                        <input type="name" class="form-control" id="name" value="Nama Lengkap">
+                                        <input type="text" class="form-control" id="name" name="name" value="{{ auth()->user()->name }}">
                                     </div>
                                     <!-- Phone number -->
                                     <div class="col-md-6">
                                         <label class="form-label">Nomor Telepon</label>
                                         <input type="text" class="form-control" placeholder="Nomor Telepon"
-                                        id="no_telp" name="no_telp" value="(333) 000 555">
+                                        id="no_telp" name="no_telp" value="{{ auth()->user()->mahasiswa->no_telp}}">
                                     </div>
                                     <!-- Email -->
                                     <div class="col-md-6">
                                         <label for="email" class="form-label">Email</label>
                                         <input type="email" class="form-control" id="email" name="email"
-                                            value="example@homerealty.com">
+                                            value="{{ auth()->user()->email }}">
                                     </div>
                                 </div> <!-- Row END -->
                             </div>
@@ -46,11 +47,11 @@
                                     <div class="text-center">
                                         <!-- Image upload -->
                                         <div class="square position-relative display-2 mb-3">
-                                            {{-- <i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i> --}}
+                                            <img src="{{ asset('storage/' . auth()->user()->mahasiswa->avatar) }}" alt="Avatar" class="img-fluid">
                                         </div>
                                         <!-- Button -->
-                                        <input type="file" id="customFile" name="file" hidden="">
-                                        <label class="btn btn-success btn-block" for="customFile">Upload</label>
+                                        <input type="file" id="avatar" name="avatar" hidden="">
+                                        <label class="btn btn-success btn-block" for="avatar">Upload</label>
                                         <button type="button" class="btn btn-danger">Remove</button>
                                         <!-- Content -->
                                         <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px
@@ -71,25 +72,23 @@
                                     <div class="col-md-6">
                                         <label class="form-label">NIM</label>
                                         <input type="text" id="nim" name="nim" class="form-control" placeholder="NIM"
-                                            value="220103001">
+                                            value="{{ auth()->user()->mahasiswa->nim }}">
                                     </div>
                                     <!-- Program Studi -->
                                     <div class="col-md-6">
                                         <label class="form-label">Program Studi</label>
                                         <input type="text" id="prodi" name="prodi" class="form-control" placeholder="Program Studi"
-                                            value="Teknik Informatika">
+                                            value="{{ auth()->user()->mahasiswa->prodi }}">
                                     </div>
                                     <!-- Kelas -->
                                     <div class="col-md-6">
                                         <label class="form-label">Kelas</label>
-                                        <input type="text" class="form-control" placeholder="Kelas"
-                                            value="TIA5">
+                                        <input type="text" class="form-control" placeholder="Kelas" id="kelas" name="kelas" value="{{ auth()->user()->mahasiswa->kelas }}">
                                     </div>
                                     <!-- Angkatan -->
                                     <div class="col-md-6">
                                         <label class="form-label">Angkatan</label>
-                                        <input type="text" class="form-control" placeholder="Angkatan"
-                                            value="2022">
+                                        <input type="text" class="form-control" placeholder="Angkatan" id="angkatan" name="angkatan" value="{{ auth()->user()->mahasiswa->angkatan }}">
                                     </div>
                                 </div> <!-- Row END -->
                             </div>
@@ -102,18 +101,18 @@
                                     <h4 class="my-4">Change Password</h4>
                                     <!-- Old password -->
                                     <div class="col-md-6">
-                                        <label for="exampleInputPassword1" class="form-label">Old password *</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1">
+                                        <label for="old_password" class="form-label">Password Lama *</label>
+                                        <input type="password" class="form-control" id="old_password" name="old_password">
                                     </div>
                                     <!-- New password -->
                                     <div class="col-md-6">
-                                        <label for="exampleInputPassword2" class="form-label">New password *</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword2">
+                                        <label for="new_password" class="form-label">Password Baru</label>
+                                        <input type="password" class="form-control" id="new_password" name="new_password">
                                     </div>
                                     <!-- Confirm password -->
                                     <div class="col-md-12">
-                                        <label for="exampleInputPassword3" class="form-label">Confirm Password *</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword3">
+                                        <label for="confirm_password" class="form-label">Konfirmasi Password Baru</label>
+                                        <input type="password" class="form-control" id="new_password_confirmation" name="new_password_confirmation">
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +121,7 @@
                     <!-- button -->
                     <div class="gap-3 d-md-flex justify-content-md-end text-center">
                         <button type="button" class="btn btn-danger btn-lg">Delete profile</button>
-                        <button type="button" class="btn btn-primary btn-lg">Update profile</button>
+                        <button type="submit" class="btn btn-primary btn-lg">Update profile</button>
                     </div>
                 </form> <!-- Form END -->
             </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -36,14 +37,25 @@ class AuthController extends Controller
             'password.required' => 'Password wajib diisi.',
             'password.min' => 'Password minimal harus 8 karakter.',
         ]);
-
-        // Simpan data ke database
+    
+        // Simpan data ke database - Tabel users
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
+    
+        // Simpan data ke database - Tabel mahasiswa
+        Mahasiswa::create([
+            'user_id' => $user->id,
+            'nim' => null,
+            'prodi' => null,
+            'kelas' => null,
+            'angkatan' => null,
+            'no_telp' => null,
+            'avatar' => 'avatar/default_avatar.jpg',
+        ]);
+    
         return redirect()->route('auth.login')->with('success', 'Registrasi berhasil! Silahkan masuk.');
     }
 

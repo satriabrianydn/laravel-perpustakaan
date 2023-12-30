@@ -37,8 +37,8 @@ Route::post('/processRegister', [AuthController::class, 'processRegister']);
 Route::middleware(['auth'])->group(function () {
   // Dashboard
   Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard.index');
-  Route::get('/dashboard/edit-profil',[ProfileController::class, 'showEditProfile'])->name('dashboard.profile');
-
+  Route::get('/dashboard/edit-profil',[ProfileController::class, 'showProfile'])->name('dashboard.profile');
+  Route::post('dashboard/edit-profile/update', [ProfileController::class, 'updateProfile'])->name('dashboard.update');
   // Route Data Buku
   Route::get('/dashboard/data-buku', [BookController::class, 'showBook'])->name('dashboard.buku');
 });
