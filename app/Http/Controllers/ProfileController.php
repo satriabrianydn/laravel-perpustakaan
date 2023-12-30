@@ -62,7 +62,7 @@ class ProfileController extends Controller
 
         // Hapus avatar lama jika ada
         if ($request->hasFile('avatar') && $user->mahasiswa->avatar && $user->mahasiswa->avatar !== 'default_avatar.jpg') {
-            Storage::delete('avatar/' . $user->mahasiswa->avatar);
+            Storage::delete('public/avatar/' . $user->mahasiswa->avatar);
         }
 
         // Simpan avatar baru jika ada
