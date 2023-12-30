@@ -26,6 +26,7 @@ class ProfileController extends Controller
             'email' => 'sometimes|nullable|email',
             'nim' => 'sometimes|nullable|string',
             'prodi' => 'sometimes|nullable|string',
+            'no_telp' => 'sometimes|nullable|string',
             'kelas' => 'sometimes|nullable|string',
             'angkatan' => 'sometimes|nullable|string',
             'avatar' => 'sometimes|nullable|image|mimes:jpeg,png,jpg|max:2048',
@@ -53,13 +54,14 @@ class ProfileController extends Controller
         $mahasiswa = $user->mahasiswa;
         $mahasiswa->nim = $request->input('nim');
         $mahasiswa->prodi = $request->input('prodi');
+        $mahasiswa->no_telp = $request->input('no_telp');
         $mahasiswa->kelas = $request->input('kelas');
         $mahasiswa->angkatan = $request->input('angkatan');
         $mahasiswa->save();
 
         // Update Avatar
         if ($request->hasFile('avatar')) {
-            $avatarPath = $request->file('avatar')->store('public/avatars');
+            $avatarPath = $request->file('avatar')->store(' /avatars');
             $mahasiswa->avatar = basename($avatarPath);
             $mahasiswa->save();
         }
