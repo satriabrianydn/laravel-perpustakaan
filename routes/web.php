@@ -34,7 +34,7 @@ Route::post('/processLogin', [AuthController::class, 'processLogin']);
 Route::post('/processRegister', [AuthController::class, 'processRegister']);
 
 // Route Dashboard
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth'])->group(function () {
   // Dashboard
   Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard.index');
   Route::get('/dashboard/edit-profil',[ProfileController::class, 'showEditProfile'])->name('dashboard.profile');
