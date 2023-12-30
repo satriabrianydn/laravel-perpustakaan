@@ -118,7 +118,7 @@
                         <div class="col-xxl-6">
                             <div class="bg-secondary-soft px-4 py-5 rounded">
                                 <div class="row g-3">
-                                    <h4 class="my-4">Ganti Password</h4>
+                                    <h4 class="my-3">Ganti Password</h4>
                                     <!-- Old password -->
                                     <div class="col-md-6">
                                         <label for="old_password" class="form-label">Password Lama *</label>

@@ -75,9 +75,11 @@ Setelah cloning project Laravel ini, lakukan langkah-langkah berikut:
 6. Jalankan perintah "php artisan migrate:fresh --seed"
 7. Setelah itu jalankan perintah "php artisan storage:link"
 8. Download untuk gambar Default Avatar [Disini](https://drive.google.com/file/d/15dyodlKak2tM-xqNZsi4nnw5q-grJGW1/view?usp=sharing)
+9. Download untuk gambar No Image Available untuk Cover Buku yang tidak ada [Disini](https://drive.google.com/file/d/159-LuvvpjGDPGJol6IkhkS-hubLA_RpB/view?usp=sharing)
 9. Paste gambar Default Avatar yang telah di download di "public/storage/avatar/"
-10. Setelah semua langkah diatas kira-kira sudah dilakukan, jalankan local server dengan menjalankan perintah "php artisan serve"
-11. Buka link http://127.0.0.1:8000
-12. Done!
+10. Paste gambar No Image Available yang telah di download di "public/storage/covers"
+11. Setelah semua langkah diatas kira-kira sudah dilakukan, jalankan local server dengan menjalankan perintah "php artisan serve"
+12. Buka link http://127.0.0.1:8000
+13. Done!
 
 **Update: 30 December 2023**
