@@ -19,7 +19,7 @@
                             <thead class="text-dark fs-4">
                                 <tr>
                                     <th class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0">ID</h6>
+                                        <h6 class="fw-semibold mb-0">Nomor</h6>
                                     </th>
                                     <th class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Kode Buku</h6>
@@ -53,7 +53,7 @@
                             <tbody>
                                 @forelse ($books as $book)
                                     <tr>
-                                        <td>{{ $book->id }}</td>
+                                        <td>{{ $books->firstItem() + $loop->index }}</td>
                                         <td>{{ $book->kode_buku }}</td>
                                         <td style="text-align: center; vertical-align: middle;">
                                             @if ($book->foto_buku)
