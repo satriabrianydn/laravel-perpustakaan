@@ -17,10 +17,16 @@ return new class extends Migration
             $table->string('nama_buku');
             $table->unsignedBigInteger('id_penerbit')->nullable();
             $table->foreign('id_penerbit')
-                  ->references('id')
-                  ->on('penerbit')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('penerbit')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->unsignedBigInteger('id_kategori')->nullable();
+            $table->foreign('id_kategori')
+                ->references('id')
+                ->on('kategori')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->date('tanggal_terbit');
             $table->string('jumlah_halaman');
             $table->string('nama_pengarang');

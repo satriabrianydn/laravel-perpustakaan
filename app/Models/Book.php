@@ -15,6 +15,7 @@ class Book extends Model
         'kode_buku',
         'nama_buku',
         'id_penerbit',
+        'id_kategori',
         'tanggal_terbit',
         'jumlah_halaman',
         'nama_pengarang',
@@ -24,5 +25,10 @@ class Book extends Model
     public function penerbit()
     {
         return $this->belongsTo(Penerbit::class, 'id_penerbit');
+    }
+
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'id_kategori');
     }
 }

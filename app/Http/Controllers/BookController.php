@@ -4,27 +4,32 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Penerbit;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BookController extends Controller
 {
     public function showBook()
     {
         $books = Book::paginate(10);
-        return view('dashboard.buku', compact('books'));
+        return view('buku.index', compact('books'));
     }
 
-    public function create()
+    public function createBook()
     {
         $penerbits = Penerbit::all();
-        return view('dashboard.books.create', compact('penerbits'));
+        $kategori = Kategori::all();
+        return view('buku.tambah', compact('penerbits', 'kategori'));
     }
 
-    public function store(Request $request)
+    public function storeBook(Request $request)
     {
         $request->validate([
             'kode_buku' => 'required|string|max:255',
             'nama_buku' => 'required|string|max:255',
+            'id_kategori' => 'nullable|exists:kategori,id',
             'id_penerbit' => 'nullable|exists:penerbit,id',
             'tanggal_terbit' => 'required|date',
             'jumlah_halaman' => 'required|string|max:255',
@@ -37,19 +42,20 @@ class BookController extends Controller
         if ($request->hasFile('foto_buku')) {
             $image = $request->file('foto_buku');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
-            $data['foto_buku'] = $imageName;
+            $path = $image->storeAs('covers', $imageName, 'public');
+            $data['foto_buku'] = $path;
         }
 
         Book::create($data);
 
-        return redirect()->route('books.index')->with('success', 'Buku berhasil ditambahkan.');
+        return redirect()->route('dashboard.buku')->with('success', 'Buku berhasil ditambahkan.');
     }
 
     public function edit(Book $book)
     {
         $penerbits = Penerbit::all();
-        return view('dashboard.books.edit', compact('book', 'penerbits'));
+        $kategori = Kategori::all();
+        return view('buku.edit', compact('book', 'penerbits', 'kategori'));
     }
 
     public function update(Request $request, Book $book)
@@ -57,6 +63,7 @@ class BookController extends Controller
         $request->validate([
             'kode_buku' => 'required|string|max:255',
             'nama_buku' => 'required|string|max:255',
+            'id_kategori' => 'nullable|exists:kategori,id',
             'id_penerbit' => 'nullable|exists:penerbit,id',
             'tanggal_terbit' => 'required|date',
             'jumlah_halaman' => 'required|string|max:255',
@@ -78,10 +85,22 @@ class BookController extends Controller
         return redirect()->route('books.index')->with('success', 'Buku berhasil diperbarui.');
     }
 
-    public function destroy(Book $book)
+    public function destroy($id)
     {
+        $book = Book::find($id);
+
+        if (!$book) {
+            return redirect()->route('dashboard.buku')->with('error', 'Buku tidak ditemukan.');
+        }
+
+        if ($book->foto_buku) {
+            Storage::delete('public/' . $book->foto_buku);
+        }
+
         $book->delete();
 
-        return redirect()->route('books.index')->with('success', 'Buku berhasil dihapus.');
+        Alert::success('Success', 'Buku berhasil dihapus!');
+        
+        return redirect()->route('dashboard.buku');
     }
 }

@@ -51,6 +51,14 @@
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="#" aria-expanded="false">
                             <span>
+                                <i class="ti ti-cylinder"></i>
+                            </span>
+                            <span class="hide-menu">Data Penerbit</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#" aria-expanded="false">
+                            <span>
                                 <i class="ti ti-users"></i>
                             </span>
                             <span class="hide-menu">Data User</span>

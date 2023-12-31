@@ -223,7 +223,7 @@ function previewAvatar(input) {
   if (file) {
       reader.readAsDataURL(file);
   } else {
-      preview.src = "public/storage/' . auth()->user()->mahasiswa->avatar)";
+      preview.src = "public/storage/avatar' . auth()->user()->mahasiswa->avatar)";
   }
 }
 
@@ -237,4 +237,14 @@ function removeAvatarPreview() {
 
   // Reset the file input
   input.value = "";
+}
+
+// Preview Untuk Book
+function previewCover(input) {
+  var file = input.files[0];
+  var reader = new FileReader();
+  reader.onload = function (e) {
+      $('#coverPreview').attr('src', e.target.result);
+  };
+  reader.readAsDataURL(file);
 }

@@ -11,7 +11,7 @@
                             <h5 class="card-title fw-semibold">Daftar Buku</h5>
                         </div>
                         <div>
-                            <a href="#" class="btn btn-primary">Tambah Buku</a>
+                            <a href="{{ route('dashboard.buku.tambah') }}" class="btn btn-primary">Tambah Buku</a>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -22,16 +22,25 @@
                                         <h6 class="fw-semibold mb-0">ID</h6>
                                     </th>
                                     <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Kode Buku</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Cover Buku</h6>
                                     </th>
                                     <th class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Judul</h6>
                                     </th>
                                     <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Kategori</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Pengarang</h6>
                                     </th>
                                     <th class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Penerbit</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Jumlah Halaman</h6>
                                     </th>
                                     <th class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Tahun Terbit</h6>
@@ -42,12 +51,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($books as $book)
+                                @forelse ($books as $book)
                                     <tr>
                                         <td>{{ $book->id }}</td>
-                                        <td>
+                                        <td>{{ $book->kode_buku }}</td>
+                                        <td style="text-align: center; vertical-align: middle;">
                                             @if ($book->foto_buku)
-                                                <img src="{{ asset('storage/covers/' . $book->foto_buku) }}"
+                                                <img src="{{ asset('storage/' . $book->foto_buku) }}"
                                                     alt="Cover Buku" width="50">
                                             @else
                                                 <img src="{{ asset('storage/covers/no_image_available.png' . $book->foto_buku) }}"
@@ -55,14 +65,17 @@
                                             @endif
                                         </td>
                                         <td>{{ $book->nama_buku }}</td>
+                                        <td>{{ optional($book->kategori)->kategori }}</td>
                                         <td>{{ $book->nama_pengarang }}</td>
                                         <td>{{ optional($book->penerbit)->nama_penerbit }}</td>
+                                        <td>{{ $book->jumlah_halaman }}</td>
                                         <td>{{ $book->tanggal_terbit }}</td>
+                                        
                                         <td>
                                             <a href="#" class="btn btn-edit btn-circle">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
-                                            <form action="{{-- {{ route('books.destroy', $book->id) }} --}}" method="POST" class="d-inline">
+                                            <form action="{{ route('hapus.buku', $book->id) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-delete btn-circle"
@@ -72,7 +85,11 @@
                                             </form>
                                         </td>
                                     </tr>
-                                @endforeach
+                                @empty
+                                <tr>
+                                    <td colspan="8" class="text-center">Belum ada buku.</td>
+                                </tr>
+                            @endforelse
                             </tbody>
                         </table>
                     </div>
