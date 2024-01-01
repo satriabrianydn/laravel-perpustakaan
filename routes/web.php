@@ -45,5 +45,8 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/dashboard/data-buku/tambah', [BookController::class, 'createBook'])->name('dashboard.buku.tambah');
   Route::post('/dashboard/data-buku/tambah/simpan', [BookController::class, 'storeBook'])->name('storeBook');
   Route::delete('/dashboard/data-buku/hapus/{id}', [BookController::class, 'destroy'])->name('hapus.buku');
+
+  // Route Data User
+  Route::get('/dashboard/data-user', [DashboardController::class, 'showUser'])->name('dashboard.user');
 });
 
