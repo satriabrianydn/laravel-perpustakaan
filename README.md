@@ -72,14 +72,15 @@ Setelah cloning project Laravel ini, lakukan langkah-langkah berikut:
 3. Kemudian jalankan perintah "composer install"
 4. Setelah itu jalankan perintah "php artisan key:generate"
 5. Setting nama database (terserah mau dinamain apa) di file .env (Buka dengan Visual Studio Code ataupun Text editor lainnya)
-6. Jalankan perintah "php artisan migrate:fresh --seed"
-7. Setelah itu jalankan perintah "php artisan storage:link"
-8. Download untuk gambar Default Avatar [Disini](https://drive.google.com/file/d/15dyodlKak2tM-xqNZsi4nnw5q-grJGW1/view?usp=sharing)
-9. Download untuk gambar No Image Available untuk Cover Buku yang tidak ada [Disini](https://drive.google.com/file/d/159-LuvvpjGDPGJol6IkhkS-hubLA_RpB/view?usp=sharing)
-10. Paste gambar Default Avatar yang telah di download di "public/storage/avatar/"
-11. Paste gambar No Image Available yang telah di download di "public/storage/covers"
-12. Setelah semua langkah diatas kira-kira sudah dilakukan, jalankan local server dengan menjalankan perintah "php artisan serve"
-13. Buka link http://127.0.0.1:8000
-14. Done!
+6. Kemudian Jalankan perintah "php artisan migrate"
+7. Selanjutnya Seeder (opsional) dengan menjalankan perintah "php artisan db:seed"
+8. Setelah itu jalankan perintah "php artisan storage:link"
+9. Download untuk gambar Default Avatar [Disini](https://drive.google.com/file/d/15dyodlKak2tM-xqNZsi4nnw5q-grJGW1/view?usp=sharing)
+10. Download untuk gambar No Image Available untuk Cover Buku yang tidak ada [Disini](https://drive.google.com/file/d/159-LuvvpjGDPGJol6IkhkS-hubLA_RpB/view?usp=sharing)
+11. Paste gambar Default Avatar yang telah di download di "public/storage/avatar/" (Jika belum ada folder "avatar" buat dahulu secara manual)
+12. Paste gambar No Image Available yang telah di download di "public/storage/covers" (Jika belum ada folder "covers" buat dahulu secara manual)
+13. Setelah semua langkah diatas kira-kira sudah dilakukan, jalankan local server dengan menjalankan perintah "php artisan serve"
+14. Buka link http://127.0.0.1:8000
+15. Done!
 
-**Update: 30 December 2023**
+**Update: 2 January 2024**
