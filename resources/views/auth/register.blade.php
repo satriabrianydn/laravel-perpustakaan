@@ -43,6 +43,10 @@
                                         <label for="password" class="form-label">Password</label>
                                         <input type="password" class="form-control" id="password" name="password">
                                     </div>
+                                    <div class="mb-4">
+                                        <label for="password" class="form-label">Konfirmasi Password</label>
+                                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
+                                    </div>
                                     <button type="submit"
                                         class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Daftar</button>
                                     <div class="d-flex align-items-center justify-content-center">

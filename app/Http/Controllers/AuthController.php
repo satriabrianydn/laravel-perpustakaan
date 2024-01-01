@@ -7,6 +7,7 @@ use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthController extends Controller
 {
@@ -28,7 +29,7 @@ class AuthController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:8',
+            'password' => 'required|min:8|confirmed',
         ], [
             'name.required' => 'Nama Lengkap wajib diisi.',
             'email.required' => 'Email wajib diisi.',
@@ -36,6 +37,7 @@ class AuthController extends Controller
             'email.unique' => 'Email sudah digunakan.',
             'password.required' => 'Password wajib diisi.',
             'password.min' => 'Password minimal harus 8 karakter.',
+            'password.confirmed' => 'Konfirmasi Password tidak sesuai.',
         ]);
     
         // Simpan data ke database - Tabel users
@@ -56,8 +58,10 @@ class AuthController extends Controller
             'no_telp' => null,
             'avatar' => 'default_avatar.jpg',
         ]);
-    
-        return redirect()->route('auth.login')->with('success', 'Registrasi berhasil! Silahkan masuk.');
+        
+        
+        Alert::success('Sukses', 'Registrasi berhasil! Silahkan masuk.');
+        return redirect()->route('auth.login'); //->with('success', 'Registrasi berhasil! Silahkan masuk.');
     }
 
     // Login Controller
@@ -88,17 +92,21 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
     
         if (Auth::attempt($credentials)) {
+            Alert::success('Sukses', 'Anda telah berhasil login.');
             return redirect()->route('dashboard.index');
         }
 
         // Jika autentikasi gagal
-        return redirect()->route('auth.login')->with('error', 'Login gagal. Email atau password tidak valid.');
+        Alert::error('Gagal', 'Login gagal. Email atau password tidak valid.');
+        
+        return redirect()->route('auth.login'); // ->with('error', 'Login gagal. Email atau password tidak valid.')
     }
 
     public function logout() {
         Auth::logout();
     
-        return redirect()->route('auth.login')->with('success', 'Anda telah berhasil logout.');
+        Alert::success('Sukses', 'Anda telah berhasil logout.');
+        return redirect()->route('auth.login'); //->with('success', 'Anda telah berhasil logout.');
     }
 
 }

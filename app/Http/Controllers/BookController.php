@@ -56,7 +56,7 @@ class BookController extends Controller
 
         Book::create($data);
 
-        Alert::success('Success', 'Buku berhasil ditambahkan!');
+        Alert::success('Sukses', 'Buku berhasil ditambahkan!');
         return redirect()->route('dashboard.buku');
     }
 
@@ -108,7 +108,7 @@ class BookController extends Controller
 
         $book->delete();
 
-        Alert::success('Success', 'Buku berhasil dihapus!');
+        Alert::success('Sukses', 'Buku berhasil dihapus!');
         
         return redirect()->route('dashboard.buku');
     }
