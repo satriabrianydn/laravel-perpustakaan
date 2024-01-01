@@ -29,7 +29,7 @@
                     {{-- Perlu Di Fix Ukuran Icon e --}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('dashboard.index') }}">
-                            Hai, Mahasiswa !
+                            Hai, User !
                         </a>
                     </li> 
                 @else

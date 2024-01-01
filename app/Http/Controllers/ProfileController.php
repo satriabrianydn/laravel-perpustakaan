@@ -32,7 +32,7 @@ class ProfileController extends Controller
             'kelas' => 'sometimes|nullable|string',
             'angkatan' => 'sometimes|nullable|string',
             'avatar' => 'sometimes|nullable|image|mimes:jpeg,png,jpg|max:5120',
-            'old_password' => 'sometimes|nullable|string',
+            'old_password' => 'sometimes|nullable|string|min:8',
             'new_password' => 'sometimes|nullable|string|min:8|confirmed',
         ]);
 
