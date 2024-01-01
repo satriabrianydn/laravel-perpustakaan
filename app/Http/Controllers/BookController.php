@@ -35,7 +35,15 @@ class BookController extends Controller
             'jumlah_halaman' => 'required|string|max:255',
             'nama_pengarang' => 'required|string|max:255',
             'foto_buku' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+        ],
+        [
+            'kode_buku.required' => 'Kode Buku wajib di isi',
+            'nama_buku.required' => 'Nama Buku wajib di isi',
+            'tanggal_terbit.required' => 'Tanggal Terbit wajib di isi',
+            'jumlah_halaman.required' => 'Jumlah Halaman wajib di isi',
+            'nama_pengarang.required' => 'Nama Pengarang wajib di isi',
+        ]
+    );
 
         $data = $request->all();
 
@@ -48,7 +56,8 @@ class BookController extends Controller
 
         Book::create($data);
 
-        return redirect()->route('dashboard.buku')->with('success', 'Buku berhasil ditambahkan.');
+        Alert::success('Success', 'Buku berhasil ditambahkan!');
+        return redirect()->route('dashboard.buku');
     }
 
     public function edit(Book $book)

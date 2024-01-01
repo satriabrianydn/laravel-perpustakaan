@@ -5,6 +5,15 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <!-- Page title -->
                 <div class="my-5">
                     <h3>Tambah Buku Baru</h3>
@@ -80,11 +89,15 @@
                                         <!-- Image upload -->
                                         <div class="square position-relative display-2 mb-3">
                                             <!-- Hidden input for old cover path -->
-                                            <input type="hidden" id="defaultCover" value="{{ asset('storage/covers/no_image_available.png') }}">
-                                            <img id="coverPreview" src="{{ asset('storage/covers/no_image_available.png') }}" alt="Cover Buku" class="img-fluid">
+                                            <input type="hidden" id="defaultCover"
+                                                value="{{ asset('storage/covers/no_image_available.png') }}">
+                                            <img id="coverPreview"
+                                                src="{{ asset('storage/covers/no_image_available.png') }}" alt="Cover Buku"
+                                                class="img-fluid">
                                         </div>
                                         <!-- Button -->
-                                        <input type="file" id="foto_buku" name="foto_buku" hidden="" onchange="previewCover(this)">
+                                        <input type="file" id="foto_buku" name="foto_buku" hidden=""
+                                            onchange="previewCover(this)">
                                         <label class="btn btn-success btn-block" for="foto_buku">Upload</label>
                                         <!-- Content -->
                                         <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Maksimal ukuran
