@@ -25,7 +25,11 @@ use Illuminate\Support\Facades\Route;
 
 // Route Halaman Utama
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
-Route::get('/kategori/horror', [HomeController::class, 'showCategoryHorror'])->name('category.horror');
+Route::get('/kategori/horror', [HomeController::class, 'showCategoryHORROR'])->name('category.horror');
+Route::get('/kategori/cerpen', [HomeController::class, 'showCategoryCERPEN'])->name('category.cerpen');
+Route::get('/kategori/fiksi', [HomeController::class, 'showCategoryFIKSI'])->name('category.fiksi');
+Route::get('/kategori/nonfiksi', [HomeController::class, 'showCategoryNONFIKSI'])->name('category.nonfiksi');
+Route::get('/kategori/puisi', [HomeController::class, 'showCategoryPUISI'])->name('category.puisi');
 
 // Route Auth
 Route::get('/login', [AuthController::class, 'showLogin'])->name('auth.login');

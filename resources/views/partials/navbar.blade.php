@@ -18,7 +18,11 @@
                         <i class="fa-solid fa-list"></i><span class="icon-text">Kategori</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('category.horror') }}">Horror</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.horror') }}">HORROR</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.puisi') }}">PUISI</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.nonfiksi') }}">NONFIKSI</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.fiksi') }}">FIKSI</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.cerpen') }}">CERPEN</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -31,7 +35,7 @@
                         <a class="nav-link" href="{{ route('dashboard.index') }}">
                             Hai, User !
                         </a>
-                    </li> 
+                    </li>
                 @else
                     <li class="nav-item">
                         <a class="nav-link" href="/login">

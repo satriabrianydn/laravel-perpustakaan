@@ -10,7 +10,25 @@ class HomeController extends Controller
         return view('index');
     }
 
-    public function showCategoryHorror() {
+    public function showCategoryHORROR() {
         return view('category.horror');
     }
+
+    public function showCategoryFIKSI() {
+        return view('category.fiksi');
+    }
+
+    public function showCategoryCERPEN() {
+        return view('category.cerpen');
+    }
+
+    public function showCategoryNONFIKSI() {
+        return view('category.nonfiksi');
+    }
+
+    public function showCategoryPUISI() {
+        return view('category.puisi');
+    }
+
+
 }
