@@ -9,14 +9,17 @@
                     <div class="d-flex align-items-center justify-content-between mb-9">
                         <div class="mb-3">
                             <h5 class="card-title fw-semibold">Daftar Pengguna</h5>
-                            <div class="mb-3">
+                            <div class="mt-3">
                                 <form action="{{ route('dashboard.user') }}" method="GET">
-                                    <input type="text" name="search" placeholder="Cari pengguna..." value="{{ request('search') }}">
-                                    <button type="submit" class="btn btn-primary">Cari</button>
+                                    <input type="text" name="search" class="form-control" placeholder="Cari pengguna..."
+                                        value="{{ request('search') }}">
+                                    <div class="mt-2">
+                                        <button type="submit" class="btn btn-primary">Cari</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>
-                        <div>
+                        <div class="mb-3">
                             <a href="#" class="btn btn-primary">Tambah Pengguna</a>
                         </div>
                     </div>
@@ -63,10 +66,12 @@
                                         <td>{{ $user->mahasiswa->nim }}</td>
                                         <td>
                                             @if ($user->mahasiswa && $user->mahasiswa->avatar)
-                                                <img src="{{ asset('storage/avatar/' . $user->mahasiswa->avatar) }}" alt="Foto Profil" width="50" class="rounded-circle">
+                                                <img src="{{ asset('storage/avatar/' . $user->mahasiswa->avatar) }}"
+                                                    alt="Foto Profil" width="50" class="rounded-circle">
                                             @else
                                                 <!-- Tampilkan placeholder atau default image jika tidak ada foto profil -->
-                                                <img src="{{ asset('storage/avatar/default_avatar.jpg') }}" alt="Foto Profil" width="50" class="rounded-circle">
+                                                <img src="{{ asset('storage/avatar/default_avatar.jpg') }}"
+                                                    alt="Foto Profil" width="50" class="rounded-circle">
                                             @endif
                                         </td>
                                         <td>{{ $user->name }}</td>
@@ -77,12 +82,14 @@
                                         <td>{{ $user->mahasiswa->kelas }}</td>
                                         <td>
                                             <!-- Tambahkan link atau button untuk mengedit pengguna -->
-                                            <a href="{{ route('admin.edit.profile', $user->id) }}" class="btn btn-edit btn-circle">
+                                            <a href="{{ route('admin.edit.profile', $user->id) }}"
+                                                class="btn btn-edit btn-circle">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
-                                            
+
                                             <!-- Tambahkan form untuk menghapus pengguna -->
-                                            <form action="{{ route('admin.delete.user', $user->id) }}" method="POST" class="d-inline"> 
+                                            <form action="{{ route('admin.delete.user', $user->id) }}" method="POST"
+                                                class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-delete btn-circle"
