@@ -9,9 +9,14 @@
                     <div class="d-flex align-items-center justify-content-between mb-9">
                         <div class="mb-3">
                             <h5 class="card-title fw-semibold">Daftar Pengguna</h5>
+                            <div class="mb-3">
+                                <form action="{{ route('dashboard.user') }}" method="GET">
+                                    <input type="text" name="search" placeholder="Cari pengguna..." value="{{ request('search') }}">
+                                    <button type="submit" class="btn btn-primary">Cari</button>
+                                </form>
+                            </div>
                         </div>
                         <div>
-                            <!-- Tambahkan link atau button untuk menambahkan pengguna -->
                             <a href="#" class="btn btn-primary">Tambah Pengguna</a>
                         </div>
                     </div>
@@ -21,6 +26,9 @@
                                 <tr>
                                     <th class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Nomor</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Foto Profil</h6>
                                     </th>
                                     <th class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Nama</h6>
@@ -37,6 +45,14 @@
                                 @forelse ($users as $user)
                                     <tr>
                                         <td>{{ $users->firstItem() + $loop->index }}</td>
+                                        <td>
+                                            @if ($user->mahasiswa && $user->mahasiswa->avatar)
+                                                <img src="{{ asset('storage/avatar/' . $user->mahasiswa->avatar) }}" alt="Foto Profil" width="50" class="rounded-circle">
+                                            @else
+                                                <!-- Tampilkan placeholder atau default image jika tidak ada foto profil -->
+                                                <img src="{{ asset('storage/avatar/default_avatar.jpg') }}" alt="Foto Profil" width="50" class="rounded-circle">
+                                            @endif
+                                        </td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>

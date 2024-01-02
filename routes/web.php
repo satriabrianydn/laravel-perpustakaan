@@ -48,5 +48,6 @@ Route::middleware(['auth'])->group(function () {
 
   // Route Data User
   Route::get('/dashboard/data-user', [DashboardController::class, 'showUser'])->name('dashboard.user');
+  Route::get('/dashboard/data-user/search', [DashboardController::class, 'searchUser'])->name('search.user');
 });
 

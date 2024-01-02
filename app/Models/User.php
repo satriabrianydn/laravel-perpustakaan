@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role'
     ];
 
     /**
@@ -47,4 +48,5 @@ class User extends Authenticatable
     {
         return $this->hasOne(Mahasiswa::class);
     }
+    
 }

@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-    public function showDashboard() {
+    public function showDashboard()
+    {
         // Cek Pengguna apakah sudah ada session
         if (Auth::check()) {
             return view('dashboard.index', ['role' => auth()->user()->role]);
@@ -18,12 +19,20 @@ class DashboardController extends Controller
         return view('auth.login');
     }
 
-    public function showBook () {
-        return view('dashboard.buku');
-    }
 
-    public function showUser() {
-        $users = User::paginate(10);
+    public function showUser(Request $request)
+    {
+        $role = 'Mahasiswa';
+        $search = $request->input('search');
+
+        $users = User::when($search, function ($query) use ($search) {
+            $query->where('name', 'like', '%' . $search . '%');
+        })
+            ->where('role', $role)
+            ->paginate(10);
+
         return view('user.list', ['users' => $users]);
     }
+
+
 }
