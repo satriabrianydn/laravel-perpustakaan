@@ -74,6 +74,7 @@
                                         <!-- Content -->
                                         <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Maksimal ukuran file 5MB</p>
                                         <p class="text-muted mt-1 mb-0"><span class="me-1">Format:</span>(JPG, JPEG, PNG)</p>
+                                        <p class="text-muted mt-1 mb-0"><span class="me-1">Ukuran Foto:</span>1024px x 1024px (1:1)</p>
                                     </div>
                                 </div>
                             </div>
