@@ -24,6 +24,7 @@ class AdminProfileController extends Controller
         // Validasi data formulir
         $request->validate([
             'name' => 'required|string|max:255',
+            'role' => 'required|in:Administrator,Petugas,Mahasiswa',
             'no_telp' => 'nullable|string|max:20',
             'gender' => 'required|in:Laki-Laki,Perempuan',
             'nim' => 'required|string|max:20',
@@ -32,6 +33,7 @@ class AdminProfileController extends Controller
             'angkatan' => 'required|string|max:4',
         ], [
             'name.required' => 'Nama Wajib Di isi',
+            'role.required' => 'Jenis Role Wajib Di isi',
             'gender.required' => 'Jenis Kelamin Wajib Di isi',
             'nim.required' => 'NIM Wajib Di isi',
             'prodi.required' => 'Program Studi Wajib Di isi',
@@ -42,7 +44,8 @@ class AdminProfileController extends Controller
 
         // Update data user
         $user->update([
-            'name' => $request->input('name')
+            'name' => $request->input('name'),
+            'role' => $request->input('role')
         ]);
 
         // Update data mahasiswa

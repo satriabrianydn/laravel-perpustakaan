@@ -50,11 +50,23 @@
                                     <div class="col-md-6">
                                         <label for="gender" class="form-label">Jenis Kelamin</label>
                                         <select class="form-select" id="gender" name="gender">
-                                            <option value="" selected disabled>Pilih Jenis Kelamin</option>
+                                            <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
                                             <option value="Laki-Laki" @if ($user->mahasiswa->gender == 'Laki-Laki') selected @endif>
                                                 Laki-Laki</option>
                                             <option value="Perempuan" @if ($user->mahasiswa->gender == 'Perempuan') selected @endif>
                                                 Perempuan</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="role" class="form-label">Role</label>
+                                        <select class="form-select" id="role" name="role">
+                                            <option value="" selected disabled>-- Pilih Role Pengguna --</option>
+                                            <option value="Administrator" @if ($user->role == 'Administrator') selected @endif>
+                                                Administrator</option>
+                                            <option value="Petugas" @if ($user->role == 'Petugas') selected @endif>
+                                                Petugas</option>
+                                                <option value="Mahasiswa" @if ($user->role == 'Mahasiswa') selected @endif>
+                                                    Mahasiswa</option>
                                         </select>
                                     </div>
                                 </div> <!-- Row END -->
@@ -68,10 +80,7 @@
                                     <div class="text-center">
                                         <!-- Image upload -->
                                         <div class="square position-relative display-2 mb-3">
-                                            <!-- Hidden input for old avatar path -->
-                                            <input type="hidden" id="oldAvatarPath" name="oldAvatarPath"
-                                                value="{{ asset('storage/avatar/' . $user->mahasiswa->avatar) }}">
-                                            <img id="avatarPreview"
+                                            <img
                                                 src="{{ asset('storage/avatar/' . $user->mahasiswa->avatar) }}"
                                                 alt="Avatar" class="img-fluid">
                                         </div>

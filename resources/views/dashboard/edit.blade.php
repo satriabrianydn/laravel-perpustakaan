@@ -40,7 +40,7 @@
                                     <div class="col-md-6">
                                         <label for="gender" class="form-label">Jenis Kelamin</label>
                                         <select class="form-select" id="gender" name="gender">
-                                            <option value="" selected disabled>Pilih Jenis Kelamin</option>
+                                            <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
                                             <option value="Laki-Laki" @if (auth()->user()->mahasiswa->gender == 'Laki-Laki') selected @endif>
                                                 Laki-Laki</option>
                                             <option value="Perempuan" @if (auth()->user()->mahasiswa->gender == 'Perempuan') selected @endif>
