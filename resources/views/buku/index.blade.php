@@ -92,8 +92,30 @@
                             @endforelse
                             </tbody>
                         </table>
+
+                        <div class="mt-3">
+                            Halaman : {{ $books->currentPage() }} <br />
+                            Jumlah Data : {{ $books->total() }} <br />
+                            Data Per Halaman : {{ $books->perPage() }} <br />
+    
+                            <div class="mt-3">
+                                <div class="pagination-buttons">
+                                    @if($books->currentPage() > 1)
+                                        <a href="{{ $books->previousPageUrl() }}" class="btn btn-pagination">Previous</a>
+                                    @endif
+                                
+                                    @for ($i = 1; $i <= $books->lastPage(); $i++)
+                                        <a href="{{ $books->url($i) }}" class="btn btn-pagination {{ $books->currentPage() == $i ? 'active' : '' }}">{{ $i }}</a>
+                                    @endfor
+                                
+                                    @if($books->currentPage() < $books->lastPage())
+                                        <a href="{{ $books->nextPageUrl() }}" class="btn btn-pagination">Next</a>
+                                    @endif
+                                </div>  
+                            </div>
+                            
+                        </div>
                     </div>
-                    {{-- {{ $books->links() }} --}}
                 </div>
             </div>
         </div>

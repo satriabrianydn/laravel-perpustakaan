@@ -41,7 +41,7 @@
                                         <td>{{ $penerbit->firstItem() + $loop->index }}</td>
                                         <td>{{ $publisher->nama_penerbit }}</td>
                                         <td>{{ $publisher->alamat_penerbit }}</td>
-                                        <td>{{ $publisher->email_penerbit }}</td>                                        
+                                        <td>{{ $publisher->email_penerbit }}</td>
                                         <td>
                                             <a href="#" class="btn btn-edit btn-circle">
                                                 <i class="fas fa-pencil-alt"></i>
@@ -57,14 +57,35 @@
                                         </td>
                                     </tr>
                                 @empty
-                                <tr>
-                                    <td colspan="8" class="text-center">Belum ada data penerbit.</td>
-                                </tr>
-                            @endforelse
+                                    <tr>
+                                        <td colspan="8" class="text-center">Belum ada data penerbit.</td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
+
+                        <div class="mt-3">
+                        Halaman : {{ $penerbit->currentPage() }} <br />
+                        Jumlah Data : {{ $penerbit->total() }} <br />
+                        Data Per Halaman : {{ $penerbit->perPage() }} <br />
+
+                        <div class="mt-3">
+                            <div class="pagination-buttons">
+                                @if($penerbit->currentPage() > 1)
+                                    <a href="{{ $penerbit->previousPageUrl() }}" class="btn btn-pagination">Previous</a>
+                                @endif
+                            
+                                @for ($i = 1; $i <= $penerbit->lastPage(); $i++)
+                                    <a href="{{ $penerbit->url($i) }}" class="btn btn-pagination {{ $penerbit->currentPage() == $i ? 'active' : '' }}">{{ $i }}</a>
+                                @endfor
+                            
+                                @if($penerbit->currentPage() < $penerbit->lastPage())
+                                    <a href="{{ $penerbit->nextPageUrl() }}" class="btn btn-pagination">Next</a>
+                                @endif
+                            </div>  
+                        </div>
+                        
                     </div>
-                    {{-- {{ $penerbit->links('vendor.pagination.bootstrap-4') }} --}}
                 </div>
             </div>
         </div>
