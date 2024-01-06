@@ -93,6 +93,7 @@ Email: petugas@gmail.com
 Password: 12345678
 
 Mahasiswa
-Silahkan Register sendiri ^_^
+Email: mahasiswa@gmail.com
+Password: 12345678
 
 **Update: 3 January 2024**
