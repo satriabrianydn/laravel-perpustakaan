@@ -76,7 +76,7 @@
                         <div class="col-xxl-4">
                             <div class="bg-secondary-soft px-4 py-5 rounded">
                                 <div class="row g-3">
-                                    <h4 class="mb-4 mt-0">Upload Foto Profil</h4>
+                                    <h4 class="mb-4 mt-0">Foto Profil</h4>
                                     <div class="text-center">
                                         <!-- Image upload -->
                                         <div class="square position-relative display-2 mb-3">

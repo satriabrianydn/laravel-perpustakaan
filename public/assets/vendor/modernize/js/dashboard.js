@@ -248,3 +248,7 @@ function previewCover(input) {
   };
   reader.readAsDataURL(file);
 }
+
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
