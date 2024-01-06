@@ -5,6 +5,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PenerbitController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -58,5 +59,8 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/dashboard/data-user/edit/{id}', [AdminProfileController::class, 'adminShowEdit'])->name('admin.edit.profile');
   Route::post('/dashboard/data-user/update/{id}', [AdminProfileController::class, 'adminUpdateProfile'])->name('admin.update.profile');
   Route::delete('/dashboard/daata-user/delete/{id}', [AdminProfileController::class, 'adminDeleteUser'])->name('admin.delete.user');
+
+  // Route Penerbit
+  Route::get('/dashboard/data-penerbit', [PenerbitController::class, 'showDataPenerbit'])->name('dashboard.penerbit');
 });
 

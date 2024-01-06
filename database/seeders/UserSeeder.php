@@ -45,5 +45,30 @@ class UserSeeder extends Seeder
             'avatar' => 'default_avatar.jpg',
             'created_at' => now()
         ]);
+
+        User::Create([
+            'name' => 'MAHASISWA',
+            'email' => 'mahasiswa@gmail.com',
+            'email_verified_at' => null,
+            'password' => Hash::make('12345678'),
+            'role' => 'Mahasiswa',
+            'created_at' => now()
+        ]);
+
+        Mahasiswa::Create([
+            'user_id' => 3,
+            'nim' => '220103000',
+            'gender' => 'Laki-Laki',
+            'prodi' => 'Teknik Informatika',
+            'kelas' => 'TI22A5',
+            'angkatan' => '2022',
+            'no_telp' => '012345678910',
+            'avatar' => 'default_avatar.jpg',
+            'created_at' => now()
+        ]);
+
+        // User::Create([
+            
+        // ]);
     }
 }

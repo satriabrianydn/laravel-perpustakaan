@@ -49,7 +49,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="#" aria-expanded="false">
+                        <a class="sidebar-link {{ request()->routeIs('dashboard.penerbit') ? 'active' : '' }}" href="{{ route('dashboard.penerbit') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-cylinder"></i>
                             </span>
@@ -57,7 +57,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{ route('dashboard.user') }}" aria-expanded="false">
+                        <a class="sidebar-link {{ request()->routeIs('dashboard.user') ? 'active' : '' }}" href="{{ route('dashboard.user') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-users"></i>
                             </span>
