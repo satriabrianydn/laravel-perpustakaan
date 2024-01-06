@@ -27,10 +27,11 @@ return new class extends Migration
                 ->on('kategori')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->date('tanggal_terbit');
-            $table->string('jumlah_halaman');
-            $table->string('nama_pengarang');
+            $table->date('tanggal_terbit')->nullable();
+            $table->string('jumlah_halaman')->nullable();
+            $table->string('nama_pengarang')->nullable();
             $table->string('foto_buku')->nullable();
+            $table->string('deskripsi')->nullable();
             $table->timestamps();
         });
     }
