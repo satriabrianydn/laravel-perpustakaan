@@ -11,6 +11,5 @@ class PenerbitController extends Controller
         $penerbit = Penerbit::orderBy('id')->paginate(10);
         return view('penerbit.index', compact('penerbit'));
     }
-
     
 }

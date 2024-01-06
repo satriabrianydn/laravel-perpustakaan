@@ -64,7 +64,7 @@
                             </tbody>
                         </table>
                     </div>
-                    {{-- {{ $books->links() }} --}}
+                    {{-- {{ $penerbit->links('vendor.pagination.bootstrap-4') }} --}}
                 </div>
             </div>
         </div>

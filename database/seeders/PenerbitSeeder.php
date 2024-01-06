@@ -15,7 +15,7 @@ class PenerbitSeeder extends Seeder
     public function run(): void
     {
         $faker = Faker::create('id_ID');
-        for ($i = 0; $i < 2; $i++) {
+        for ($i = 0; $i < 20; $i++) {
             DB::table('penerbit')->insert([
                     'nama_penerbit' => $faker->company,
                     'alamat_penerbit' => $faker->address,
