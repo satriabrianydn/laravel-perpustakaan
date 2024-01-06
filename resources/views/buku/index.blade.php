@@ -57,8 +57,8 @@
                                         <td>{{ $book->kode_buku }}</td>
                                         <td style="text-align: center; vertical-align: middle;">
                                             @if ($book->foto_buku)
-                                                <img src="{{ asset('storage/' . $book->foto_buku) }}"
-                                                    alt="Cover Buku" width="50">
+                                                <img src="{{ asset('storage/' . $book->foto_buku) }}" alt="Cover Buku"
+                                                    width="50">
                                             @else
                                                 <img src="{{ asset('storage/covers/no_image_available.png' . $book->foto_buku) }}"
                                                     alt="No Images" width="50">
@@ -70,12 +70,13 @@
                                         <td>{{ optional($book->penerbit)->nama_penerbit }}</td>
                                         <td>{{ $book->jumlah_halaman }}</td>
                                         <td>{{ $book->tanggal_terbit }}</td>
-                                        
+
                                         <td>
                                             <a href="#" class="btn btn-edit btn-circle">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
-                                            <form action="{{ route('hapus.buku', $book->id) }}" method="POST" class="d-inline">
+                                            <form action="{{ route('hapus.buku', $book->id) }}" method="POST"
+                                                class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-delete btn-circle"
@@ -86,34 +87,33 @@
                                         </td>
                                     </tr>
                                 @empty
-                                <tr>
-                                    <td colspan="8" class="text-center">Belum ada buku.</td>
-                                </tr>
-                            @endforelse
+                                    <tr>
+                                        <td colspan="8" class="text-center">Belum ada buku.</td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
+                    </div>
+                    <div class="mt-3">
+                        Halaman : {{ $books->currentPage() }} <br />
+                        Jumlah Data : {{ $books->total() }} <br />
+                        Data Per Halaman : {{ $books->perPage() }} <br />
 
                         <div class="mt-3">
-                            Halaman : {{ $books->currentPage() }} <br />
-                            Jumlah Data : {{ $books->total() }} <br />
-                            Data Per Halaman : {{ $books->perPage() }} <br />
-    
-                            <div class="mt-3">
-                                <div class="pagination-buttons">
-                                    @if($books->currentPage() > 1)
-                                        <a href="{{ $books->previousPageUrl() }}" class="btn btn-pagination">Previous</a>
-                                    @endif
-                                
-                                    @for ($i = 1; $i <= $books->lastPage(); $i++)
-                                        <a href="{{ $books->url($i) }}" class="btn btn-pagination {{ $books->currentPage() == $i ? 'active' : '' }}">{{ $i }}</a>
-                                    @endfor
-                                
-                                    @if($books->currentPage() < $books->lastPage())
-                                        <a href="{{ $books->nextPageUrl() }}" class="btn btn-pagination">Next</a>
-                                    @endif
-                                </div>  
+                            <div class="pagination-buttons">
+                                @if ($books->currentPage() > 1)
+                                    <a href="{{ $books->previousPageUrl() }}" class="btn btn-pagination">Previous</a>
+                                @endif
+
+                                @for ($i = 1; $i <= $books->lastPage(); $i++)
+                                    <a href="{{ $books->url($i) }}"
+                                        class="btn btn-pagination {{ $books->currentPage() == $i ? 'active' : '' }}">{{ $i }}</a>
+                                @endfor
+
+                                @if ($books->currentPage() < $books->lastPage())
+                                    <a href="{{ $books->nextPageUrl() }}" class="btn btn-pagination">Next</a>
+                                @endif
                             </div>
-                            
                         </div>
                     </div>
                 </div>

@@ -106,29 +106,29 @@
                                 @endforelse
                             </tbody>
                         </table>
+                    </div>
+                    <div class="mt-3">
+                        Halaman : {{ $users->currentPage() }} <br />
+                        Jumlah Data : {{ $users->total() }} <br />
+                        Data Per Halaman : {{ $users->perPage() }} <br />
 
                         <div class="mt-3">
-                            Halaman : {{ $users->currentPage() }} <br />
-                            Jumlah Data : {{ $users->total() }} <br />
-                            Data Per Halaman : {{ $users->perPage() }} <br />
-    
-                            <div class="mt-3">
-                                <div class="pagination-buttons">
-                                    @if($users->currentPage() > 1)
-                                        <a href="{{ $users->previousPageUrl() }}" class="btn btn-pagination">Previous</a>
-                                    @endif
-                                
-                                    @for ($i = 1; $i <= $users->lastPage(); $i++)
-                                        <a href="{{ $users->url($i) }}" class="btn btn-pagination {{ $users->currentPage() == $i ? 'active' : '' }}">{{ $i }}</a>
-                                    @endfor
-                                
-                                    @if($users->currentPage() < $users->lastPage())
-                                        <a href="{{ $users->nextPageUrl() }}" class="btn btn-pagination">Next</a>
-                                    @endif
-                                </div>  
+                            <div class="pagination-buttons">
+                                @if ($users->currentPage() > 1)
+                                    <a href="{{ $users->previousPageUrl() }}" class="btn btn-pagination">Previous</a>
+                                @endif
+
+                                @for ($i = 1; $i <= $users->lastPage(); $i++)
+                                    <a href="{{ $users->url($i) }}"
+                                        class="btn btn-pagination {{ $users->currentPage() == $i ? 'active' : '' }}">{{ $i }}</a>
+                                @endfor
+
+                                @if ($users->currentPage() < $users->lastPage())
+                                    <a href="{{ $users->nextPageUrl() }}" class="btn btn-pagination">Next</a>
+                                @endif
                             </div>
-                            
                         </div>
+
                     </div>
                 </div>
             </div>

@@ -29,7 +29,7 @@
                 @if (auth()->user()->role == 'Administrator')
                     <li class="nav-small-cap">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                        <span class="hide-menu">MANAGE DATA</span>
+                        <span class="hide-menu">DATA MASTER</span>
                     </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="#" aria-expanded="false">
@@ -61,14 +61,22 @@
                             <span>
                                 <i class="ti ti-users"></i>
                             </span>
-                            <span class="hide-menu">Data User</span>
+                            <span class="hide-menu">Data Mahasiswa</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-category"></i>
+                            </span>
+                            <span class="hide-menu">Data Kategori</span>
                         </a>
                     </li>
 
 
                     <li class="nav-small-cap">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                        <span class="hide-menu">TRANSACTION DATA</span>
+                        <span class="hide-menu">Data Transaksi</span>
                     </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="#" aria-expanded="false">
@@ -89,7 +97,7 @@
                 @elseif(auth()->user()->role == 'Petugas')
                     <li class="nav-small-cap">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                        <span class="hide-menu">TRANSACTION DATA</span>
+                        <span class="hide-menu">Data Transaksi</span>
                     </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="#" aria-expanded="false">
