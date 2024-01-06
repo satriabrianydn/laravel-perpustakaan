@@ -20,6 +20,7 @@ class Book extends Model
         'jumlah_halaman',
         'nama_pengarang',
         'foto_buku',
+        'deskripsi',
     ];
 
     public function penerbit()

@@ -55,6 +55,9 @@
                                         <h6 class="fw-semibold mb-0">Tahun Terbit</h6>
                                     </th>
                                     <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Deskripsi</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Aksi</h6>
                                     </th>
                                 </tr>
@@ -79,6 +82,7 @@
                                         <td>{{ optional($book->penerbit)->nama_penerbit }}</td>
                                         <td>{{ $book->jumlah_halaman }}</td>
                                         <td>{{ $book->tanggal_terbit }}</td>
+                                        <td>{{ $book->deskripsi }}</td>
 
                                         <td>
                                             <a href="#" class="btn btn-edit btn-circle">

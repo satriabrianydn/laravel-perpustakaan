@@ -43,6 +43,7 @@ class BookController extends Controller
             'jumlah_halaman' => 'required|string|max:255',
             'nama_pengarang' => 'required|string|max:255',
             'foto_buku' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'deskripsi' => 'required|max:255'
         ],
         [
             'kode_buku.required' => 'Kode Buku wajib di isi',
@@ -50,6 +51,7 @@ class BookController extends Controller
             'tanggal_terbit.required' => 'Tanggal Terbit wajib di isi',
             'jumlah_halaman.required' => 'Jumlah Halaman wajib di isi',
             'nama_pengarang.required' => 'Nama Pengarang wajib di isi',
+            'deskripsi.required' => 'Deskripsi wajib di isi'
         ]
     );
 

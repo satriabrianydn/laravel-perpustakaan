@@ -77,6 +77,11 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                    <div class="col-md-12">
+                                        <label for="deskripsi" class="form-label">Deskripsi</label>
+                                        <textarea class="form-control" id="deskripsi" name="deskripsi" rows="4"
+                                            placeholder="Deskripsi Buku"></textarea>
+                                    </div>
                                 </div> <!-- Row END -->
                             </div>
                         </div>
