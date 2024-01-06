@@ -9,6 +9,15 @@
                     <div class="d-flex align-items-center justify-content-between mb-9">
                         <div class="mb-3">
                             <h5 class="card-title fw-semibold">Daftar Buku</h5>
+                            <div class="mt-3">
+                                <form action="{{ route('dashboard.buku') }}" method="GET">
+                                    <input type="text" name="search" class="form-control" placeholder="Cari Nama Buku..."
+                                        value="{{ $search ?? '' }}">
+                                    <div class="mt-2">
+                                        <button type="submit" class="btn btn-primary">Cari</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                         <div>
                             <a href="{{ route('dashboard.buku.tambah') }}" class="btn btn-primary">Tambah Buku</a>

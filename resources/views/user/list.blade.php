@@ -11,7 +11,7 @@
                             <h5 class="card-title fw-semibold">Daftar Pengguna</h5>
                             <div class="mt-3">
                                 <form action="{{ route('dashboard.user') }}" method="GET">
-                                    <input type="text" name="search" class="form-control" placeholder="Cari pengguna..."
+                                    <input type="text" name="search" class="form-control" placeholder="Cari Mahasiswa..."
                                         value="{{ request('search') }}">
                                     <div class="mt-2">
                                         <button type="submit" class="btn btn-primary">Cari</button>

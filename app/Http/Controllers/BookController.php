@@ -11,9 +11,17 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class BookController extends Controller
 {
-    public function showBook()
+    public function showBook(Request $request)
     {
-        $books = Book::orderBy('id')->paginate(10);
+        $search = $request->input('search');
+        $books = Book::orderBy('id');
+
+        if ($search) {
+            $books->where('nama_buku', 'like', '%' . $search . '%');
+        }
+
+        $books = $books->paginate(10);
+
         return view('buku.index', compact('books'));
     }
 
