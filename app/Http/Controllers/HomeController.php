@@ -30,5 +30,35 @@ class HomeController extends Controller
         return view('category.puisi');
     }
 
+    public function showCategoryEkonomi() {
+        return view('category.ekonomi');
+    }
 
+    public function showCategoryMatematika() {
+        return view('category.matematika');
+    }
+
+    public function showCategoryFisika() {
+        return view('category.fisika');
+    }
+
+    public function showCategorySejarah() {
+        return view('category.sejarah');
+    }
+
+    public function showCategoryAgamaIslam() {
+        return view('category.agama_islam');
+    }
+
+    public function showCategoryBiologi() {
+        return view('category.biologi');
+    }
+
+    public function showCategoryTeknologi() {
+        return view('category.teknologi');
+    }
+
+    public function showCategoryInggris() {
+        return view('category.inggris');
+    }
 }

@@ -31,6 +31,14 @@ Route::get('/kategori/cerpen', [HomeController::class, 'showCategoryCERPEN'])->n
 Route::get('/kategori/fiksi', [HomeController::class, 'showCategoryFIKSI'])->name('category.fiksi');
 Route::get('/kategori/nonfiksi', [HomeController::class, 'showCategoryNONFIKSI'])->name('category.nonfiksi');
 Route::get('/kategori/puisi', [HomeController::class, 'showCategoryPUISI'])->name('category.puisi');
+Route::get('/kategori/ekonomi', [HomeController::class, 'showCategoryEKONOMI'])->name('category.ekonomi');
+Route::get('/kategori/biologi', [HomeController::class, 'showCategoryBIOLOGI'])->name('category.biologi');
+Route::get('/kategori/teknologi', [HomeController::class, 'showCategoryTEKNOLOGI'])->name('category.teknologi');
+Route::get('/kategori/sejarah', [HomeController::class, 'showCategorySEJARAH'])->name('category.sejarah');
+Route::get('/kategori/agama_islam', [HomeController::class, 'showCategoryAGAMAISLAM'])->name('category.agama_islam');
+Route::get('/kategori/fisika', [HomeController::class, 'showCategoryFISIKA'])->name('category.fisika');
+Route::get('/kategori/matematika', [HomeController::class, 'showCategoryMATEMATIKA'])->name('category.matematika');
+Route::get('/kategori/inggris', [HomeController::class, 'showCategoryINGGRIS'])->name('category.inggris');
 
 // Route Auth
 Route::get('/login', [AuthController::class, 'showLogin'])->name('auth.login');

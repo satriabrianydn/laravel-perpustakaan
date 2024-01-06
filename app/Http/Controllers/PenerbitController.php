@@ -21,6 +21,6 @@ class PenerbitController extends Controller
 
         return view('penerbit.index', compact('penerbit', 'search'));
     }
-    
-    
+
+
 }
