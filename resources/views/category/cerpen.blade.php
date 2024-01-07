@@ -2,12 +2,10 @@
 @section('title', 'Perpustakaan | Cerita Pendek')
 
 
-@section('footer')
-    <div class="container footer">
-        <div class="row">
-            <div class="col-md-6" id="contact-us">
-                <h4>CERITA PENDEK</h4>
-            </div>
-        </div>
+@section('main')
+<div class="container mt-3">
+    <div class="box-category">
+        <h4>CERITA PENDEK</h4>
     </div>
+</div>
 @endsection

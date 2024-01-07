@@ -131,6 +131,16 @@ nav {
     text-transform: uppercase;
 }
 
+.box-category {
+    background-color: rgba(255, 255, 255, 1);
+    width: 1300px;
+    padding: 30px;
+    margin: 0 auto;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
 /* Footer */
 footer {
     margin-top: 20px;

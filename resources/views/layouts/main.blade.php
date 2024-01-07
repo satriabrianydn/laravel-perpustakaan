@@ -35,12 +35,8 @@
     {{-- Main Content End --}}
 
     {{-- Footer --}}
-    <footer>
-        @yield('footer')
-    </footer>
+    @include('partials.footer')
     {{-- Footer End --}}
-
-    @yield('sub-footer')
 
     
     <!-- Vendor JS -->
