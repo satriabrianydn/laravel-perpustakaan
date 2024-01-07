@@ -66,9 +66,5 @@ class UserSeeder extends Seeder
             'avatar' => 'default_avatar.jpg',
             'created_at' => now()
         ]);
-
-        // User::Create([
-            
-        // ]);
     }
 }

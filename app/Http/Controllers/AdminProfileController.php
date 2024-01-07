@@ -66,14 +66,19 @@ class AdminProfileController extends Controller
     public function adminDeleteUser($id)
     {
         $user = User::findOrFail($id);
-        $avatarPath = 'public/avatar/' . $user->mahasiswa->avatar;
+
+
+        if ($user->mahasiswa) {
+            $user->mahasiswa->delete();
+        }
 
         // Hapus foto avatar jika ada
-        if (Storage::exists($avatarPath)) {
+        $avatarPath = 'public/avatar/' . optional($user->mahasiswa)->avatar;
+        if ($avatarPath !== 'public/avatar/default_avatar.jpg' && Storage::exists($avatarPath)) {
             Storage::delete($avatarPath);
         }
 
-        // Hapus data user (soft delete)
+        // Hapus data user (delete permanen)
         $user->delete();
 
         Alert::success('Sukses', 'Data User berhasil dihapus!');
