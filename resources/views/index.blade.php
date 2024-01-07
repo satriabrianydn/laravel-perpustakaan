@@ -185,7 +185,7 @@
 @section('sub-footer')
     <div class="sub-footer">
         <div class="container copyright">
-            <p>&copy; 2023 Dikelola Tim IT <strong>Universitas Duta Bangsa Surakarta</strong> All Rights Reserved.</p>
+            <p>&copy; 2024 Dikelola Tim IT <strong>Universitas Duta Bangsa Surakarta</strong> All Rights Reserved.</p>
         </div>
     </div>
 @endsection
