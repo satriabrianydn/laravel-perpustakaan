@@ -70,5 +70,6 @@ Route::middleware(['auth'])->group(function () {
 
   // Route Penerbit
   Route::get('/dashboard/data-penerbit', [PenerbitController::class, 'showDataPenerbit'])->name('dashboard.penerbit');
+  Route::get('/dashboard/data-penerbit/tambah', [PenerbitController::class, 'addPenerbit'])->name('dashboard.penerbit.tambah');
 });
 

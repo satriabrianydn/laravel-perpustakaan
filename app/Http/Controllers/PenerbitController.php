@@ -22,5 +22,9 @@ class PenerbitController extends Controller
         return view('penerbit.index', compact('penerbit', 'search'));
     }
 
+    public function addPenerbit() {
+        return view('penerbit.tambah');
+    }
+
 
 }

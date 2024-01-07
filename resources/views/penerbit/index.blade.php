@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div>
-                            <a href="#" class="btn btn-primary">Tambah Penerbit</a>
+                            <a href="{{ route('dashboard.penerbit.tambah') }}" class="btn btn-primary">Tambah Penerbit</a>
                         </div>
                     </div>
                     <div class="table-responsive">
