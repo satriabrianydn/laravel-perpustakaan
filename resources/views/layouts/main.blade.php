@@ -23,7 +23,7 @@
     @include('sweetalert::alert')
     
     @yield('body')
-
+    <div class="fakeLoader"></div>
     {{-- Header --}}
     @include('partials.navbar')
     {{-- Header End --}}

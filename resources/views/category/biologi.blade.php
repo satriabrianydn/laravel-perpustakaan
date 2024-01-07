@@ -1,11 +1,7 @@
 @extends('layouts.main')
 @section('title', 'Perpustakaan | Biologi')
-@section('body')
-    <div class="fakeLoader"></div>
-@endsection
-@include('partials.navbar')
 
-@section('main')
+
 @section('footer')
     <div class="container footer">
         <div class="row">

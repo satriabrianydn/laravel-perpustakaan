@@ -1,9 +1,6 @@
 @extends('layouts.main')
 @section('title', 'Perpustakaan | Agama Islam')
-@section('body')
-    <div class="fakeLoader"></div>
-@endsection
-@include('partials.navbar')
+
 
 @section('main')
 @section('footer')
