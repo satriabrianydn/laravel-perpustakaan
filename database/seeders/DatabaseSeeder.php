@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         
         // $this->call([DataBukuSeeder::class, PenerbitSeeder::class]);
-        $this->call([UserSeeder::class]);
+        $this->call([UserSeeder::class, KategoriSeeder::class, DataBukuSeeder::class]);
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

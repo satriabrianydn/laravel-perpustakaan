@@ -35,7 +35,7 @@ class BookController extends Controller
     public function storeBook(Request $request)
     {
         $request->validate([
-            'kode_buku' => 'required|string|max:255',
+            'kode_buku' => 'required|string|max:255|unique:data_buku,kode_buku',
             'nama_buku' => 'required|string|max:255',
             'id_kategori' => 'nullable|exists:kategori,id',
             'id_penerbit' => 'nullable|exists:penerbit,id',
@@ -47,6 +47,7 @@ class BookController extends Controller
         ],
         [
             'kode_buku.required' => 'Kode Buku wajib di isi',
+            'kode_buku.unique' => 'Kode Buku sudah digunakan',
             'nama_buku.required' => 'Nama Buku wajib di isi',
             'tanggal_terbit.required' => 'Tanggal Terbit wajib di isi',
             'jumlah_halaman.required' => 'Jumlah Halaman wajib di isi',
