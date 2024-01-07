@@ -40,6 +40,14 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
+                        <a class="sidebar-link {{ request()->routeIs('dashboard.user') ? 'active' : '' }}" href="{{ route('dashboard.user') }}" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-users"></i>
+                            </span>
+                            <span class="hide-menu">Data Mahasiswa</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
                         <a class="sidebar-link {{ request()->routeIs('dashboard.buku') ? 'active' : '' }}"
                             href="{{ route('dashboard.buku') }}" aria-expanded="false">
                             <span>
@@ -57,14 +65,6 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link {{ request()->routeIs('dashboard.user') ? 'active' : '' }}" href="{{ route('dashboard.user') }}" aria-expanded="false">
-                            <span>
-                                <i class="ti ti-users"></i>
-                            </span>
-                            <span class="hide-menu">Data Mahasiswa</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
                         <a class="sidebar-link" href="#" aria-expanded="false">
                             <span>
                                 <i class="ti ti-category"></i>
@@ -76,7 +76,7 @@
 
                     <li class="nav-small-cap">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                        <span class="hide-menu">Data Transaksi</span>
+                        <span class="hide-menu">Menu Transaksi</span>
                     </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="#" aria-expanded="false">
@@ -97,7 +97,7 @@
                 @elseif(auth()->user()->role == 'Petugas')
                     <li class="nav-small-cap">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                        <span class="hide-menu">Data Transaksi</span>
+                        <span class="hide-menu">Menu Transaksi</span>
                     </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="#" aria-expanded="false">
@@ -116,10 +116,31 @@
                         </a>
                     </li>
                     @elseif(auth()->user()->role == 'Mahasiswa')
-                    
                     <li class="nav-small-cap">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                        <span class="hide-menu">USER AREA</span>
+                        <span class="hide-menu">Menu Transaksi</span>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-shopping-cart-plus"></i>
+                            </span>
+                            <span class="hide-menu">Tambah Peminjaman</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-file"></i>
+                            </span>
+                            <span class="hide-menu">Data Peminjaman</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-small-cap">
+                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                        <span class="hide-menu">User Panel</span>
                     </li>
 
                     <li class="sidebar-item">
