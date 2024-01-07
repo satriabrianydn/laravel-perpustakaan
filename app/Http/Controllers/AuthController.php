@@ -106,7 +106,7 @@ class AuthController extends Controller
         Auth::logout();
     
         Alert::success('Sukses', 'Anda telah berhasil logout.');
-        return redirect()->route('auth.login'); //->with('success', 'Anda telah berhasil logout.');
+        return redirect()->route('home.index'); //->with('success', 'Anda telah berhasil logout.');
     }
 
 }

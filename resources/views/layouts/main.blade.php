@@ -20,6 +20,8 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
+    
     @yield('body')
 
     {{-- Header --}}
