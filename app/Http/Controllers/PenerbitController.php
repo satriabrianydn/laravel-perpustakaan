@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Penerbit;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PenerbitController extends Controller
 {
@@ -26,5 +27,26 @@ class PenerbitController extends Controller
         return view('penerbit.tambah');
     }
 
+    public function processAddPenerbit(Request $request) {
+        $request->validate([
+            'nama_penerbit' => 'required|string|max:255',
+            'email_penerbit' => 'required|string|max:255',
+            'alamat_penerbit' => 'required|string|max:255'
+        ],
+        [
+            'nama_penerbit.required' => 'Nama Penerbit wajib di isi',
+            'email_penerbit.required' => 'Email Penerbit wajib di isi',
+            'alamat_penerbit.required' => 'Alamat penerbit wajib di isi'
+        ]);
+
+        $penerbit = Penerbit::create([
+            'nama_penerbit' => $request->nama_penerbit,
+            'email_penerbit' => $request->email_penerbit,
+            'alamat_penerbit' => $request->alamat_penerbit
+        ]);
+
+        Alert::success('Sukses', 'Penerbit berhasil ditambahkan!');
+        return redirect()->route('dashboard.penerbit');
+    }
 
 }
