@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('home.index') }}" role="button">
+                    <a class="nav-link {{ request()->routeIs('home.index') ? 'active' : '' }}" href="{{ route('home.index') }}" role="button">
                         <i class="fa-solid fa-house"></i><span class="icon-text">BERANDA</span>
                     </a>
                 </li>
@@ -19,19 +19,19 @@
                         <i class="fa-solid fa-list"></i><span class="icon-text">Kategori</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('category.horror') }}">HORROR</a></li>
-                        <li><a class="dropdown-item" href="{{ route('category.puisi') }}">PUISI</a></li>
-                        <li><a class="dropdown-item" href="{{ route('category.nonfiksi') }}">NONFIKSI</a></li>
-                        <li><a class="dropdown-item" href="{{ route('category.fiksi') }}">FIKSI</a></li>
-                        <li><a class="dropdown-item" href="{{ route('category.cerpen') }}">CERPEN</a></li>
-                        <li><a class="dropdown-item" href="{{ route('category.ekonomi') }}">EKONOMI</a></li>
-                        <li><a class="dropdown-item" href="{{ route('category.biologi') }}">BIOLOGI</a></li>
-                        <li><a class="dropdown-item" href="{{ route('category.teknologi') }}">TEKNOLOGI</a></li>
-                        <li><a class="dropdown-item" href="{{ route('category.sejarah') }}">SEJARAH</a></li>
-                        <li><a class="dropdown-item" href="{{ route('category.agama_islam') }}">AGAMA ISLAM</a></li>
-                        <li><a class="dropdown-item" href="{{ route('category.fisika') }}">FISIKA</a></li>
-                        <li><a class="dropdown-item" href="{{ route('category.matematika') }}">MATEMATIKA</a></li>
-                        <li><a class="dropdown-item" href="{{ route('category.inggris') }}">INGGRIS</a></li>
+                        <li><a class="dropdown-item {{ request()->routeIs('category.horror') ? 'active' : '' }}" href="{{ route('category.horror') }}">HORROR</a></li>
+                        <li><a class="dropdown-item {{ request()->routeIs('category.puisi') ? 'active' : '' }}" href="{{ route('category.puisi') }}">PUISI</a></li>
+                        <li><a class="dropdown-item {{ request()->routeIs('category.nonfiksi') ? 'active' : '' }}" href="{{ route('category.nonfiksi') }}">NONFIKSI</a></li>
+                        <li><a class="dropdown-item {{ request()->routeIs('category.fiksi') ? 'active' : '' }}" href="{{ route('category.fiksi') }}">FIKSI</a></li>
+                        <li><a class="dropdown-item {{ request()->routeIs('category.cerpen') ? 'active' : '' }}" href="{{ route('category.cerpen') }}">CERPEN</a></li>
+                        <li><a class="dropdown-item {{ request()->routeIs('category.ekonomi') ? 'active' : '' }}" href="{{ route('category.ekonomi') }}">EKONOMI</a></li>
+                        <li><a class="dropdown-item {{ request()->routeIs('category.biologi') ? 'active' : '' }}" href="{{ route('category.biologi') }}">BIOLOGI</a></li>
+                        <li><a class="dropdown-item {{ request()->routeIs('category.teknologi') ? 'active' : '' }}" href="{{ route('category.teknologi') }}">TEKNOLOGI</a></li>
+                        <li><a class="dropdown-item {{ request()->routeIs('category.sejarah') ? 'active' : '' }}" href="{{ route('category.sejarah') }}">SEJARAH</a></li>
+                        <li><a class="dropdown-item {{ request()->routeIs('category.agama_islam') ? 'active' : '' }}" href="{{ route('category.agama_islam') }}">AGAMA ISLAM</a></li>
+                        <li><a class="dropdown-item {{ request()->routeIs('category.fisika') ? 'active' : '' }}" href="{{ route('category.fisika') }}">FISIKA</a></li>
+                        <li><a class="dropdown-item {{ request()->routeIs('category.matematika') ? 'active' : '' }}" href="{{ route('category.matematika') }}">MATEMATIKA</a></li>
+                        <li><a class="dropdown-item {{ request()->routeIs('category.inggris') ? 'active' : '' }}" href="{{ route('category.inggris') }}">INGGRIS</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
