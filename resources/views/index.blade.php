@@ -3,7 +3,7 @@
 @section('body')
     <div class="fakeLoader"></div>
 @endsection
-@include('partials.navbar')
+
 
 @section('main')
     {{-- Carousel --}}

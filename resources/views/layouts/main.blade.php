@@ -23,9 +23,7 @@
     @yield('body')
 
     {{-- Header --}}
-    <header>
-        @yield('header')
-    </header>
+    @include('partials.navbar')
     {{-- Header End --}}
 
     {{-- Main Content --}}

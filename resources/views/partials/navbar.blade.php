@@ -39,12 +39,16 @@
                         <i class="fa-solid fa-phone"></i><span class="icon-text">CONTACT US</span></a>
                 </li>
                 @if (Auth::check())
-                    {{-- Perlu Di Fix Ukuran Icon e --}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('dashboard.index') }}">
-                            Hai, User !
-                        </a>
-                    </li>
+                <li class="nav-item dropdown" id="auto-dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fa-solid fa-user-circle"></i><span class="icon-text">Hai, {{ auth()->user()->name }}</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ route('dashboard.index') }}">Dashboard</a></li>
+                        <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+                    </ul>
+                </li>
                 @else
                     <li class="nav-item">
                         <a class="nav-link" href="/login">
