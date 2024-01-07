@@ -9,8 +9,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">
-                        <i class="fa-solid fa-house"></i><span class="icon-text">BERANDA</span></a>
+                    <a class="nav-link active" href="{{ route('home.index') }}" role="button">
+                        <i class="fa-solid fa-house"></i><span class="icon-text">BERANDA</span>
+                    </a>
                 </li>
                 <li class="nav-item dropdown" id="auto-dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -23,6 +24,14 @@
                         <li><a class="dropdown-item" href="{{ route('category.nonfiksi') }}">NONFIKSI</a></li>
                         <li><a class="dropdown-item" href="{{ route('category.fiksi') }}">FIKSI</a></li>
                         <li><a class="dropdown-item" href="{{ route('category.cerpen') }}">CERPEN</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.ekonomi') }}">EKONOMI</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.biologi') }}">BIOLOGI</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.teknologi') }}">TEKNOLOGI</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.sejarah') }}">SEJARAH</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.agama_islam') }}">AGAMA ISLAM</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.fisika') }}">FISIKA</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.matematika') }}">MATEMATIKA</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.inggris') }}">INGGRIS</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">

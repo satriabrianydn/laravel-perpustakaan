@@ -13,9 +13,9 @@
                 <div class="carousel-item active" data-bs-interval="5000">
                     <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Slide 1">
                     <div class="carousel-caption d-md-block">
-                        <h5 class="animate__animated animate__fadeInDown">First slide label</h5>
+                        <h5 class="animate__animated animate__fadeInDown">Universitas Duta Bangsa Surakarta</h5>
                         <div class="animate__animated animate__fadeInUp">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <p>Terima kasih telah memilih Perpustakaan Universitas Duta Bangsa sebagai mitra pendidikan dan penelitian Anda.</p>
                         </div>
                         <div class="carousel-button animate__animated animate__fadeInLeft">
                             <a class="btn btn-warning" href="#">Read More</a>
@@ -25,9 +25,8 @@
                 <div class="carousel-item" data-bs-interval="5000">
                     <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Slide 2">
                     <div class="carousel-caption d-md-block">
-                        <h5 class="animate__animated animate__fadeInDown">Second slide label</h5>
-                        <p class="animate__animated animate__fadeInUp">Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Quidem, provident!</p>
+                        <h5 class="animate__animated animate__fadeInDown">Pelayanan Kami</h5>
+                        <p class="animate__animated animate__fadeInUp">Kami berkomitmen untuk terus meningkatkan layanan kami demi mendukung kesuksesan akademis Anda.</p>
                         <div class="carousel-button animate__animated animate__fadeInLeft">
                             <a class="btn btn-warning" href="#">Read More</a>
                         </div>
@@ -36,9 +35,8 @@
                 <div class="carousel-item" data-bs-interval="5000">
                     <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Slide 3">
                     <div class="carousel-caption d-md-block">
-                        <h5 class="animate__animated animate__fadeInDown">Third slide label</h5>
-                        <p class="animate__animated animate__fadeInUp">Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Nesciunt, enim?</p>
+                        <h5 class="animate__animated animate__fadeInDown">Motivasi Belajar</h5>
+                        <p class="animate__animated animate__fadeInUp">Mari berlayar melalui kata-kata dan biarkan setiap halaman membawa kita lebih dekat pada versi terbaik dari diri kita.</p>
                         <div class="carousel-button animate__animated animate__fadeInLeft">
                             <a class="btn btn-warning" href="#">Read More</a>
                         </div>
@@ -61,9 +59,7 @@
 
     <div class="container perkenalan">
         <h2>SELAMAT DATANG</h2>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, totam? Nam tenetur deleniti aut fuga
-            incidunt, suscipit dolor adipisci non illo assumenda. Iure totam natus quaerat vitae, temporibus aliquam
-            suscipit?</p>
+        <p>Sebuah pusat pengetahuan yang berkomitmen untuk memberikan layanan terbaik dalam mendukung pembelajaran, penelitian, dan pengembangan masyarakat. Sebagai bagian integral dari Universitas Duta Bangsa, perpustakaan kami menjadi pusat informasi yang dinamis, memberikan akses luas terhadap berbagai sumber daya akademis untuk memperkaya pengalaman belajar setiap mahasiswa dan peneliti.</p>
     </div>
 
     <div class="container">
@@ -72,85 +68,71 @@
                 <div class="flex-row">
 
                     <!-- Artikel Pertama -->
-                    <div class="berita-box">
-                        <article>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <h6 class="category text-info">
-                                        <a href="#" rel="tag">
-                                            Uncategorized
-                                        </a>
-                                    </h6>
-                                    <h2><a href="#">Judul Berita Pertama</a></h2>
-                                    <p class="meta">
-                                        <span class="date">Tanggal: 01 Januari 2023</span>
-                                        <span class="author">Penulis: John Doe</span>
-                                    </p>
-                                    <p>
-                                        Cupcake ipsum dolor sit amet candy canes. Halvah muffin chupa chups sweet
-                                        roll jelly beans
-                                        jelly candy canes muffin. Jelly beans bonbon tart tootsie roll candy canes.
-                                        Muffin icing
-                                        carrot cake cookie tootsie roll danish sweet jelly-o.
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Article Pertama End -->
+<div class="berita-box">
+    <article>
+        <div class="row">
+            <div class="col-sm-4 text-center">
+                <img src="Bagus_Adi.png" alt="Kepala Perpustakaan Photo" class="member-photo" width="300" height="280">
+            </div>
+            <div class="col-sm-8">
+                <h6 class="category text-info">
+                    <a href="#" rel="tag">
+                        Kepala Perpustakaan
+                    </a>
+                </h6>
+                <h2><a href="#">BAGUS ADI</a></h2>
+                <p class="meta" style="margin-bottom: 100px;">
+                    <span class="author">NO.Telp: 082754265674</span>
+                </p>
+            </div>
+        </div>
+    </article>
+    <!-- Anggota Pertama End -->
 
-                        <!-- Article Kedua -->
-                        <article>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <h6 class="category text-info">
-                                        <a href="#" rel="tag">
-                                            Uncategorized
-                                        </a>
-                                    </h6>
-                                    <h2><a href="#">Judul Berita Kedua</a></h2>
-                                    <p class="meta">
-                                        <span class="date">Tanggal: 01 Januari 2023</span>
-                                        <span class="author">Penulis: John Doe</span>
-                                    </p>
-                                    <p>
-                                        Cupcake ipsum dolor sit amet candy canes. Halvah muffin chupa chups sweet
-                                        roll jelly beans
-                                        jelly candy canes muffin. Jelly beans bonbon tart tootsie roll candy canes.
-                                        Muffin icing
-                                        carrot cake cookie tootsie roll danish sweet jelly-o.
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Article Kedua End -->
+    <!-- Anggota Kedua -->
+    <article>
+        <div class="row">
+            <div class="col-sm-4 text-center">
+                <img src="Asep_Bastian.png" alt="Anggota Kedua Photo" class="member-photo" width="190" height="300">
+            </div>
+            <div class="col-sm-4">
+                <h6 class="category text-info">
+                    <a href="#" rel="tag">
+                        Penanggung Jawab
+                    </a>
+                </h6>
+                <h2><a href="#">ASEP BASTIAN</a></h2>
+                <p class="meta" style="margin-bottom: 10px;">
+                    <span class="author">NO.Telp: 085836427846</span>
+                </p>
+            </div>
+        </div>
+    </article>
+    <!-- Anggota Kedua End -->
 
-                        <!-- Article Ketiga -->
-                        <article>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <h6 class="category text-info">
-                                        <a href="#" rel="tag">
-                                            Uncategorized
-                                        </a>
-                                    </h6>
-                                    <h2><a href="#">Judul Berita Ketiga</a></h2>
-                                    <p class="meta">
-                                        <span class="date">Tanggal: 01 Januari 2023</span>
-                                        <span class="author">Penulis: John Doe</span>
-                                    </p>
-                                    <p>
-                                        Cupcake ipsum dolor sit amet candy canes. Halvah muffin chupa chups sweet
-                                        roll jelly beans
-                                        jelly candy canes muffin. Jelly beans bonbon tart tootsie roll candy canes.
-                                        Muffin icing
-                                        carrot cake cookie tootsie roll danish sweet jelly-o.
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Article Ketiga -->
+    <!-- Anggota Ketiga -->
+    <article>
+        <div class="row">
+            <div class="col-sm-4 text-center">
+                <img src="Joko_Slamet.png" alt="Anggota Ketiga Photo" class="member-photo" width="220" height="280">
+            </div>
+            <div class="col-sm-4">
+                <h6 class="category text-info">
+                    <a href="#" rel="tag">
+                        Sekretaris
+                    </a>
+                </h6>
+                <h2><a href="#">JOKO SLAMET</a></h2>
+                <p class="meta" style="margin-bottom: 10px;">
+                    <span class="author">NO.Telp: 089675437556</span>
+                </p>
+            </div>
+        </div>
+    </article>
+    <!-- Anggota Ketiga End -->
+</div>
+
                     </div>
-
                 </div>
             </div>
         </div>
