@@ -19,7 +19,7 @@
                             </div>
                         </div>
                         <div>
-                            <a href="#" class="btn btn-primary">Tambah Kategori</a>
+                            <a href="{{ route('dashboard.kategori.tambah') }}" class="btn btn-primary">Tambah Kategori</a>
                         </div>
                     </div>
                     <div class="table-responsive">

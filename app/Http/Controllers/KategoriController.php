@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class KategoriController extends Controller
 {
@@ -22,5 +23,24 @@ class KategoriController extends Controller
     $kategori = $kategori->withCount('buku')->paginate(10);
 
     return view('kategori.index', compact('kategori'));
+    }
+
+    public function addKategori () {
+        return view('kategori.tambah');
+    }
+
+    public function processKategori (Request $request) {
+        $request->validate([
+            'kategori' => 'required|string|max:255',
+        ],[
+            'kategori.required' => 'Nama Kategori wajib di isi'
+        ]);
+
+        Kategori::create([
+            'kategori' => $request->kategori
+        ]);
+
+        Alert::success('Sukses', 'Kategori berhasil ditambahkan!');
+        return redirect()->route('dashboard.kategori');
     }
 }
