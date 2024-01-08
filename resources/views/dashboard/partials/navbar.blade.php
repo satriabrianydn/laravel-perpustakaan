@@ -40,6 +40,11 @@
                                 </a>
                                 {{-- List Menu Mahasiswa Navbar Dashboard --}}
                             @elseif (auth()->user()->role == 'Mahasiswa')
+                                <a href="{{ route('home.index') }}"
+                                    class="d-flex align-items-center gap-2 dropdown-item">
+                                    <i class="ti ti-home fs-6"></i>
+                                    <p class="mb-0 fs-3">Back to Home</p>
+                                </a>
                                 <a href="{{ route('dashboard.profile') }}"
                                     class="d-flex align-items-center gap-2 dropdown-item">
                                     <i class="ti ti-user fs-6"></i>
