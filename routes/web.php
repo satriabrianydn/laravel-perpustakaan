@@ -72,5 +72,9 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/dashboard/data-penerbit', [PenerbitController::class, 'showDataPenerbit'])->name('dashboard.penerbit');
   Route::get('/dashboard/data-penerbit/tambah', [PenerbitController::class, 'addPenerbit'])->name('dashboard.penerbit.tambah');
   Route::post('/dashboard/data-penerbit/proses', [PenerbitController::class, 'processAddPenerbit'])->name('proses.penerbit');
+  Route::get('/dashboard/data-penerbit/edit/{id}', [PenerbitController::class, 'showEditPenerbit'])->name('dashboard.penerbit.edit');
+  Route::post('/dashboard/data-penerbit/edit/update/{id}', [PenerbitController::class, 'editPenerbit'])->name('proses.penerbit.update');
+  Route::delete('/dashboard/data-penerbit/delete/{id}', [PenerbitController::class, 'deletePenerbit'])->name('dashboard.penerbit.delete');
+
 });
 

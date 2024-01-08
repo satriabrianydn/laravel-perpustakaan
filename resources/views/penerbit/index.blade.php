@@ -52,10 +52,10 @@
                                         <td>{{ $publisher->alamat_penerbit }}</td>
                                         <td>{{ $publisher->email_penerbit }}</td>
                                         <td>
-                                            <a href="#" class="btn btn-edit btn-circle">
+                                            <a href="{{ route('dashboard.penerbit.edit', $publisher->id) }}" class="btn btn-edit btn-circle">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
-                                            <form action="#" method="POST" class="d-inline">
+                                            <form action="{{ route('dashboard.penerbit.delete', $publisher->id) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-delete btn-circle"
