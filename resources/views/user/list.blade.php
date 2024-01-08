@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <a href="#" class="btn btn-primary">Tambah Pengguna</a>
+                            <a href="{{ route('admin.tambah.user') }}" class="btn btn-primary">Tambah Pengguna</a>
                         </div>
                     </div>
                     <div class="table-responsive">

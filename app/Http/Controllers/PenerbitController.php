@@ -33,7 +33,7 @@ class PenerbitController extends Controller
     {
         $request->validate([
             'nama_penerbit' => 'required|string|max:255',
-            'email_penerbit' => 'required|string|max:255',
+            'email_penerbit' => 'required|email|max:255',
             'alamat_penerbit' => 'required|string|max:255'
         ],
             [

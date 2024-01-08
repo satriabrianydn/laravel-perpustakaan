@@ -5,13 +5,23 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif  
                 <!-- Page title -->
                 <div class="my-5">
-                    <h3>My Profile</h3>
+                    <h3>Tambah Pengguna</h3>
                     <hr>
                 </div>
                 <!-- Form START -->
-                <form class="file-upload" action="{{ route('dashboard.update') }}" method="POST" enctype="multipart/form-data">
+                <form class="file-upload" action="{{ route('admin.tambah.user.proses') }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="row mb-5 gx-5">
                         <!-- Contact detail -->
@@ -23,34 +33,41 @@
                                     <div class="col-md-12">
                                         <label for="name" class="form-label">Nama Lengkap</label>
                                         <input type="text" class="form-control" id="name" name="name"
-                                        placeholder="Nama Lengkap" value="{{ auth()->user()->name }}">
+                                            placeholder="Nama Lengkap">
                                     </div>
                                     <!-- Phone number -->
                                     <div class="col-md-6">
                                         <label class="form-label">Nomor Telepon</label>
                                         <input type="text" class="form-control" placeholder="Nomor Telepon"
-                                            id="no_telp" name="no_telp" value="{{ auth()->user()->mahasiswa->no_telp }}">
+                                            id="no_telp" name="no_telp">
                                     </div>
                                     <!-- Email -->
                                     <div class="col-md-6">
                                         <label for="email" class="form-label">Email</label>
                                         <input type="email" class="form-control" id="email" name="email"
-                                        placeholder="Email" value="{{ auth()->user()->email }}">
+                                            placeholder="Email">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="gender" class="form-label">Jenis Kelamin</label>
                                         <select class="form-select" id="gender" name="gender">
                                             <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
-                                            <option value="Laki-Laki" @if (auth()->user()->mahasiswa->gender == 'Laki-Laki') selected @endif>
+                                            <option value="Laki-Laki">
                                                 Laki-Laki</option>
-                                            <option value="Perempuan" @if (auth()->user()->mahasiswa->gender == 'Perempuan') selected @endif>
+                                            <option value="Perempuan">
                                                 Perempuan</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="role" class="form-label">Role</label>
-                                        <input type="text" class="form-control" placeholder="Role Pengguna"
-                                            id="role" name="role" value="{{ auth()->user()->role }}" disabled>
+                                        <select class="form-select" id="role" name="role">
+                                            <option value="" selected disabled>-- Pilih Role Pengguna --</option>
+                                            <option value="Administrator">
+                                                Administrator</option>
+                                            <option value="Petugas">
+                                                Petugas</option>
+                                                <option value="Mahasiswa">
+                                                    Mahasiswa</option>
+                                        </select>
                                     </div>
                                 </div> <!-- Row END -->
                             </div>
@@ -59,27 +76,14 @@
                         <div class="col-xxl-4">
                             <div class="bg-secondary-soft px-4 py-5 rounded">
                                 <div class="row g-3">
-                                    <h4 class="mb-4 mt-0">Upload Foto Profil</h4>
+                                    <h4 class="mb-4 mt-0">Foto Profil</h4>
                                     <div class="text-center">
                                         <!-- Image upload -->
                                         <div class="square position-relative display-2 mb-3">
-                                            <!-- Hidden input for old avatar path -->
-                                            <input type="hidden" id="oldAvatarPath" name="oldAvatarPath"
-                                                value="{{ asset('storage/avatar/' . auth()->user()->mahasiswa->avatar) }}">
-                                            <img id="avatarPreview"
-                                                src="{{ asset('storage/avatar/' . auth()->user()->mahasiswa->avatar) }}"
+                                            <img
+                                                src="{{ asset('storage/avatar/default_avatar.jpg') }}"
                                                 alt="Avatar" class="img-fluid">
                                         </div>
-                                        <!-- Button -->
-                                        <input type="file" id="avatar" name="avatar" hidden=""
-                                            onchange="previewAvatar(this)">
-                                        <label class="btn btn-success btn-block" for="avatar">Upload</label>
-                                        <button type="button" class="btn btn-danger"
-                                            onclick="removeAvatarPreview()">Remove</button>
-                                        <!-- Content -->
-                                        <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Maksimal ukuran file 5MB</p>
-                                        <p class="text-muted mt-1 mb-0"><span class="me-1">Format:</span>(JPG, JPEG, PNG)</p>
-                                        <p class="text-muted mt-1 mb-0"><span class="me-1">Ukuran Foto:</span>1024px x 1024px (1:1)</p>
                                     </div>
                                 </div>
                             </div>
@@ -96,49 +100,42 @@
                                     <div class="col-md-6">
                                         <label class="form-label">NIM</label>
                                         <input type="text" id="nim" name="nim" class="form-control"
-                                            placeholder="NIM" value="{{ auth()->user()->mahasiswa->nim }}">
+                                            placeholder="NIM">
                                     </div>
                                     <!-- Program Studi -->
                                     <div class="col-md-6">
                                         <label class="form-label">Program Studi</label>
                                         <input type="text" id="prodi" name="prodi" class="form-control"
-                                            placeholder="Program Studi" value="{{ auth()->user()->mahasiswa->prodi }}">
+                                            placeholder="Program Studi">
                                     </div>
                                     <!-- Kelas -->
                                     <div class="col-md-6">
                                         <label class="form-label">Kelas</label>
                                         <input type="text" class="form-control" placeholder="Kelas" id="kelas"
-                                            name="kelas" value="{{ auth()->user()->mahasiswa->kelas }}">
+                                            name="kelas">
                                     </div>
                                     <!-- Angkatan -->
                                     <div class="col-md-6">
                                         <label class="form-label">Angkatan</label>
                                         <input type="text" class="form-control" placeholder="Angkatan" id="angkatan"
-                                            name="angkatan" value="{{ auth()->user()->mahasiswa->angkatan }}">
+                                            name="angkatan">
                                     </div>
                                 </div> <!-- Row END -->
                             </div>
                         </div>
-
                         <!-- change password -->
                         <div class="col-xxl-6">
                             <div class="bg-secondary-soft px-4 py-5 rounded">
                                 <div class="row g-3">
-                                    <h4 class="my-3">Ganti Password</h4>
-                                    <!-- Old password -->
-                                    <div class="col-md-6">
-                                        <label for="old_password" class="form-label">Password Lama *</label>
-                                        <input type="password" class="form-control" id="old_password"
-                                            name="old_password">
-                                    </div>
+                                    <h4 class="my-3">Password</h4>
                                     <!-- New password -->
                                     <div class="col-md-6">
-                                        <label for="new_password" class="form-label">Password Baru</label>
+                                        <label for="new_password" class="form-label">Password Baru *</label>
                                         <input type="password" class="form-control" id="new_password"
                                             name="new_password">
                                     </div>
                                     <!-- Confirm password -->
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <label for="confirm_password" class="form-label">Konfirmasi Password Baru</label>
                                         <input type="password" class="form-control" id="new_password_confirmation"
                                             name="new_password_confirmation">
@@ -149,7 +146,8 @@
                     </div> <!-- Row END -->
                     <!-- button -->
                     <div class="gap-3 d-md-flex justify-content-md-end text-center">
-                        <button type="submit" class="btn btn-primary btn-lg">Update Profile</button>
+                        <button type="submit" class="btn btn-primary btn-lg">Tambah Pengguna</button>
+                        <a href="#" class="btn btn-danger btn-lg">Kembali</a>
                     </div>
                 </form> <!-- Form END -->
             </div>

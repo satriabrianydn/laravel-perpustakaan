@@ -65,6 +65,8 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/dashboard/data-user/search', [DashboardController::class, 'searchUser'])->name('search.user');
 
   Route::get('/dashboard/data-user/edit/{id}', [AdminProfileController::class, 'adminShowEdit'])->name('admin.edit.profile');
+  Route::get('/dashboard/data-user/tambah', [AdminProfileController::class, 'showAddUser'])->name('admin.tambah.user');
+  Route::post('/dashboard/data-user/tambah/proses', [AdminProfileController::class, 'saveUser'])->name('admin.tambah.user.proses');
   Route::post('/dashboard/data-user/update/{id}', [AdminProfileController::class, 'adminUpdateProfile'])->name('admin.update.profile');
   Route::delete('/dashboard/daata-user/delete/{id}', [AdminProfileController::class, 'adminDeleteUser'])->name('admin.delete.user');
 

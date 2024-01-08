@@ -16,7 +16,7 @@
                 @endif  
                 <!-- Page title -->
                 <div class="my-5">
-                    <h3>My Profile</h3>
+                    <h3>Edit Pengguna</h3>
                     <hr>
                 </div>
                 <!-- Form START -->
