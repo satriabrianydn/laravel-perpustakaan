@@ -50,7 +50,7 @@
                                             {{-- <a href="#" class="btn btn-edit btn-circle">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a> --}}
-                                            <form action="#" method="POST" class="d-inline">
+                                            <form action="{{ route('delete.kategori', $category->id) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-delete btn-circle"

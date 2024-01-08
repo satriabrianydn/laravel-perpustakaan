@@ -83,6 +83,7 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/dashboard/data-kategori', [KategoriController::class, 'showKategori'])->name('dashboard.kategori');
   Route::get('/dashboard/data-kategori/tambah', [KategoriController::class, 'addKategori'])->name('dashboard.kategori.tambah');
   Route::post('/dashboard/data-kategori/tambah/proses', [KategoriController::class, 'processKategori'])->name('tambah.kategori.proses');
+  Route::delete('/dashboard/data-kategori/hapus/{id}', [KategoriController::class, 'deleteKategori'])->name('delete.kategori');
 
 });
 
