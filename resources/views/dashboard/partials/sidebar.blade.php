@@ -65,7 +65,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="#" aria-expanded="false">
+                        <a class="sidebar-link" href="{{ route('dashboard.kategori') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-category"></i>
                             </span>

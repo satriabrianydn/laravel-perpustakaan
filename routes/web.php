@@ -5,6 +5,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PenerbitController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -77,6 +78,9 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/dashboard/data-penerbit/edit/{id}', [PenerbitController::class, 'showEditPenerbit'])->name('dashboard.penerbit.edit');
   Route::post('/dashboard/data-penerbit/edit/update/{id}', [PenerbitController::class, 'editPenerbit'])->name('proses.penerbit.update');
   Route::delete('/dashboard/data-penerbit/delete/{id}', [PenerbitController::class, 'deletePenerbit'])->name('dashboard.penerbit.delete');
+
+  // Route Kategori
+  Route::get('/dashboard/data-kategori', [KategoriController::class, 'showKategori'])->name('dashboard.kategori');
 
 });
 
