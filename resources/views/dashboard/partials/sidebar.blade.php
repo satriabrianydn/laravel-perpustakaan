@@ -31,8 +31,8 @@
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                         <span class="hide-menu">DATA MASTER</span>
                     </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="#" aria-expanded="false">
+                    <li class="sidebar-item {{ request()->routeIs('dashboard.petugas') ? 'active' : '' }}">
+                        <a class="sidebar-link" href="{{ route('dashboard.petugas') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-user-check"></i>
                             </span>
@@ -144,7 +144,7 @@
                     </li>
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{ route('dashboard.profile') }}" aria-expanded="false">
+                        <a class="sidebar-link {{ request()->routeIs('dashboard.profile') ? 'active' : '' }}" href="{{ route('dashboard.profile') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-pencil"></i>
                             </span>

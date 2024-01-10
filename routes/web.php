@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PenerbitController;
+use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -84,6 +85,9 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/dashboard/data-kategori/tambah', [KategoriController::class, 'addKategori'])->name('dashboard.kategori.tambah');
   Route::post('/dashboard/data-kategori/tambah/proses', [KategoriController::class, 'processKategori'])->name('tambah.kategori.proses');
   Route::delete('/dashboard/data-kategori/hapus/{id}', [KategoriController::class, 'deleteKategori'])->name('delete.kategori');
+
+  // Route Data Petugas
+  Route::get('/dashboard/data-petugas', [PetugasController::class, 'showPetugas'])->name('dashboard.petugas');
 
 });
 
