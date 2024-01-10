@@ -35,7 +35,7 @@ class UserSeeder extends Seeder
             'email' => 'petugas@gmail.com',
             'email_verified_at' => null,
             'password' => Hash::make('12345678'),
-            'role' => 'Administrator',
+            'role' => 'Petugas',
             'created_at' => now()
         ]);
 
