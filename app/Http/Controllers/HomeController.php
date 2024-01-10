@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,7 +13,13 @@ class HomeController extends Controller
     }
 
     public function showCategoryHORROR() {
-        return view('category.horror');
+         // Temukan ID kategori 'Horror' terlebih dahulu
+         $horrorCategoryId = Kategori::where('kategori', 'Horror')->value('id');
+
+         // Ambil data buku dengan id_kategori yang sesuai
+         $books = Book::where('id_kategori', $horrorCategoryId)->get();
+ 
+         return view('category.horror', ['books' => $books]);
     }
 
     public function showCategoryFIKSI() {
