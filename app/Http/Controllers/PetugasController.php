@@ -75,17 +75,19 @@ class PetugasController extends Controller
         // Temukan petugas berdasarkan ID
         $petugas = Petugas::find($id);
 
-        // Jika petugas tidak ditemukan, kembalikan respons dengan not found
+        // Jika petugas tidak ditemukan
         if (!$petugas) {
-            return response()->json(['message' => 'Petugas not found.'], 404);
+            Alert::error('Error', 'Data Petugas tidak ditemukan!');
+            return redirect()->route('dashboard.petugas');
         }
 
         // Temukan pengguna terkait
         $user = User::find($petugas->user_id);
 
-        // Jika pengguna tidak ditemukan, kembalikan respons dengan not found
+        // Jika pengguna tidak ditemukan
         if (!$user) {
-            return response()->json(['message' => 'User not found.'], 404);
+            Alert::error('Error', 'Data User tidak ditemukan!');
+            return redirect()->route('dashboard.petugas');
         }
 
         try {
