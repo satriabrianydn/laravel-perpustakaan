@@ -75,7 +75,7 @@
                                             onchange="previewAvatar(this)">
                                         <label class="btn btn-success btn-block" for="avatar">Upload</label>
                                         <button type="button" class="btn btn-danger"
-                                            onclick="removeAvatarPreview()">Remove</button>
+                                            onclick="removeAvatarPreview()">Undo</button>
                                         <!-- Content -->
                                         <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Maksimal ukuran file 5MB</p>
                                         <p class="text-muted mt-1 mb-0"><span class="me-1">Format:</span>(JPG, JPEG, PNG)</p>

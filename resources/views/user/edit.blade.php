@@ -39,13 +39,13 @@
                                     <div class="col-md-6">
                                         <label class="form-label">Nomor Telepon</label>
                                         <input type="text" class="form-control" placeholder="Nomor Telepon"
-                                            id="no_telp" name="no_telp" value="{{ $user->mahasiswa->no_telp }}" disabled>
+                                            id="no_telp" name="no_telp" value="{{ $user->mahasiswa->no_telp }}" readonly>
                                     </div>
                                     <!-- Email -->
                                     <div class="col-md-6">
                                         <label for="email" class="form-label">Email</label>
                                         <input type="email" class="form-control" id="email" name="email"
-                                            placeholder="Email" value="{{ $user->email }}" disabled>
+                                            placeholder="Email" value="{{ $user->email }}" readonly>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="gender" class="form-label">Jenis Kelamin</label>
