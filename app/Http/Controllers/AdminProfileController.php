@@ -26,7 +26,7 @@ class AdminProfileController extends Controller
     public function saveUser (Request $request) {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
             'nim' => 'required|string|max:255',
             'gender' => 'required|in:Laki-Laki,Perempuan',
             'prodi' => 'required|string|max:255',
@@ -38,6 +38,8 @@ class AdminProfileController extends Controller
         ],[
             'name.required' => 'Nama Lengkap wajib di isi.',
             'email.required' => 'Email wajib di isi.',
+            'email.email' => 'Jenis email tidak valid.',
+            'email.unique' => 'Email telah digunakan.',
             'nim.required' => 'NIM wajib di isi.',
             'gender.required' => 'Jenis Kelamin wajib di isi.',
             'prodi.required' => 'Program Studi wajib di isi.',

@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <a href="#" class="btn btn-primary">Tambah Petugas</a>
+                            <a href="{{ route('dashboard.petugas.tambah') }}" class="btn btn-primary">Tambah Petugas</a>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -31,7 +31,16 @@
                                         <h6 class="fw-semibold mb-0">Nomor</h6>
                                     </th>
                                     <th class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0">Nama</h6>
+                                        <h6 class="fw-semibold mb-0">NIP</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Nama Petugas</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Alamat</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Nomor Telepon</h6>
                                     </th>
                                     <th class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Aksi</h6>
@@ -42,7 +51,10 @@
                                 @forelse ($petugas as $officer)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $officer->name }}</td>
+                                        <td>{{ $officer->nip }}</td>
+                                        <td>{{ $officer->user->name }}</td>
+                                        <td>{{ $officer->alamat_petugas }}</td>
+                                        <td>{{ $officer->no_telp }}</td>
                                         <td>
                                             <a href="#"
                                                 class="btn btn-edit btn-circle">
@@ -50,7 +62,7 @@
                                             </a>
 
                                             <!-- Tambahkan form untuk menghapus pengguna -->
-                                            <form action="#" method="POST"
+                                            <form action="{{ route('hapus.petugas', $officer->id) }}" method="POST"
                                                 class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
@@ -63,7 +75,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="3" class="text-center">Belum ada pengguna.</td>
+                                        <td colspan="3" class="text-center">Belum ada data petugas.</td>
                                     </tr>
                                 @endforelse
                             </tbody>

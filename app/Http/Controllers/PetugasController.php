@@ -2,22 +2,106 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
+use App\Models\Petugas;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PetugasController extends Controller
 {
     public function showPetugas(Request $request)
     {
-        $role = 'Petugas';
-        $search = $request->input('search');
+    // $role = 'Petugas';
+    $search = $request->input('search');
 
-        $petugas = User::when($search, function ($query) use ($search) {
-            $query->where('name', 'like', '%' . $search . '%');
+    $petugas = Petugas::with('user')
+        ->when($search, function ($query) use ($search) {
+            $query->whereHas('user', function ($userQuery) use ($search) {
+                $userQuery->where('name', 'like', '%' . $search . '%');
+            });
         })
-            ->where('role', $role)
-            ->paginate(10);
+        ->paginate(10);
 
-        return view('petugas.index', ['petugas' => $petugas]);
+    return view('petugas.index', ['petugas' => $petugas]);
+    }
+
+    public function showAddPetugas() {
+        return view('petugas.tambah');
+    }
+
+    public function storePetugas(Request $request) {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'nip' => 'required|string',
+            'no_telp' => 'required|string|max:15',
+            'alamat_petugas' => 'required|string|max:255',
+            'new_password' => 'required|string|min:8|confirmed'
+        ],[
+            'name.required' => 'Nama Petugas wajib di isi.',
+            'email.required' => 'Email Petugas wajib di isi.',
+            'email.email' => 'Jenis Email tidak valid.',
+            'email.unique' => 'Email telah digunakan.',
+            'nip.required' => 'NIP wajib di isi.',
+            'no_telp.required' => 'Nomor Telepon wajib di isi.',
+            'alamat_petugas.required' => 'Alamat wajib di isi.',
+            'new_password.required' => 'Password wajib di isi.',
+            'new_password.confirmed' => 'Konfirmasi Password tidak sesuai.'
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->new_password),
+            'role' => 'Petugas'
+        ]);
+
+        Petugas::create([
+            'user_id' => $user->id,
+            'nip' => $request->nip,
+            'no_telp' => $request->no_telp,
+            'alamat_petugas' => $request->alamat_petugas
+        ]);
+
+        Alert::success('Sukses', 'Data Petugas berhasil ditambahkan!');
+        return redirect()->route('dashboard.petugas');
+    }
+
+
+    public function deletePetugas($id)
+    {
+        // Temukan petugas berdasarkan ID
+        $petugas = Petugas::find($id);
+
+        // Jika petugas tidak ditemukan, kembalikan respons dengan not found
+        if (!$petugas) {
+            return response()->json(['message' => 'Petugas not found.'], 404);
+        }
+
+        // Temukan pengguna terkait
+        $user = User::find($petugas->user_id);
+
+        // Jika pengguna tidak ditemukan, kembalikan respons dengan not found
+        if (!$user) {
+            return response()->json(['message' => 'User not found.'], 404);
+        }
+
+        try {
+            // Hapus terlebih dahulu petugas
+            $petugas->delete();
+
+            // Hapus pengguna setelahnya
+            $user->delete();
+
+            // Tampilkan pesan sukses
+            Alert::success('Sukses', 'Data Petugas berhasil dihapus!');
+        } catch (\Exception $e) {
+            // Tangani kesalahan dan tampilkan pesan gagal
+            Alert::error('Error', 'Gagal menghapus data Petugas.');
+        }
+
+        return redirect()->route('dashboard.petugas');
     }
 }
