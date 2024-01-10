@@ -16,20 +16,12 @@
                                 <p class="card-text">Pengarang: {{ $book->nama_pengarang }}</p>
                             </div>
                             <div class="card-footer">
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat nam
-                                    culpa eum eos ab sit laudantium sint quasi qui similique dignissimos eligendi possimus
-                                    perspiciatis, debitis dolore in aliquid, sapiente doloremque.</p>
+                                <p class="card-text">Deskripsi: {{ $book->deskripsi }}</p>
                             </div>
                         </div>
                     </div>
                 @empty
-                    <div class="col">
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <p class="card-text">Belum ada buku dalam kategori ini.</p>
-                            </div>
-                        </div>
-                    </div>
+                <p>Belum ada buku dalam kategori ini.</p>
                 @endforelse
             </div>
         </div>
