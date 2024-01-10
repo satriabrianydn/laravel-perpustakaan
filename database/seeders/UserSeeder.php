@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Petugas;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -30,20 +31,6 @@ class UserSeeder extends Seeder
             'created_at' => now()
         ]);
 
-        User::Create([
-            'name' => 'PETUGAS',
-            'email' => 'petugas@gmail.com',
-            'email_verified_at' => null,
-            'password' => Hash::make('12345678'),
-            'role' => 'Petugas',
-            'created_at' => now()
-        ]);
-
-        Mahasiswa::Create([
-            'user_id' => 2,
-            'avatar' => 'default_avatar.jpg',
-            'created_at' => now()
-        ]);
 
         User::Create([
             'name' => 'MAHASISWA',
@@ -55,7 +42,7 @@ class UserSeeder extends Seeder
         ]);
 
         Mahasiswa::Create([
-            'user_id' => 3,
+            'user_id' => 2,
             'nim' => '220103000',
             'gender' => 'Laki-Laki',
             'prodi' => 'Teknik Informatika',
@@ -63,6 +50,23 @@ class UserSeeder extends Seeder
             'angkatan' => '2022',
             'no_telp' => '012345678910',
             'avatar' => 'default_avatar.jpg',
+            'created_at' => now()
+        ]);
+
+        User::Create([
+            'name' => 'PETUGAS',
+            'email' => 'petugas@gmail.com',
+            'email_verified_at' => null,
+            'password' => Hash::make('12345678'),
+            'role' => 'Petugas',
+            'created_at' => now()
+        ]);
+
+        Petugas::Create([
+            'user_id' => 3,
+            'nip' => '200000',
+            'alamat_petugas' => 'Jl. Nin aja dulu No. 53, Surakarta',
+            'no_telp' => '088888888888',
             'created_at' => now()
         ]);
     }
