@@ -32,31 +32,31 @@
                                     <div class="col-md-12">
                                         <label for="nama_buku" class="form-label">Judul Buku</label>
                                         <input type="text" class="form-control" id="nama_buku" name="nama_buku"
-                                            placeholder="Judul Buku">
+                                            placeholder="Judul Buku" value="{{ old('nama_buku') }}">
                                     </div>
                                     <!-- Kode Buku -->
                                     <div class="col-md-6">
                                         <label for="kode_buku" class="form-label">Kode Buku</label>
                                         <input type="text" class="form-control" placeholder="Kode Buku" id="kode_buku"
-                                            name="kode_buku">
+                                            name="kode_buku" value="{{ old('kode_buku') }}">
                                     </div>
                                     <!-- Tanggal Terbit -->
                                     <div class="col-md-6">
                                         <label for="tanggal_terbit" class="form-label">Tanggal Terbit</label>
                                         <input type="date" id="tanggal_terbit" name="tanggal_terbit"
-                                            class="form-control">
+                                            class="form-control" value="{{ old('tanggal_terbit') }}">
                                     </div>
                                     <!-- Nama Pengarang -->
                                     <div class="col-md-6">
                                         <label class="form-label">Nama Pengarang</label>
                                         <input type="text" id="nama_pengarang" name="nama_pengarang" class="form-control"
-                                            placeholder="Nama Pengarang">
+                                            placeholder="Nama Pengarang" value="{{ old('nama_pengarang') }}">
                                     </div>
                                     <!-- Jumlah Halaman -->
                                     <div class="col-md-6">
                                         <label class="form-label">Jumlah Halaman</label>
                                         <input type="text" id="jumlah_halaman" name="jumlah_halaman" class="form-control"
-                                            placeholder="Jumlah Halaman">
+                                            placeholder="Jumlah Halaman" value="{{ old('jumlah_halaman') }}">
                                     </div>
                                     <!-- Penerbit -->
                                     <div class="col-md-6">
@@ -64,23 +64,29 @@
                                         <select class="form-select" id="id_penerbit" name="id_penerbit">
                                             <option value="" selected disabled>Pilih Penerbit</option>
                                             @foreach ($penerbits as $penerbit)
-                                                <option value="{{ $penerbit->id }}">{{ $penerbit->nama_penerbit }}</option>
+                                                <option value="{{ $penerbit->id }}" {{ old('id_penerbit') == $penerbit->id ? 'selected' : '' }}>
+                                                    {{ $penerbit->nama_penerbit }}
+                                                </option>
                                             @endforeach
                                         </select>
                                     </div>
+                                    {{-- Kategori --}}
                                     <div class="col-md-6">
-                                        <label for="penerbit" class="form-label">Kategori</label>
+                                        <label for="kategori" class="form-label">Kategori</label>
                                         <select class="form-select" id="id_kategori" name="id_kategori">
                                             <option value="" selected disabled>Pilih Kategori</option>
                                             @foreach ($kategori as $category)
-                                                <option value="{{ $category->id }}">{{ $category->kategori }}</option>
+                                                <option value="{{ $category->id }}" {{ old('id_kategori') == $category->id ? 'selected' : '' }}>
+                                                    {{ $category->kategori }}
+                                                </option>
                                             @endforeach
                                         </select>
                                     </div>
+                                    {{-- Deskripsi --}}
                                     <div class="col-md-12">
                                         <label for="deskripsi" class="form-label">Deskripsi</label>
                                         <textarea class="form-control" id="deskripsi" name="deskripsi" rows="4"
-                                            placeholder="Deskripsi Buku"></textarea>
+                                            placeholder="Deskripsi Buku">{{ old('deskripsi') }}</textarea>
                                     </div>
                                 </div> <!-- Row END -->
                             </div>
