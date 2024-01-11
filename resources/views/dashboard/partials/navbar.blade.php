@@ -7,27 +7,24 @@
                     <i class="ti ti-menu-2"></i>
                 </a>
             </li>
-            {{-- <li class="nav-item">
-                <a class="nav-link nav-icon-hover" href="javascript:void(0)">
-                    <i class="ti ti-bell-ringing"></i>
-                    <div class="notification bg-primary rounded-circle"></div>
-                </a>
-            </li> --}}
         </ul>
         <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+                <li class="nav-item">
+                    <span id="jam" class="nav-link"></span>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         @if (auth()->user()->role == 'Administrator' && auth()->user()->mahasiswa)
-                        <img src="{{ asset('storage/avatar/' . auth()->user()->mahasiswa->avatar) }}" alt="Avatar"
-                            width="35" height="35" class="rounded-circle">
+                            <img src="{{ asset('storage/avatar/' . auth()->user()->mahasiswa->avatar) }}" alt="Avatar"
+                                width="35" height="35" class="rounded-circle">
                         @elseif (auth()->user()->role == 'Petugas' && auth()->user()->petugas)
-                        <img src="{{ asset('storage/avatar/' . auth()->user()->petugas->avatar) }}" alt="Avatar"
-                            width="35" height="35" class="rounded-circle">
+                            <img src="{{ asset('storage/avatar/' . auth()->user()->petugas->avatar) }}" alt="Avatar"
+                                width="35" height="35" class="rounded-circle">
                         @elseif (auth()->user()->role == 'Mahasiswa' && auth()->user()->mahasiswa)
-                        <img src="{{ asset('storage/avatar/' . auth()->user()->mahasiswa->avatar) }}" alt="Avatar"
-                            width="35" height="35" class="rounded-circle">
+                            <img src="{{ asset('storage/avatar/' . auth()->user()->mahasiswa->avatar) }}" alt="Avatar"
+                                width="35" height="35" class="rounded-circle">
                         @endif
                     </a>
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">

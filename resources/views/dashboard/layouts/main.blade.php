@@ -49,6 +49,7 @@
     <script src="{{ asset('assets/vendor/modernize/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/modernize/libs/simplebar/dist/simplebar.js') }}"></script>
     <script src="{{ asset('assets/vendor/modernize/js/dashboard.js') }}"></script>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
 </body>
 
 </html>

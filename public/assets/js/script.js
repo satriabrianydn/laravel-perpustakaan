@@ -64,3 +64,34 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
   });
+
+  // Clock Javascript
+function updateClock() {
+  var now = new Date();
+  var days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu"];
+  var dayOfWeek = days[now.getDay()];
+  var dayOfMonth = now.getDate();
+  var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+  var month = months[now.getMonth()];
+  var year = now.getFullYear();
+  var hours = now.getHours();
+  var minutes = now.getMinutes();
+  var seconds = now.getSeconds();
+
+  // Tambahkan nol di depan jika jam, menit, atau detik kurang dari 10
+  hours = hours < 10 ? '0' + hours : hours;
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  seconds = seconds < 10 ? '0' + seconds : seconds;
+
+  // Format waktu
+  var timeString = dayOfWeek + ', ' + dayOfMonth + ' ' + month + ' ' + year + '   ' + hours + ':' + minutes + ':' + seconds;
+
+  // Set teks jam pada elemen dengan id 'jam'
+  document.getElementById('jam').innerText = timeString;
+}
+
+// Panggil updateClock setiap detik
+setInterval(updateClock, 1000);
+
+// Panggil updateClock saat halaman dimuat
+window.onload = updateClock;

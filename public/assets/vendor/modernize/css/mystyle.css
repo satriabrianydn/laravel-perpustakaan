@@ -56,6 +56,22 @@
     color: #fff;
 }
 
+#jam {
+    font-size: 14px;
+    align-items: center;
+    font-weight: 400;
+}
+
+.welcome {
+    align-content: center;
+}
+
+@media (max-width: 767px) {
+    #jam {
+        font-size: 13px;
+    }
+}
+
 /* .table-responsive {
     overflow-x: hidden;
 }
