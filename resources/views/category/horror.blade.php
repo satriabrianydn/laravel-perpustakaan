@@ -12,8 +12,8 @@
                             <img src="{{ asset('storage/' . ($book->foto_buku ?? 'covers/no_image_available.png')) }}"
                                 class="card-img-center" alt="Cover Buku">
                             <div class="card-body">
-                                <h5 class="card-title">Judul: {{ $book->nama_buku }}</h5>
-                                <p class="card-text">Pengarang: {{ $book->nama_pengarang }}</p>
+                                <h5 class="card-title">{{ $book->nama_buku }}</h5>
+                                <p class="card-text">{{ $book->nama_pengarang }}</p>
                             </div>
                             <div class="card-footer">
                                 <p class="card-text">Deskripsi: {{ $book->deskripsi }}</p>
