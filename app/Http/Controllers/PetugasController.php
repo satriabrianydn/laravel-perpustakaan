@@ -62,13 +62,19 @@ class PetugasController extends Controller
             'user_id' => $user->id,
             'nip' => $request->nip,
             'no_telp' => $request->no_telp,
-            'alamat_petugas' => $request->alamat_petugas
+            'alamat_petugas' => $request->alamat_petugas,
+            'avatar' => 'default_avatar.jpg'
         ]);
 
         Alert::success('Sukses', 'Data Petugas berhasil ditambahkan!');
         return redirect()->route('dashboard.petugas');
     }
 
+    public function showUpdatePetugas ($id) {
+        $petugas = Petugas::find($id);
+        $user = User::find($petugas->user_id);
+        return view('petugas.edit', compact('petugas', 'user'));
+    }
 
     public function deletePetugas($id)
     {

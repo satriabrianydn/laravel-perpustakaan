@@ -56,7 +56,7 @@
                                         <td>{{ $officer->alamat_petugas }}</td>
                                         <td>{{ $officer->no_telp }}</td>
                                         <td>
-                                            <a href="#"
+                                            <a href="{{ route('edit.petugas', $officer->id) }}"
                                                 class="btn btn-edit btn-circle">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>

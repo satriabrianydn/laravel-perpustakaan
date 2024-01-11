@@ -19,8 +19,13 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                         data-bs-toggle="dropdown" aria-expanded="false">
+                        @if (auth()->user()->role == 'Petugas' && auth()->user()->petugas)
+                        <img src="{{ asset('storage/avatar/' . auth()->user()->petugas->avatar) }}" alt="Avatar"
+                            width="35" height="35" class="rounded-circle">
+                        @elseif (auth()->user()->role == 'Mahasiswa' && auth()->user()->mahasiswa)
                         <img src="{{ asset('storage/avatar/' . auth()->user()->mahasiswa->avatar) }}" alt="Avatar"
                             width="35" height="35" class="rounded-circle">
+                        @endif
                     </a>
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                         <div class="message-body">
