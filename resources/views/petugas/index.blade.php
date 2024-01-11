@@ -34,6 +34,9 @@
                                         <h6 class="fw-semibold mb-0">NIP</h6>
                                     </th>
                                     <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Foto Profil</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Nama Petugas</h6>
                                     </th>
                                     <th class="border-bottom-0">
@@ -52,6 +55,16 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $officer->nip }}</td>
+                                        <td>
+                                            @if ($officer->petugas && $officer->petugas->avatar)
+                                                <img src="{{ asset('storage/avatar/' . $officer->petugas->avatar) }}"
+                                                    alt="Foto Profil" width="50" class="rounded-circle">
+                                            @else
+                                                <!-- Tampilkan placeholder atau default image jika tidak ada foto profil -->
+                                                <img src="{{ asset('storage/avatar/default_avatar.jpg') }}"
+                                                    alt="Foto Profil" width="50" class="rounded-circle">
+                                            @endif
+                                        </td>
                                         <td>{{ $officer->user->name }}</td>
                                         <td>{{ $officer->alamat_petugas }}</td>
                                         <td>{{ $officer->no_telp }}</td>

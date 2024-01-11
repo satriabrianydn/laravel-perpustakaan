@@ -61,7 +61,7 @@
                         </div>
                     </div> <!-- Row END -->
 
-                    <!-- Info Mahasiswa -->
+                   
                     <div class="row mb-5 gx-5">
                         <!-- Create Password -->
                         <div class="col-xxl-6">

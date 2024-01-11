@@ -59,6 +59,22 @@
                                 </div> <!-- Row END -->
                             </div>
                         </div>
+                         <!-- Upload profile -->
+                         <div class="col-xxl-4">
+                            <div class="bg-secondary-soft px-4 py-5 rounded">
+                                <div class="row g-3">
+                                    <h4 class="mb-4 mt-0">Foto Profil</h4>
+                                    <div class="text-center">
+                                        <!-- Image upload -->
+                                        <div class="square position-relative display-2 mb-3">
+                                            <img
+                                                src="{{ asset('storage/avatar/' . $user->petugas->avatar) }}"
+                                                alt="Avatar" class="img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div> <!-- Row END -->
 
                     <!-- Info Mahasiswa -->
@@ -69,7 +85,7 @@
                                 <div class="row g-3">
                                     <h4 class="my-3">Ganti Password</h4>
                                      <!-- New password -->
-                                     <div class="col-md-6">
+                                     <div class="col-md-12">
                                         <label for="old_password" class="form-label">Password Lama</label>
                                         <input type="password" class="form-control" id="old_password"
                                             name="old_password">
