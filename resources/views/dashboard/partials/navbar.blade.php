@@ -11,7 +11,7 @@
         <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
                 <li class="nav-item">
-                    <span id="jam" class="nav-link"></span>
+                    <span id="jam"></span>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
