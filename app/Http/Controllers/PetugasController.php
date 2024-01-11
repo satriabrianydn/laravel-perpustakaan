@@ -76,6 +76,56 @@ class PetugasController extends Controller
         return view('petugas.edit', compact('petugas', 'user'));
     }
 
+    public function processUpdatePetugas(Request $request, $id) {
+        $petugas = Petugas::find($id);
+    
+        if (!$petugas) {
+            Alert::error('Error', 'Data Petugas tidak ditemukan!');
+            return redirect()->route('dashboard.petugas');
+        }
+    
+        $user = User::find($petugas->user_id);
+    
+        if (!$user) {
+            Alert::error('Error', 'Data User tidak ditemukan!');
+            return redirect()->route('dashboard.petugas');
+        }
+    
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'sometimes|email|unique:users,email,' . $user->id,
+            'nip' => 'sometimes|string',
+            'no_telp' => 'sometimes|string|max:15',
+            'alamat_petugas' => 'sometimes|string|max:255',
+            'old_password' => 'nullable|string|min:8',
+            'new_password' => 'nullable|string|min:8|confirmed',
+        ], [
+            'name.required' => 'Nama Petugas wajib di isi.',
+            'new_password.confirmed' => 'Konfirmasi Password tidak sesuai.',
+        ]);
+    
+        if ($request->filled('old_password') && !Hash::check($request->input('old_password'), $user->password)) {
+            Alert::error('Error', 'Password lama tidak sesuai.');
+            return redirect()->route('dashboard.profile');
+        }
+    
+        $petugas->update([
+            'nip' => $request->nip,
+            'no_telp' => $request->no_telp,
+            'alamat_petugas' => $request->alamat_petugas,
+        ]);
+    
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->new_password ? Hash::make($request->new_password) : $user->password,
+        ]);
+    
+        Alert::success('Sukses', 'Data Petugas berhasil diupdate!');
+        return redirect()->route('dashboard.petugas');
+    }
+    
+
     public function deletePetugas($id)
     {
         // Temukan petugas berdasarkan ID

@@ -20,7 +20,7 @@
                     <hr>
                 </div>
                 <!-- Form START -->
-                <form class="file-upload" action="#" method="POST">
+                <form class="file-upload" action="{{ route('update.petugas', ['id' => $petugas->id]) }}" method="POST">
                     @csrf
                     <div class="row mb-5 gx-5">
                         <!-- Contact detail -->

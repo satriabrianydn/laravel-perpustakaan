@@ -90,6 +90,7 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/dashboard/data-petugas', [PetugasController::class, 'showPetugas'])->name('dashboard.petugas');
   Route::get('/dashboard/data-petugas/tambah', [PetugasController::class, 'showAddPetugas'])->name('dashboard.petugas.tambah');
   Route::get('/dashboard/data-petugas/edit/{id}', [PetugasController::class, 'showUpdatePetugas'])->name('edit.petugas');
+  Route::post('/dashboard/data-petugas/edit/update/{id}', [PetugasController::class, 'processUpdatePetugas'])->name('update.petugas');
   Route::post('/dashboard/data-petugas/tambah/proses', [PetugasController::class, 'storePetugas'])->name('tambah.petugas.proses');
   Route::delete('dashboard/data-petugas/hapus/{id}', [PetugasController::class, 'deletePetugas'])->name('hapus.petugas');
 
