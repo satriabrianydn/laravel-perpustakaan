@@ -41,7 +41,7 @@
         {{-- Footer --}}
         @include('dashboard.partials.footer')
     </div>
-
+    <script src="{{ asset('assets/vendor/modernize/js/jquery-3.7.1.js') }}"></script>
     <script src="{{ asset('assets/vendor/modernize/libs/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/modernize/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/modernize/js/sidebarmenu.js') }}"></script>
