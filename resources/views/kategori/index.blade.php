@@ -54,7 +54,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-delete btn-circle"
-                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus penerbit ini?')">
+                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?')">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
                                             </form>

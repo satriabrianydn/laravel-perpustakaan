@@ -10,7 +10,7 @@
                         <div class="mb-3">
                             <h5 class="card-title fw-semibold">Daftar Petugas</h5>
                             <div class="mt-3">
-                                <form action="#" method="GET">
+                                <form action="{{ route('dashboard.petugas') }}" method="GET">
                                     <input type="text" name="search" class="form-control" placeholder="Cari Petugas..."
                                         value="{{ request('search') }}">
                                     <div class="mt-2">
