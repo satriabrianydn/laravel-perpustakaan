@@ -53,46 +53,51 @@ Route::post('/processRegister', [AuthController::class, 'processRegister']);
 Route::middleware(['auth'])->group(function () {
   // Dashboard
   Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard.index');
+});
+
+Route::middleware(['auth', 'role:Administrator'])->group(function () {
+  // Route Data Buku
+Route::get('/dashboard/data-buku', [BookController::class, 'showBook'])->name('dashboard.buku');
+Route::get('/dashboard/data-buku/tambah', [BookController::class, 'createBook'])->name('dashboard.buku.tambah');
+Route::post('/dashboard/data-buku/tambah/simpan', [BookController::class, 'storeBook'])->name('storeBook');
+Route::delete('/dashboard/data-buku/hapus/{id}', [BookController::class, 'destroy'])->name('hapus.buku');
+
+// Route Data User
+Route::get('/dashboard/data-user', [DashboardController::class, 'showUser'])->name('dashboard.user');
+Route::get('/dashboard/data-user/search', [DashboardController::class, 'searchUser'])->name('search.user');
+
+Route::get('/dashboard/data-user/edit/{id}', [AdminProfileController::class, 'adminShowEdit'])->name('admin.edit.profile');
+Route::get('/dashboard/data-user/tambah', [AdminProfileController::class, 'showAddUser'])->name('admin.tambah.user');
+Route::post('/dashboard/data-user/tambah/proses', [AdminProfileController::class, 'saveUser'])->name('admin.tambah.user.proses');
+Route::post('/dashboard/data-user/update/{id}', [AdminProfileController::class, 'adminUpdateProfile'])->name('admin.update.profile');
+Route::delete('/dashboard/daata-user/delete/{id}', [AdminProfileController::class, 'adminDeleteUser'])->name('admin.delete.user');
+
+// Route Penerbit
+Route::get('/dashboard/data-penerbit', [PenerbitController::class, 'showDataPenerbit'])->name('dashboard.penerbit');
+Route::get('/dashboard/data-penerbit/tambah', [PenerbitController::class, 'addPenerbit'])->name('dashboard.penerbit.tambah');
+Route::post('/dashboard/data-penerbit/proses', [PenerbitController::class, 'processAddPenerbit'])->name('proses.penerbit');
+Route::get('/dashboard/data-penerbit/edit/{id}', [PenerbitController::class, 'showEditPenerbit'])->name('dashboard.penerbit.edit');
+Route::post('/dashboard/data-penerbit/edit/update/{id}', [PenerbitController::class, 'editPenerbit'])->name('proses.penerbit.update');
+Route::delete('/dashboard/data-penerbit/delete/{id}', [PenerbitController::class, 'deletePenerbit'])->name('dashboard.penerbit.delete');
+
+// Route Kategori
+Route::get('/dashboard/data-kategori', [KategoriController::class, 'showKategori'])->name('dashboard.kategori');
+Route::get('/dashboard/data-kategori/tambah', [KategoriController::class, 'addKategori'])->name('dashboard.kategori.tambah');
+Route::post('/dashboard/data-kategori/tambah/proses', [KategoriController::class, 'processKategori'])->name('tambah.kategori.proses');
+Route::delete('/dashboard/data-kategori/hapus/{id}', [KategoriController::class, 'deleteKategori'])->name('delete.kategori');
+
+// Route Data Petugas
+Route::get('/dashboard/data-petugas', [PetugasController::class, 'showPetugas'])->name('dashboard.petugas');
+Route::get('/dashboard/data-petugas/tambah', [PetugasController::class, 'showAddPetugas'])->name('dashboard.petugas.tambah');
+Route::get('/dashboard/data-petugas/edit/{id}', [PetugasController::class, 'showUpdatePetugas'])->name('edit.petugas');
+Route::post('/dashboard/data-petugas/edit/update/{id}', [PetugasController::class, 'processUpdatePetugas'])->name('update.petugas');
+Route::post('/dashboard/data-petugas/tambah/proses', [PetugasController::class, 'storePetugas'])->name('tambah.petugas.proses');
+Route::delete('dashboard/data-petugas/hapus/{id}', [PetugasController::class, 'deletePetugas'])->name('hapus.petugas');
+});
+
+Route::middleware(['auth', 'role:Mahasiswa'])->group(function () {
   Route::get('/dashboard/edit-profil',[ProfileController::class, 'showProfile'])->name('dashboard.profile');
   Route::post('dashboard/edit-profile/update', [ProfileController::class, 'updateProfile'])->name('dashboard.update');
-
-  // Route Data Buku
-  Route::get('/dashboard/data-buku', [BookController::class, 'showBook'])->name('dashboard.buku');
-  Route::get('/dashboard/data-buku/tambah', [BookController::class, 'createBook'])->name('dashboard.buku.tambah');
-  Route::post('/dashboard/data-buku/tambah/simpan', [BookController::class, 'storeBook'])->name('storeBook');
-  Route::delete('/dashboard/data-buku/hapus/{id}', [BookController::class, 'destroy'])->name('hapus.buku');
-
-  // Route Data User
-  Route::get('/dashboard/data-user', [DashboardController::class, 'showUser'])->name('dashboard.user');
-  Route::get('/dashboard/data-user/search', [DashboardController::class, 'searchUser'])->name('search.user');
-
-  Route::get('/dashboard/data-user/edit/{id}', [AdminProfileController::class, 'adminShowEdit'])->name('admin.edit.profile');
-  Route::get('/dashboard/data-user/tambah', [AdminProfileController::class, 'showAddUser'])->name('admin.tambah.user');
-  Route::post('/dashboard/data-user/tambah/proses', [AdminProfileController::class, 'saveUser'])->name('admin.tambah.user.proses');
-  Route::post('/dashboard/data-user/update/{id}', [AdminProfileController::class, 'adminUpdateProfile'])->name('admin.update.profile');
-  Route::delete('/dashboard/daata-user/delete/{id}', [AdminProfileController::class, 'adminDeleteUser'])->name('admin.delete.user');
-
-  // Route Penerbit
-  Route::get('/dashboard/data-penerbit', [PenerbitController::class, 'showDataPenerbit'])->name('dashboard.penerbit');
-  Route::get('/dashboard/data-penerbit/tambah', [PenerbitController::class, 'addPenerbit'])->name('dashboard.penerbit.tambah');
-  Route::post('/dashboard/data-penerbit/proses', [PenerbitController::class, 'processAddPenerbit'])->name('proses.penerbit');
-  Route::get('/dashboard/data-penerbit/edit/{id}', [PenerbitController::class, 'showEditPenerbit'])->name('dashboard.penerbit.edit');
-  Route::post('/dashboard/data-penerbit/edit/update/{id}', [PenerbitController::class, 'editPenerbit'])->name('proses.penerbit.update');
-  Route::delete('/dashboard/data-penerbit/delete/{id}', [PenerbitController::class, 'deletePenerbit'])->name('dashboard.penerbit.delete');
-
-  // Route Kategori
-  Route::get('/dashboard/data-kategori', [KategoriController::class, 'showKategori'])->name('dashboard.kategori');
-  Route::get('/dashboard/data-kategori/tambah', [KategoriController::class, 'addKategori'])->name('dashboard.kategori.tambah');
-  Route::post('/dashboard/data-kategori/tambah/proses', [KategoriController::class, 'processKategori'])->name('tambah.kategori.proses');
-  Route::delete('/dashboard/data-kategori/hapus/{id}', [KategoriController::class, 'deleteKategori'])->name('delete.kategori');
-
-  // Route Data Petugas
-  Route::get('/dashboard/data-petugas', [PetugasController::class, 'showPetugas'])->name('dashboard.petugas');
-  Route::get('/dashboard/data-petugas/tambah', [PetugasController::class, 'showAddPetugas'])->name('dashboard.petugas.tambah');
-  Route::get('/dashboard/data-petugas/edit/{id}', [PetugasController::class, 'showUpdatePetugas'])->name('edit.petugas');
-  Route::post('/dashboard/data-petugas/edit/update/{id}', [PetugasController::class, 'processUpdatePetugas'])->name('update.petugas');
-  Route::post('/dashboard/data-petugas/tambah/proses', [PetugasController::class, 'storePetugas'])->name('tambah.petugas.proses');
-  Route::delete('dashboard/data-petugas/hapus/{id}', [PetugasController::class, 'deletePetugas'])->name('hapus.petugas');
-
 });
+
 
