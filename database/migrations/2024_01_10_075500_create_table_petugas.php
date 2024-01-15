@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('petugas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
-            $table->string('nip');
-            $table->string('alamat_petugas');
-            $table->string('no_telp');
-            $table->string('avatar');
+            $table->string('nip')->nullable();
+            $table->string('alamat_petugas')->nullable();
+            $table->string('no_telp')->nullable();
+            $table->string('avatar')->nullable();
             $table->timestamps();
         });
     }
