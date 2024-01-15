@@ -13,7 +13,7 @@ class PetugasController extends Controller
 {
     public function showPetugas(Request $request)
     {
-    // $role = 'Petugas';
+
     $search = $request->input('search');
 
     $petugas = Petugas::with('user')

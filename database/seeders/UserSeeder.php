@@ -67,6 +67,7 @@ class UserSeeder extends Seeder
             'nip' => '200000',
             'alamat_petugas' => 'Jl. Nin aja dulu No. 53, Surakarta',
             'no_telp' => '088888888888',
+            'avatar' => 'default_avatar.jpg',
             'created_at' => now()
         ]);
     }

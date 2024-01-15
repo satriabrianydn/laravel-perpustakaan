@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('nip');
             $table->string('alamat_petugas');
             $table->string('no_telp');
+            $table->string('avatar');
             $table->timestamps();
         });
     }

@@ -12,7 +12,7 @@
                             <div class="mt-3">
                                 <form action="{{ route('dashboard.petugas') }}" method="GET">
                                     <input type="text" name="search" class="form-control" placeholder="Cari Petugas..."
-                                        value="{{ request('search') }}">
+                                        value="{{ request('search') }}"> 
                                     <div class="mt-2">
                                         <button type="submit" class="btn btn-primary">Cari</button>
                                     </div>
