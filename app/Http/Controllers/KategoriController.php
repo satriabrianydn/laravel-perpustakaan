@@ -46,6 +46,28 @@ class KategoriController extends Controller
         return redirect()->route('dashboard.kategori');
     }
 
+    public function showEditKategori($id) {
+        $kategori = Kategori::findOrfail($id);
+        return view('kategori.edit', compact('kategori'));
+    }
+
+    public function processUpdateKategori(Request $request, $id) {
+        $request->validate([
+            'kategori' => 'required|string|max:255'
+        ],[
+            'kategori.required' => 'Nama Kategori tidak boleh kosong!'
+        ]);
+
+        $kategori = Kategori::find($id);
+
+        $kategori->update([
+            'kategori' => $request->kategori
+        ]);
+
+        Alert::success('Sukses','Kategori berhasil di update!');
+        return redirect()->route('dashboard.kategori');
+    }
+
     public function deleteKategori($id)
     {
         $kategori = Kategori::find($id);

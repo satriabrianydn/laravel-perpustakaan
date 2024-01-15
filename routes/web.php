@@ -84,6 +84,8 @@ Route::delete('/dashboard/data-penerbit/delete/{id}', [PenerbitController::class
 Route::get('/dashboard/data-kategori', [KategoriController::class, 'showKategori'])->name('dashboard.kategori');
 Route::get('/dashboard/data-kategori/tambah', [KategoriController::class, 'addKategori'])->name('dashboard.kategori.tambah');
 Route::post('/dashboard/data-kategori/tambah/proses', [KategoriController::class, 'processKategori'])->name('tambah.kategori.proses');
+Route::get('/dashboard/data-kategori/edit/{id}', [KategoriController::class, 'showEditKategori'])->name('dashboard.kategori.edit');
+Route::post('/dashboard/data-kategori/edit/update/{id}', [KategoriController::class, 'processUpdateKategori'])->name('update.kategori');
 Route::delete('/dashboard/data-kategori/hapus/{id}', [KategoriController::class, 'deleteKategori'])->name('delete.kategori');
 
 // Route Data Petugas

@@ -47,9 +47,9 @@
                                         <td>{{ $category->kategori }}</td>
                                         <td>{{ $category->buku_count }}</td>
                                         <td>
-                                            {{-- <a href="#" class="btn btn-edit btn-circle">
+                                            <a href="{{ route('dashboard.kategori.edit', $category->id) }}" class="btn btn-edit btn-circle">
                                                 <i class="fas fa-pencil-alt"></i>
-                                            </a> --}}
+                                            </a>
                                             <form action="{{ route('delete.kategori', $category->id) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
