@@ -95,9 +95,3 @@ setInterval(updateClock, 1000);
 
 // Panggil updateClock saat halaman dimuat
 window.onload = updateClock;
-
-
-// Redirect Forbidden to Dashboard
-setTimeout(function () {
-  window.location.href = '/dashboard';
-}, 5000);
