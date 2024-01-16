@@ -56,14 +56,8 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $officer->nip }}</td>
                                         <td>
-                                            @if ($officer->petugas && $officer->petugas->avatar)
-                                                <img src="{{ asset('storage/avatar/' . $officer->petugas->avatar) }}"
-                                                    alt="Foto Profil" width="50" class="rounded-circle">
-                                            @else
-                                                <!-- Tampilkan placeholder atau default image jika tidak ada foto profil -->
-                                                <img src="{{ asset('storage/avatar/default_avatar.jpg') }}"
-                                                    alt="Foto Profil" width="50" class="rounded-circle">
-                                            @endif
+                                                <img src="{{ asset('storage/avatar/' . $officer->avatar) }}"
+                                                    alt="Foto Profil" width="50" class="rounded-circle">    
                                         </td>
                                         <td>{{ $officer->user->name }}</td>
                                         <td>{{ $officer->alamat_petugas }}</td>
