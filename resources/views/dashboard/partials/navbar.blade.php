@@ -7,6 +7,9 @@
                     <i class="ti ti-menu-2"></i>
                 </a>
             </li>
+            <li class="nav-item">
+                <span>Hai, Selamat Datang <strong>{{ auth()->user()->name }}</strong></span>
+            </li>
         </ul>
         <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">

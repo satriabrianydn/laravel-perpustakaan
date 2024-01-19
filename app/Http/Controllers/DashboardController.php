@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Kategori;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,11 +17,13 @@ class DashboardController extends Controller
 
             $totalUser = User::where('role', '=', 'Mahasiswa')->count();
             $totalBuku = Book::count();
+            $topCategories = Kategori::orderBy('created_at', 'desc')->take(5)->get();
 
             return view('dashboard.index', [
                 'role' => auth()->user()->role,
                 'totalUser' => $totalUser,
-                'totalBuku' => $totalBuku
+                'totalBuku' => $totalBuku,
+                'topCategories' => $topCategories
             ]);
         }
 
