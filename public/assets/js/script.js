@@ -111,7 +111,7 @@ function getGreetingMessage() {
       greeting = 'Hai, Selamat Pagi';
   } else if (hours < 17) {
       greeting = 'Hai, Selamat Siang';
-  } else if (hours < 20) {
+  } else if (hours < 19) {
       greeting = 'Hai, Selamat Sore';
   } else {
       greeting = 'Hai, Selamat Malam';
