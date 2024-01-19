@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +13,15 @@ class DashboardController extends Controller
     {
         // Cek Pengguna apakah sudah ada session
         if (Auth::check()) {
-            return view('dashboard.index', ['role' => auth()->user()->role]);
+
+            $totalUser = User::where('role', '=', 'Mahasiswa')->count();
+            $totalBuku = Book::count();
+
+            return view('dashboard.index', [
+                'role' => auth()->user()->role,
+                'totalUser' => $totalUser,
+                'totalBuku' => $totalBuku
+            ]);
         }
 
         // Jika belum login, redirect ke halaman login
