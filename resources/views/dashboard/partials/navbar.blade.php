@@ -8,7 +8,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <span>Hai, Selamat Datang <strong>{{ auth()->user()->name }}</strong></span>
+                <span id="greeting"></span> <strong>{{ auth()->user()->name }}</strong>
             </li>
         </ul>
         <div class="navbar-collapse justify-content-end px-0" id="navbarNav">

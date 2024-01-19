@@ -95,3 +95,27 @@ setInterval(updateClock, 1000);
 
 // Panggil updateClock saat halaman dimuat
 window.onload = updateClock;
+
+// Greeting Script
+document.addEventListener('DOMContentLoaded', function () {
+  var greetingMessage = getGreetingMessage();
+  document.getElementById('greeting').innerText = greetingMessage;
+});
+
+function getGreetingMessage() {
+  var currentTime = new Date();
+  var hours = currentTime.getHours();
+  var greeting;
+
+  if (hours < 12) {
+      greeting = 'Hai, Selamat Pagi';
+  } else if (hours < 17) {
+      greeting = 'Hai, Selamat Siang';
+  } else if (hours < 20) {
+      greeting = 'Hai, Selamat Sore';
+  } else {
+      greeting = 'Hai, Selamat Malam';
+  }
+
+  return greeting;
+}
