@@ -11,15 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('petugas', function (Blueprint $table) {
+        Schema::create('denda', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->string('nip')->unique()->nullable();
-            $table->string('alamat_petugas')->nullable();
-            $table->string('no_telp')->nullable();
-            $table->string('avatar')->nullable();
+            $table->foreignId('id_pinjam')->constrained('peminjaman')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
+            $table->string('keterlambatan');
+            $table->integer('denda');
             $table->timestamps();
         });
+        
     }
 
     /**
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('petugas');
+        Schema::dropIfExists('denda');
     }
 };

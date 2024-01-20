@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
-            $table->string('nim')->nullable();
+            $table->string('nim')->unique()->nullable();
             $table->string('gender')->nullable();
             $table->string('prodi')->nullable();
             $table->string('kelas')->nullable();

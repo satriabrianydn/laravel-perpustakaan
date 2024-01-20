@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('petugas', function (Blueprint $table) {
+        Schema::create('peminjaman', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->string('nip')->unique()->nullable();
-            $table->string('alamat_petugas')->nullable();
-            $table->string('no_telp')->nullable();
-            $table->string('avatar')->nullable();
+            $table->foreignId('nim')->constrained('mahasiswa');
+            $table->foreignId('nip')->constrained('petugas');
+            $table->date('tgl_pinjaman');
+            $table->date('tgl_kembali');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('petugas');
+        Schema::dropIfExists('peminjaman');
     }
 };
