@@ -49,9 +49,9 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/processLogin', [AuthController::class, 'processLogin']);
 Route::post('/processRegister', [AuthController::class, 'processRegister']);
 
-// Route Dashboard
+
 Route::middleware(['auth'])->group(function () {
-  // Dashboard
+  // Route Dashboard
   Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard.index');
 });
 
