@@ -33,14 +33,7 @@
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                         <div class="message-body">
                             {{-- List Menu Admin Navbar Dashboard --}}
-                            @if (auth()->user()->role == 'Administrator')
-                                <a href="{{ route('home.index') }}"
-                                    class="d-flex align-items-center gap-2 dropdown-item">
-                                    <i class="ti ti-home fs-6"></i>
-                                    <p class="mb-0 fs-3">Back to Home</p>
-                                </a>
-                                {{-- List Menu Petugas Navbar Dashboard --}}
-                            @elseif (auth()->user()->role == 'Petugas')
+                            @if (in_array(auth()->user()->role, ['Administrator', 'Petugas']))
                                 <a href="{{ route('home.index') }}"
                                     class="d-flex align-items-center gap-2 dropdown-item">
                                     <i class="ti ti-home fs-6"></i>
