@@ -26,7 +26,7 @@
                     </a>
                 </li>
 
-                @if (auth()->user()->role == 'Administrator')
+                @if (in_array(auth()->user()->role, ['Administrator', 'Petugas']))
                     <li class="nav-small-cap">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                         <span class="hide-menu">DATA MASTER</span>
@@ -40,7 +40,8 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link {{ request()->routeIs('dashboard.user') ? 'active' : '' }}" href="{{ route('dashboard.user') }}" aria-expanded="false">
+                        <a class="sidebar-link {{ request()->routeIs('dashboard.user') ? 'active' : '' }}"
+                            href="{{ route('dashboard.user') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-users"></i>
                             </span>
@@ -57,7 +58,8 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link {{ request()->routeIs('dashboard.penerbit') ? 'active' : '' }}" href="{{ route('dashboard.penerbit') }}" aria-expanded="false">
+                        <a class="sidebar-link {{ request()->routeIs('dashboard.penerbit') ? 'active' : '' }}"
+                            href="{{ route('dashboard.penerbit') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-cylinder"></i>
                             </span>
@@ -94,28 +96,15 @@
                             <span class="hide-menu">Data Peminjaman</span>
                         </a>
                     </li>
-                @elseif(auth()->user()->role == 'Petugas')
-                    <li class="nav-small-cap">
-                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                        <span class="hide-menu">Menu Transaksi</span>
-                    </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="#" aria-expanded="false">
                             <span>
-                                <i class="ti ti-shopping-cart"></i>
+                                <i class="ti ti-cash"></i>
                             </span>
-                            <span class="hide-menu">Data Transaksi</span>
+                            <span class="hide-menu">Data Denda</span>
                         </a>
                     </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="#" aria-expanded="false">
-                            <span>
-                                <i class="ti ti-user-plus"></i>
-                            </span>
-                            <span class="hide-menu">Data Peminjaman</span>
-                        </a>
-                    </li>
-                    @elseif(auth()->user()->role == 'Mahasiswa')
+                @elseif(auth()->user()->role == 'Mahasiswa')
                     <li class="nav-small-cap">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                         <span class="hide-menu">Menu Transaksi</span>
@@ -132,7 +121,7 @@
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="#" aria-expanded="false">
                             <span>
-                                <i class="ti ti-file"></i>
+                                <i class="ti ti-book"></i>
                             </span>
                             <span class="hide-menu">Data Peminjaman</span>
                         </a>
@@ -140,9 +129,17 @@
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="#" aria-expanded="false">
                             <span>
-                                <i class="ti ti-file"></i>
+                                <i class="ti ti-rotate"></i>
                             </span>
                             <span class="hide-menu">Data Pengembalian</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-cash"></i>
+                            </span>
+                            <span class="hide-menu">Data Denda</span>
                         </a>
                     </li>
 
@@ -152,14 +149,15 @@
                     </li>
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link {{ request()->routeIs('dashboard.profile') ? 'active' : '' }}" href="{{ route('dashboard.profile') }}" aria-expanded="false">
+                        <a class="sidebar-link {{ request()->routeIs('dashboard.profile') ? 'active' : '' }}"
+                            href="{{ route('dashboard.profile') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-pencil"></i>
                             </span>
                             <span class="hide-menu">Edit Profile</span>
                         </a>
                     </li>
-                    @endif
+                @endif
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

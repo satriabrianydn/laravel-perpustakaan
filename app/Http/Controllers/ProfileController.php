@@ -34,6 +34,8 @@ class ProfileController extends Controller
             'avatar' => 'sometimes|nullable|image|mimes:jpeg,png,jpg|max:5120',
             'old_password' => 'sometimes|nullable|string|min:8',
             'new_password' => 'sometimes|nullable|string|min:8|confirmed',
+        ],[
+            'name.required' => 'Nama Lengkap tidak boleh kosong!'
         ]);
 
         $user = auth()->user();

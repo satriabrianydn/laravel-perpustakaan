@@ -10,6 +10,15 @@
                     <h3>My Profile</h3>
                     <hr>
                 </div>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <!-- Form START -->
                 <form class="file-upload" action="{{ route('dashboard.update') }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -23,24 +32,24 @@
                                     <div class="col-md-12">
                                         <label for="name" class="form-label">Nama Lengkap</label>
                                         <input type="text" class="form-control" id="name" name="name"
-                                        placeholder="Nama Lengkap" value="{{ auth()->user()->name }}">
+                                        placeholder="Nama Lengkap" value="{{ old('name', auth()->user() ? auth()->user()->name : '') }}">
                                     </div>
                                     <!-- Phone number -->
                                     <div class="col-md-6">
                                         <label class="form-label">Nomor Telepon</label>
                                         <input type="text" class="form-control" placeholder="Nomor Telepon"
-                                            id="no_telp" name="no_telp" value="{{ auth()->user()->mahasiswa->no_telp }}">
+                                            id="no_telp" name="no_telp" value="{{ old('no_telp', auth()->user()->mahasiswa ? auth()->user()->mahasiswa->no_telp : '') }}">
                                     </div>
                                     <!-- Email -->
                                     <div class="col-md-6">
                                         <label for="email" class="form-label">Email</label>
                                         <input type="email" class="form-control" id="email" name="email"
-                                        placeholder="Email" value="{{ auth()->user()->email }}">
+                                        placeholder="Email" value="{{ old('email', auth()->user() ? auth()->user()->email : '') }}">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="gender" class="form-label">Jenis Kelamin</label>
                                         <select class="form-select" id="gender" name="gender">
-                                            <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
+                                            <option value="" selected disabled hidden>-- Pilih Jenis Kelamin --</option>
                                             <option value="Laki-Laki" @if (auth()->user()->mahasiswa->gender == 'Laki-Laki') selected @endif>
                                                 Laki-Laki</option>
                                             <option value="Perempuan" @if (auth()->user()->mahasiswa->gender == 'Perempuan') selected @endif>
@@ -96,25 +105,25 @@
                                     <div class="col-md-6">
                                         <label class="form-label">NIM</label>
                                         <input type="text" id="nim" name="nim" class="form-control"
-                                            placeholder="NIM" value="{{ auth()->user()->mahasiswa->nim }}">
+                                            placeholder="NIM" value="{{ old('nim', auth()->user()->mahasiswa ? auth()->user()->mahasiswa->nim : '') }}">
                                     </div>
                                     <!-- Program Studi -->
                                     <div class="col-md-6">
                                         <label class="form-label">Program Studi</label>
                                         <input type="text" id="prodi" name="prodi" class="form-control"
-                                            placeholder="Program Studi" value="{{ auth()->user()->mahasiswa->prodi }}">
+                                            placeholder="Program Studi" value="{{ old('prodi', auth()->user()->mahasiswa ? auth()->user()->mahasiswa->prodi : '') }}">
                                     </div>
                                     <!-- Kelas -->
                                     <div class="col-md-6">
                                         <label class="form-label">Kelas</label>
                                         <input type="text" class="form-control" placeholder="Kelas" id="kelas"
-                                            name="kelas" value="{{ auth()->user()->mahasiswa->kelas }}">
+                                            name="kelas" value="{{ old('kelas', auth()->user()->mahasiswa ? auth()->user()->mahasiswa->kelas : '') }}">
                                     </div>
                                     <!-- Angkatan -->
                                     <div class="col-md-6">
                                         <label class="form-label">Angkatan</label>
                                         <input type="text" class="form-control" placeholder="Angkatan" id="angkatan"
-                                            name="angkatan" value="{{ auth()->user()->mahasiswa->angkatan }}">
+                                            name="angkatan" value="{{ old('angkatan', auth()->user()->mahasiswa ? auth()->user()->mahasiswa->angkatan : '') }}">
                                     </div>
                                 </div> <!-- Row END -->
                             </div>

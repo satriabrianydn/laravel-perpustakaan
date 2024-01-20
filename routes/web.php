@@ -55,7 +55,7 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard.index');
 });
 
-Route::middleware(['auth', 'role:Administrator'])->group(function () {
+Route::middleware(['auth', 'role:Administrator,Petugas'])->group(function () {
   // Route Data Buku
 Route::get('/dashboard/data-buku', [BookController::class, 'showBook'])->name('dashboard.buku');
 Route::get('/dashboard/data-buku/tambah', [BookController::class, 'createBook'])->name('dashboard.buku.tambah');
