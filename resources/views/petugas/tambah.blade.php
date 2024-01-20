@@ -32,30 +32,45 @@
                                     <div class="col-md-6">
                                         <label for="name" class="form-label">Nama Petugas</label>
                                         <input type="text" class="form-control" id="name" name="name"
-                                            placeholder="Nama Lengkap">
+                                            placeholder="Nama Lengkap" value="{{ old('name') }}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="gender" class="form-label">Jenis Kelamin</label>
+                                        <select class="form-select" id="gender" name="gender">
+                                            <option value="" selected disabled hidden>-- Pilih Jenis Kelamin --</option>
+                                            <option value="Laki-Laki">Laki-Laki</option>
+                                            <option value="Perempuan">Perempuan</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="nip" class="form-label">NIP</label>
                                         <input type="text" class="form-control" id="nip" name="nip"
-                                            placeholder="NIP">
+                                            placeholder="NIP" value="{{ old('nip') }}">
                                     </div>
                                     <!-- Phone number -->
                                     <div class="col-md-6">
                                         <label class="form-label">Nomor Telepon</label>
                                         <input type="text" class="form-control" placeholder="Nomor Telepon"
-                                            id="no_telp" name="no_telp">
+                                            id="no_telp" name="no_telp" value="{{ old('no_telp') }}">
                                     </div>
                                     <!-- Email -->
                                     <div class="col-md-6">
                                         <label for="email" class="form-label">Email</label>
                                         <input type="email" class="form-control" id="email" name="email"
-                                            placeholder="Email">
+                                            placeholder="Email" value="{{ old('email') }}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="role" class="form-label">Role</label>
+                                        <select class="form-select" id="role" name="role">
+                                            <option value="" selected disabled hidden>-- Pilih Role --</option>
+                                            <option value="Petugas" selected>Petugas</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-12">
                                         <label for="alamat_petugas" class="form-label">Alamat</label>
                                         <textarea class="form-control" id="alamat_petugas" name="alamat_petugas" rows="4"
-                                            placeholder="Alamat Petugas"></textarea>
-                                    </div>
+                                            placeholder="Alamat Petugas">{{ old('alamat_petugas') }}</textarea>
+                                    </div>                                
                                 </div> <!-- Row END -->
                             </div>
                         </div>

@@ -40,6 +40,9 @@
                                         <h6 class="fw-semibold mb-0">Nama Petugas</h6>
                                     </th>
                                     <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Jenis Kelamin</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Alamat</h6>
                                     </th>
                                     <th class="border-bottom-0">
@@ -60,6 +63,7 @@
                                                     alt="Foto Profil" width="50" class="rounded-circle">    
                                         </td>
                                         <td>{{ $officer->user->name }}</td>
+                                        <td>{{ $officer->gender }}</td>
                                         <td>{{ $officer->alamat_petugas }}</td>
                                         <td>{{ $officer->no_telp }}</td>
                                         <td>
@@ -82,7 +86,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="3" class="text-center">Belum ada data petugas.</td>
+                                        <td colspan="9" class="text-center">Belum ada data petugas.</td>
                                     </tr>
                                 @endforelse
                             </tbody>

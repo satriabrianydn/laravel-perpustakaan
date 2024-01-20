@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->string('nip')->unique()->nullable();
+            $table->string('gender')->nullable();
             $table->string('alamat_petugas')->nullable();
             $table->string('no_telp')->nullable();
             $table->string('avatar')->nullable();

@@ -55,7 +55,7 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard.index');
 });
 
-Route::middleware(['auth', 'role:Administrator,Petugas'])->group(function () {
+Route::middleware(['auth', 'role:Administrator'])->group(function () {
   // Route Data Buku
 Route::get('/dashboard/data-buku', [BookController::class, 'showBook'])->name('dashboard.buku');
 Route::get('/dashboard/data-buku/tambah', [BookController::class, 'createBook'])->name('dashboard.buku.tambah');
@@ -70,7 +70,7 @@ Route::get('/dashboard/data-user/edit/{id}', [AdminProfileController::class, 'ad
 Route::get('/dashboard/data-user/tambah', [AdminProfileController::class, 'showAddUser'])->name('admin.tambah.user');
 Route::post('/dashboard/data-user/tambah/proses', [AdminProfileController::class, 'saveUser'])->name('admin.tambah.user.proses');
 Route::post('/dashboard/data-user/update/{id}', [AdminProfileController::class, 'adminUpdateProfile'])->name('admin.update.profile');
-Route::delete('/dashboard/daata-user/delete/{id}', [AdminProfileController::class, 'adminDeleteUser'])->name('admin.delete.user');
+Route::delete('/dashboard/data-user/delete/{id}', [AdminProfileController::class, 'adminDeleteUser'])->name('admin.delete.user');
 
 // Route Penerbit
 Route::get('/dashboard/data-penerbit', [PenerbitController::class, 'showDataPenerbit'])->name('dashboard.penerbit');
@@ -97,7 +97,7 @@ Route::post('/dashboard/data-petugas/tambah/proses', [PetugasController::class, 
 Route::delete('dashboard/data-petugas/hapus/{id}', [PetugasController::class, 'deletePetugas'])->name('hapus.petugas');
 });
 
-Route::middleware(['auth', 'role:Mahasiswa'])->group(function () {
+Route::middleware(['auth', 'role:Petugas,Mahasiswa'])->group(function () {
   Route::get('/dashboard/edit-profil',[ProfileController::class, 'showProfile'])->name('dashboard.profile');
   Route::post('dashboard/edit-profile/update', [ProfileController::class, 'updateProfile'])->name('dashboard.update');
 });
