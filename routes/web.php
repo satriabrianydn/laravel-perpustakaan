@@ -97,7 +97,7 @@ Route::post('/dashboard/data-petugas/tambah/proses', [PetugasController::class, 
 Route::delete('dashboard/data-petugas/hapus/{id}', [PetugasController::class, 'deletePetugas'])->name('hapus.petugas');
 });
 
-Route::middleware(['auth', 'role:Petugas,Mahasiswa'])->group(function () {
+Route::middleware(['auth', 'role:Mahasiswa'])->group(function () {
   Route::get('/dashboard/edit-profil',[ProfileController::class, 'showProfile'])->name('dashboard.profile');
   Route::post('dashboard/edit-profile/update', [ProfileController::class, 'updateProfile'])->name('dashboard.update');
 });

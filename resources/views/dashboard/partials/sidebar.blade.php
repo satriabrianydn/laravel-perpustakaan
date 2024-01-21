@@ -103,21 +103,7 @@
                             </span>
                             <span class="hide-menu">Data Denda</span>
                         </a>
-                    </li>
-                    <li class="nav-small-cap">
-                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                        <span class="hide-menu">Profile Panel</span>
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link {{ request()->routeIs('dashboard.profile') ? 'active' : '' }}"
-                            href="{{ route('dashboard.profile') }}" aria-expanded="false">
-                            <span>
-                                <i class="ti ti-pencil"></i>
-                            </span>
-                            <span class="hide-menu">Edit Profile</span>
-                        </a>
-                    </li>                    
+                    </li>                
                 @elseif(auth()->user()->role == 'Mahasiswa')
                     <li class="nav-small-cap">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
