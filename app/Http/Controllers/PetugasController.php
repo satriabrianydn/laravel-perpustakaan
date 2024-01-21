@@ -135,15 +135,15 @@ class PetugasController extends Controller
         return redirect()->route('dashboard.petugas');
     }
 
-
     public function deletePetugas($id)
     {
         // Temukan petugas berdasarkan ID
         $petugas = Petugas::find($id);
 
-        // Jika petugas tidak ditemukan, kembalikan respons dengan not found
+        // Jika petugas tidak ditemukan, kembalikan response
         if (!$petugas) {
-            return response()->json(['message' => 'Petugas not found.'], 404);
+            Alert::error('Error','Petugas Tidak Ditemukan!');
+            return redirect()->route('dashboard.petugas');
         }
 
         // Temukan pengguna terkait
@@ -151,7 +151,8 @@ class PetugasController extends Controller
 
         // Jika pengguna tidak ditemukan, kembalikan respons dengan not found
         if (!$user) {
-            return response()->json(['message' => 'User not found.'], 404);
+            Alert::error('Error','Pengguna Tidak Ditemukan!');
+            return redirect()->route('dashboard.petugas');
         }
 
         try {

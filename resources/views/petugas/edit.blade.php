@@ -61,6 +61,14 @@
                                         <input type="email" class="form-control" id="email" name="email"
                                             placeholder="Email" value="{{ $user->email }}">
                                     </div>
+                                    <div class="col-md-6">
+                                        <label for="role" class="form-label">Role</label>
+                                        <select class="form-select" id="role" name="role">
+                                            <option value="" selected disabled hidden>-- Pilih Role --</option>
+                                            <option value="Petugas" @if ($user->role == 'Petugas') selected @endif>
+                                                Petugas</option>
+                                        </select>
+                                    </div>
                                     <div class="col-md-12">
                                         <label for="alamat_petugas" class="form-label">Alamat</label>
                                         <textarea class="form-control" id="alamat_petugas" name="alamat_petugas" rows="4"
