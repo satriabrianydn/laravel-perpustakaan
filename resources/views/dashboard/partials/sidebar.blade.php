@@ -33,7 +33,7 @@
                     <li class="sidebar-item {{ request()->routeIs('dashboard.petugas') ? 'active' : '' }}">
                         <a class="sidebar-link" href="{{ route('dashboard.petugas') }}" aria-expanded="false">
                             <span>
-                                <i class="ti ti-user-check"></i>
+                                <i class="ti ti-user-exclamation"></i>
                             </span>
                             <span class="hide-menu">Data Petugas</span>
                         </a>
