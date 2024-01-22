@@ -92,7 +92,7 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
     
         if (Auth::attempt($credentials)) {
-            Alert::success('Sukses', 'Anda telah berhasil login.');
+            // Alert::success('Sukses', 'Anda telah berhasil login.');
             return redirect()->route('dashboard.index');
         }
 
