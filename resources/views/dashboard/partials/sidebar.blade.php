@@ -103,6 +103,18 @@
                             <span class="hide-menu">Data Denda</span>
                         </a>
                     </li>
+                    <li class="nav-small-cap">
+                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                        <span class="hide-menu">Other Menu</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-pencil"></i>
+                            </span>
+                            <span class="hide-menu">Edit Profile</span>
+                        </a>
+                    </li>
                 @elseif (auth()->user()->role == 'Petugas')
                     <li class="nav-small-cap">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
@@ -171,6 +183,18 @@
                                 <i class="ti ti-cash"></i>
                             </span>
                             <span class="hide-menu">Data Denda</span>
+                        </a>
+                    </li>
+                    <li class="nav-small-cap">
+                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                        <span class="hide-menu">Other Menu</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="#" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-pencil"></i>
+                            </span>
+                            <span class="hide-menu">Edit Profile</span>
                         </a>
                     </li>
                 @elseif(auth()->user()->role == 'Mahasiswa')
