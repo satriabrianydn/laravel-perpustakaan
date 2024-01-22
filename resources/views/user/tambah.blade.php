@@ -50,7 +50,7 @@
                                     <div class="col-md-6">
                                         <label for="gender" class="form-label">Jenis Kelamin</label>
                                         <select class="form-select" id="gender" name="gender">
-                                            <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
+                                            <option value="" selected disabled hidden>-- Pilih Jenis Kelamin --</option>
                                             <option value="Laki-Laki">
                                                 Laki-Laki</option>
                                             <option value="Perempuan">
@@ -61,7 +61,7 @@
                                     <div class="col-md-6">
                                         <label for="role" class="form-label">Role</label>
                                         <select class="form-select" id="role" name="role">
-                                            <option value="" selected disabled>-- Pilih Role Pengguna --</option>
+                                            <option value="" selected disabled hidden>-- Pilih Role Pengguna --</option>
                                             <option value="Administrator">
                                                 Administrator</option>
                                             <option value="Petugas">
