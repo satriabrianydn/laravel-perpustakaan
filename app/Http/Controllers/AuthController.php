@@ -82,10 +82,10 @@ class AuthController extends Controller
             'email' => 'required|email|exists:users,email',
             'password' => 'required|min:8',
         ], [
-            'email.required' => 'Email wajib diisi.',
+            'email.required' => 'Email wajib diisi!',
             'email.email' => 'Email harus berupa alamat email yang valid.',
             'email.exists' => 'Email tidak ditemukan.',
-            'password.required' => 'Password wajib diisi.',
+            'password.required' => 'Password wajib diisi!',
             'password.min' => 'Password minimal harus 8 karakter.',
         ]);
 
