@@ -87,8 +87,10 @@ Route::post('/dashboard/data-kategori/tambah/proses', [KategoriController::class
 Route::get('/dashboard/data-kategori/edit/{id}', [KategoriController::class, 'showEditKategori'])->name('dashboard.kategori.edit');
 Route::post('/dashboard/data-kategori/edit/update/{id}', [KategoriController::class, 'processUpdateKategori'])->name('update.kategori');
 Route::delete('/dashboard/data-kategori/hapus/{id}', [KategoriController::class, 'deleteKategori'])->name('delete.kategori');
+});
 
-// Route Data Petugas
+Route::middleware(['auth','role:Administrator'])->group(function () {
+  // Route Data Petugas
 Route::get('/dashboard/data-petugas', [PetugasController::class, 'showPetugas'])->name('dashboard.petugas');
 Route::get('/dashboard/data-petugas/tambah', [PetugasController::class, 'showAddPetugas'])->name('dashboard.petugas.tambah');
 Route::get('/dashboard/data-petugas/edit/{id}', [PetugasController::class, 'showUpdatePetugas'])->name('edit.petugas');
