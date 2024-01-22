@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use App\Models\User;
 use App\Models\Mahasiswa;
 use App\Http\Controllers\Controller;
@@ -154,6 +155,73 @@ class AdminProfileController extends Controller
         $admin = $user->admin;
 
         return view('admin.edit', compact('user', 'admin'));
+    }
+
+    public function editAdmin(Request $request, $id) {
+
+        $admin = Admin::find($id);
+        
+        $user = User::find($admin->user_id);
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'sometimes|email|unique:users,email,' . $user->id,
+            'nip' => 'required|string|unique:petugas,nip',
+            'gender' => 'required|in:Laki-Laki,Perempuan',
+            'avatar' => 'sometimes|nullable|image|mimes:jpeg,png,jpg|max:5120',
+            'no_telp' => 'required|string|max:15',
+            'alamat' => 'required|string|max:255',
+            'old_password' => 'nullable|string|min:8',
+            'new_password' => 'nullable|string|min:8|confirmed',
+        ], [
+            'name.required' => 'Nama Petugas wajib di isi.',
+            'email.required' => 'Email Petugas wajib di isi.',
+            'email.email' => 'Jenis Email tidak valid.',
+            'email.unique' => 'Email telah digunakan.',
+            'nip.required' => 'NIP wajib di isi.',
+            'nip.unique' => 'NIP sudah digunakan',
+            'gender.required' => 'Jenis Kelamin wajib di isi.',
+            'no_telp.required' => 'Nomor Telepon wajib di isi.',
+            'alamat.required' => 'Alamat wajib di isi.',
+            'new_password.confirmed' => 'Konfirmasi Password tidak sesuai.'
+        ]);
+
+        $user = auth()->user();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        
+        
+        if ($request->filled('old_password') && !Hash::check($request->input('old_password'), $user->password)) {
+            Alert::error('Error', 'Password lama tidak sesuai.');
+            return redirect()->route('admin.edit');
+        }
+
+        if ($request->filled('new_password')) {
+            $user->password = Hash::make($request->input('new_password'));
+        }
+
+        $admin = $user->admin;
+        $admin->nip = $request->input('nip');
+        $admin->gender = $request->input('gender');
+        $admin->no_telp = $request->input('no_telp');
+
+        // Hapus avatar lama jika ada
+        if ($request->hasFile('avatar') && $user->admin->avatar && $user->admin->avatar !== 'default_avatar.jpg') {
+            Storage::delete('public/avatar/' . $user->admin->avatar);
+        }
+
+        // Simpan avatar baru jika ada
+        if ($request->hasFile('avatar')) {
+            $avatarPath = $request->file('avatar')->store('avatar', 'public');
+            $user->admin->avatar = basename($avatarPath);
+        }
+
+        $user->save();
+        $admin->save();
+
+
+        Alert::success('Success', 'Profil berhasil diperbarui!');
+        return redirect()->route('admin.edit');
     }
     
 }

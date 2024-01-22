@@ -37,7 +37,7 @@ class PetugasController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
-            'nip' => 'required|string',
+            'nip' => 'required|string|unique:petugas,nip',
             'gender' => 'required|in:Laki-Laki,Perempuan',
             'no_telp' => 'required|string|max:15',
             'alamat_petugas' => 'required|string|max:255',
@@ -48,6 +48,7 @@ class PetugasController extends Controller
             'email.email' => 'Jenis Email tidak valid.',
             'email.unique' => 'Email telah digunakan.',
             'nip.required' => 'NIP wajib di isi.',
+            'nip.unique' => 'NIP sudah digunakan',
             'gender.required' => 'Jenis Kelamin wajib di isi.',
             'no_telp.required' => 'Nomor Telepon wajib di isi.',
             'alamat_petugas.required' => 'Alamat wajib di isi.',
@@ -101,7 +102,7 @@ class PetugasController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'sometimes|email|unique:users,email,' . $user->id,
-            'nip' => 'sometimes|string',
+            'nip' => 'sometimes|string|unique:petugas,nip',
             'gender' => 'required|in:Laki-Laki,Perempuan',
             'no_telp' => 'sometimes|string|max:15',
             'alamat_petugas' => 'sometimes|string|max:255',
@@ -109,6 +110,7 @@ class PetugasController extends Controller
             'new_password' => 'nullable|string|min:8|confirmed',
         ], [
             'name.required' => 'Nama Petugas tidak boleh kosong!',
+            'nip.unique' => 'NIP sudah digunakan',
             'gender.required' => 'Jenis Kelamin tidak boleh kosong!',
             'new_password.confirmed' => 'Konfirmasi Password tidak sesuai.',
         ]);

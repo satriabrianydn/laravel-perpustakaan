@@ -20,7 +20,7 @@
                     </div>
                 @endif
                 <!-- Form START -->
-                <form class="file-upload" action="{{ route('dashboard.update') }}" method="POST" enctype="multipart/form-data">
+                <form class="file-upload" action="{{ route('admin.update' , ['id' => $admin->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row mb-5 gx-5">
                         <!-- Contact detail -->

@@ -100,7 +100,7 @@ Route::middleware(['auth', 'role:Administrator'])->group(function () {
 
   // Route Edit Profile Admin
   Route::get('/dashboard/admin/edit', [AdminProfileController::class, 'showEditAdmin'])->name('admin.edit');
-  
+  Route::post('/dashboard/admin/edit/proses/{id}', [AdminProfileController::class, 'editAdmin'])->name('admin.update');
 });
 
   
