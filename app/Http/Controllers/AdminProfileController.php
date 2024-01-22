@@ -144,4 +144,16 @@ class AdminProfileController extends Controller
 
         return redirect()->route('dashboard.user');
     }
+
+    // Controller Edit Data Administrator
+
+    public function showEditAdmin()
+    {
+        // Ambil data user dan admin
+        $user = auth()->user();
+        $admin = $user->admin;
+
+        return view('admin.edit', compact('user', 'admin'));
+    }
+    
 }

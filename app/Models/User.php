@@ -49,6 +49,10 @@ class User extends Authenticatable
     {
         return $this->hasOne(Petugas::class);
     }
+    public function admin()
+    {
+        return $this->hasOne(Admin::class);
+    }
     public function mahasiswa()
     {
         return $this->hasOne(Mahasiswa::class);
