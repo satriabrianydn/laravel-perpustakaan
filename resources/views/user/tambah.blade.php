@@ -57,6 +57,7 @@
                                                 Perempuan</option>
                                         </select>
                                     </div>
+                                    @if (auth()->user()->role == 'Administrator')
                                     <div class="col-md-6">
                                         <label for="role" class="form-label">Role</label>
                                         <select class="form-select" id="role" name="role">
@@ -69,6 +70,14 @@
                                                     Mahasiswa</option>
                                         </select>
                                     </div>
+                                    @elseif (auth()->user()->role == 'Petugas')
+                                    <div class="col-md-6">
+                                        <label for="role" class="form-label">Role</label>
+                                        <select class="form-select" id="role" name="role">                                        
+                                        <option value="Mahasiswa" selected>Mahasiswa</option>
+                                        </select>
+                                    </div>
+                                    @endif
                                 </div> <!-- Row END -->
                             </div>
                         </div>

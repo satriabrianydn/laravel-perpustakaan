@@ -103,6 +103,7 @@ class AuthController extends Controller
     }
 
     public function logout() {
+        
         Auth::logout();
     
         Alert::success('Sukses', 'Anda telah berhasil logout.');

@@ -11,6 +11,9 @@ class CheckRole
 {
     public function handle($request, Closure $next, ...$roles)
     {
+
+        // dd(auth()->user()->role);
+
         if (!$request->user() || !in_array($request->user()->role, $roles)) {
             abort(403, 'Akses Ditolak');
         }
