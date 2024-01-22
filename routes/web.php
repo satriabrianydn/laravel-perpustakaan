@@ -99,7 +99,7 @@ Route::delete('dashboard/data-petugas/hapus/{id}', [PetugasController::class, 'd
 
 Route::middleware(['auth', 'role:Mahasiswa'])->group(function () {
   Route::get('/dashboard/edit-profil',[ProfileController::class, 'showProfile'])->name('dashboard.profile');
-  Route::post('dashboard/edit-profile/update', [ProfileController::class, 'updateProfile'])->name('dashboard.update');
+  Route::post('/dashboard/edit-profile/update', [ProfileController::class, 'updateProfile'])->name('dashboard.update');
 });
 
 
