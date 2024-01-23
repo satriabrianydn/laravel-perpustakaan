@@ -109,5 +109,6 @@ Password: 12345678
 	- CRUD Petugas: 100% (Fitur Admin)
 	- CRUD Mahasiswa: 100% (Fitur Admin/Petugas)
 	- Transaksi: 0% (Fitur Admin/Petugas)
+	- Transaksi User: 0%
 
 **Update: 23 January 2024**
