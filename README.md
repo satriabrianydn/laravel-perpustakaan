@@ -96,4 +96,18 @@ Mahasiswa
 Email: mahasiswa@gmail.com
 Password: 12345678
 
-**Update: 3 January 2024**
+## PROGRESS PROJECT
+- Halaman Utama: ?
+- Kategori: ?
+- Auth (Login, Register, Logout, Permission): 100%
+- Dashboard:
+	- Update Profil User: 100%
+	- Update Profil Admin: 100%
+	- Update Profil Petugas: 100%
+	- CRUD Buku: 70% (Kurang Edit/Update)
+	- CRUD Kategori: 70% (Kurang Edit/Update)
+	- CRUD Petugas: 100% (Fitur Admin)
+	- CRUD Mahasiswa: 100% (Fitur Admin/Petugas)
+	- Transaksi: 0% (Fitur Admin/Petugas)
+
+**Update: 23 January 2024**
