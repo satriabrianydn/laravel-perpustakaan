@@ -46,6 +46,9 @@
                                         <h6 class="fw-semibold mb-0">Email</h6>
                                     </th>
                                     <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Nomor Telepon</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Program Studi</h6>
                                     </th>
                                     <th class="border-bottom-0">
@@ -77,6 +80,7 @@
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->mahasiswa->gender }}</td>
                                         <td>{{ $user->email }}</td>
+                                        <td>{{ $user->mahasiswa->no_telp }}</td>
                                         <td>{{ $user->mahasiswa->prodi }}</td>
                                         <td>{{ $user->mahasiswa->angkatan }}</td>
                                         <td>{{ $user->mahasiswa->kelas }}</td>

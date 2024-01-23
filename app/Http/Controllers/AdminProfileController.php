@@ -146,8 +146,7 @@ class AdminProfileController extends Controller
         return redirect()->route('dashboard.user');
     }
 
-    // Controller Edit Data Administrator
-
+    // Controller Edit Profil Administrator
     public function showEditAdmin()
     {
         // Ambil data user dan admin
@@ -166,7 +165,7 @@ class AdminProfileController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'sometimes|email|unique:users,email,' . $user->id,
-            'nip' => 'required|string|unique:petugas,nip',
+            'nip' => 'required|string|unique:admin,nip,' . $admin->id,
             'gender' => 'required|in:Laki-Laki,Perempuan',
             'avatar' => 'sometimes|nullable|image|mimes:jpeg,png,jpg|max:5120',
             'no_telp' => 'required|string|max:15',
@@ -174,8 +173,8 @@ class AdminProfileController extends Controller
             'old_password' => 'nullable|string|min:8',
             'new_password' => 'nullable|string|min:8|confirmed',
         ], [
-            'name.required' => 'Nama Petugas wajib di isi.',
-            'email.required' => 'Email Petugas wajib di isi.',
+            'name.required' => 'Nama wajib di isi.',
+            'email.required' => 'Email wajib di isi.',
             'email.email' => 'Jenis Email tidak valid.',
             'email.unique' => 'Email telah digunakan.',
             'nip.required' => 'NIP wajib di isi.',
@@ -202,6 +201,7 @@ class AdminProfileController extends Controller
 
         $admin = $user->admin;
         $admin->nip = $request->input('nip');
+        $admin->alamat = $request->input('alamat');
         $admin->gender = $request->input('gender');
         $admin->no_telp = $request->input('no_telp');
 

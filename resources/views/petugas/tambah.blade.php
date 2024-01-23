@@ -35,14 +35,6 @@
                                             placeholder="Nama Lengkap" value="{{ old('name') }}">
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="gender" class="form-label">Jenis Kelamin</label>
-                                        <select class="form-select" id="gender" name="gender">
-                                            <option value="" selected disabled hidden>-- Pilih Jenis Kelamin --</option>
-                                            <option value="Laki-Laki">Laki-Laki</option>
-                                            <option value="Perempuan">Perempuan</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
                                         <label for="nip" class="form-label">NIP</label>
                                         <input type="text" class="form-control" id="nip" name="nip"
                                             placeholder="NIP" value="{{ old('nip') }}">
@@ -60,10 +52,19 @@
                                             placeholder="Email" value="{{ old('email') }}">
                                     </div>
                                     <div class="col-md-6">
+                                        <label for="gender" class="form-label">Jenis Kelamin</label>
+                                        <select class="form-select" id="gender" name="gender">
+                                            <option value="" selected disabled hidden>-- Pilih Jenis Kelamin --</option>
+                                            <option value="Laki-Laki" {{ old('gender') == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki</option>
+                                            <option value="Perempuan" {{ old('gender') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
                                         <label for="role" class="form-label">Role</label>
                                         <select class="form-select" id="role" name="role">
                                             <option value="" selected disabled hidden>-- Pilih Role --</option>
-                                            <option value="Petugas" selected>Petugas</option>
+                                            <option value="Petugas" {{ old('role') == 'Petugas' ? 'selected' : '' }}>Petugas</option>
                                         </select>
                                     </div>
                                     <div class="col-md-12">

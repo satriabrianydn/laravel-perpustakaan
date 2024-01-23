@@ -26,7 +26,7 @@
                     <div class="table-responsive">
                         <table class="table text-nowrap mb-0 align-middle">
                             <thead class="text-dark fs-4">
-                                <tr>
+                                <tr style="text-align: center;">
                                     <th class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Nomor</h6>
                                     </th>
@@ -49,13 +49,16 @@
                                         <h6 class="fw-semibold mb-0">Nomor Telepon</h6>
                                     </th>
                                     <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Role</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Aksi</h6>
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($petugas as $officer)
-                                    <tr>
+                                    <tr style="text-align: center;">
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $officer->nip }}</td>
                                         <td>
@@ -64,8 +67,9 @@
                                         </td>
                                         <td>{{ $officer->user->name }}</td>
                                         <td>{{ $officer->gender }}</td>
-                                        <td>{{ $officer->alamat_petugas }}</td>
-                                        <td>{{ $officer->no_telp }}</td>
+                                        <td>{{ $officer->alamat_petugas ?? '-' }}</td>
+                                        <td>{{ $officer->no_telp ?? '-' }}</td>
+                                        <td>{{ $officer->user->role }}</td>
                                         <td>
                                             <a href="{{ route('edit.petugas', $officer->id) }}"
                                                 class="btn btn-edit btn-circle">

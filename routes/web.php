@@ -103,7 +103,12 @@ Route::middleware(['auth', 'role:Administrator'])->group(function () {
   Route::post('/dashboard/admin/edit/proses/{id}', [AdminProfileController::class, 'editAdmin'])->name('admin.update');
 });
 
-  
+Route::middleware(['auth', 'role:Petugas'])->group(function () {
+  Route::get('/dashboard/petugas/edit', [PetugasController::class, 'editProfilPetugas'])->name('edit.profil.petugas');
+  Route::post('/dashboard/petugas/edit/proses/{id}', [PetugasController::class, 'editPetugasProcess'])->name('edit.profil.petugas.update');
+});
+
+
 
 Route::middleware(['auth', 'role:Mahasiswa'])->group(function () {
   Route::get('/dashboard/edit-profil', [ProfileController::class, 'showProfile'])->name('dashboard.profile');

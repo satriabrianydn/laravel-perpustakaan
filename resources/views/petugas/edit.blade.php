@@ -35,16 +35,6 @@
                                             placeholder="Nama Lengkap" value="{{ $user->name }}">
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="gender" class="form-label">Jenis Kelamin</label>
-                                        <select class="form-select" id="gender" name="gender">
-                                            <option value="" selected disabled hidden>-- Pilih Jenis Kelamin --</option>
-                                            <option value="Laki-Laki" @if ($user->petugas->gender == 'Laki-Laki') selected @endif>
-                                                Laki-Laki</option>
-                                            <option value="Perempuan" @if ($user->petugas->gender == 'Perempuan') selected @endif>
-                                                Perempuan</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
                                         <label for="nip" class="form-label">NIP</label>
                                         <input type="text" class="form-control" id="nip" name="nip"
                                             placeholder="NIP" value="{{ $petugas->nip }}">
@@ -60,6 +50,16 @@
                                         <label for="email" class="form-label">Email</label>
                                         <input type="email" class="form-control" id="email" name="email"
                                             placeholder="Email" value="{{ $user->email }}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="gender" class="form-label">Jenis Kelamin</label>
+                                        <select class="form-select" id="gender" name="gender">
+                                            <option value="" selected disabled hidden>-- Pilih Jenis Kelamin --</option>
+                                            <option value="Laki-Laki" @if ($user->petugas->gender == 'Laki-Laki') selected @endif>
+                                                Laki-Laki</option>
+                                            <option value="Perempuan" @if ($user->petugas->gender == 'Perempuan') selected @endif>
+                                                Perempuan</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="role" class="form-label">Role</label>

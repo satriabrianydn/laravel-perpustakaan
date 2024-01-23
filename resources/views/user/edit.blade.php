@@ -13,7 +13,7 @@
                             @endforeach
                         </ul>
                     </div>
-                @endif  
+                @endif
                 <!-- Page title -->
                 <div class="my-5">
                     <h3>Edit Pengguna</h3>
@@ -50,36 +50,23 @@
                                     <div class="col-md-6">
                                         <label for="gender" class="form-label">Jenis Kelamin</label>
                                         <select class="form-select" id="gender" name="gender">
-                                            <option value="" selected disabled hidden>-- Pilih Jenis Kelamin --</option>
+                                            <option value="" selected disabled hidden>-- Pilih Jenis Kelamin --
+                                            </option>
                                             <option value="Laki-Laki" @if ($user->mahasiswa->gender == 'Laki-Laki') selected @endif>
                                                 Laki-Laki</option>
                                             <option value="Perempuan" @if ($user->mahasiswa->gender == 'Perempuan') selected @endif>
                                                 Perempuan</option>
                                         </select>
                                     </div>
-                                    @if (auth()->user()->role == 'Administrator')
                                     <div class="col-md-6">
                                         <label for="role" class="form-label">Role</label>
                                         <select class="form-select" id="role" name="role">
-                                            <option value="" selected disabled hidden>-- Pilih Role Pengguna --</option>
-                                            <option value="Administrator" @if ($user->role == 'Administrator') selected @endif>
-                                                Administrator</option>
-                                            <option value="Petugas" @if ($user->role == 'Petugas') selected @endif>
-                                                Petugas</option>
-                                                <option value="Mahasiswa" @if ($user->role == 'Mahasiswa') selected @endif>
-                                                    Mahasiswa</option>
+                                            <option value="" selected disabled hidden>-- Pilih Role Pengguna --
+                                            </option>
+                                            <option value="Mahasiswa" @if ($user->role == 'Mahasiswa') selected @endif>
+                                                Mahasiswa</option>
                                         </select>
                                     </div>
-                                    @elseif (auth()->user()->role == 'Petugas')
-                                    <div class="col-md-6">
-                                        <label for="role" class="form-label">Role</label>
-                                        <select class="form-select" id="role" name="role">
-                                            <option value="" selected disabled hidden>-- Pilih Role Pengguna --</option>
-                                                <option value="Mahasiswa" @if ($user->role == 'Mahasiswa') selected @endif>
-                                                    Mahasiswa</option>
-                                        </select>
-                                    </div>
-                                    @endif
                                 </div> <!-- Row END -->
                             </div>
                         </div>
@@ -91,8 +78,7 @@
                                     <div class="text-center">
                                         <!-- Image upload -->
                                         <div class="square position-relative display-2 mb-3">
-                                            <img
-                                                src="{{ asset('storage/avatar/' . $user->mahasiswa->avatar) }}"
+                                            <img src="{{ asset('storage/avatar/' . $user->mahasiswa->avatar) }}"
                                                 alt="Avatar" class="img-fluid">
                                         </div>
                                     </div>
