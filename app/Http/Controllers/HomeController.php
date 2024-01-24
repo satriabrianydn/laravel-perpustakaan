@@ -67,7 +67,7 @@ class HomeController extends Controller
     }
 
     public function showCategoryAgamaIslam() {
-        $agamakategori = kategori::where('kategori', 'agama')->value('id');
+        $agamakategori = kategori::where('kategori', 'agama islam')->value('id');
         $books = Book::where('id_kategori', $agamakategori)->get();
         return view('category.agama_islam', ['books' => $books]);
     }

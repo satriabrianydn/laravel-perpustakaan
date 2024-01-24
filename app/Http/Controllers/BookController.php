@@ -84,23 +84,20 @@ class BookController extends Controller
     {
         $book = Book::findOrFail($id);
 
-        $request->validate(
-        [
+        $request->validate([
             'nama_buku' => 'required|string|max:255',
             'id_kategori' => 'required',
-            'deskripsi' => 'required|string',
+            'deskripsi' => 'required|string|max:500',
             'id_penerbit' => 'nullable|exists:penerbit,id',
             'jumlah_halaman' => 'required|string|max:255',
             'nama_pengarang' => 'required|string|max:255',
             'foto_buku' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ],[
+        ], [
             'nama_buku.required' => 'Nama Buku wajib di isi',
             'id_kategori.required' => 'Kategori tidak boleh kosong',
             'deskripsi.required' => 'Deskripsi tidak boleh kosong',
-            'kode_buku.unique' => 'Kode Buku sudah digunakan',
             'jumlah_halaman.required' => 'Jumlah Halaman wajib di isi',
             'nama_pengarang.required' => 'Nama Pengarang wajib di isi',
-            'deskripsi.required' => 'Deskripsi wajib di isi. Deskripsi tidak boleh melebihi 500 karakter.',
         ]);
 
         $book->update([
@@ -110,12 +107,24 @@ class BookController extends Controller
             'id_penerbit' => $request->input('id_penerbit'),
             'jumlah_halaman' => $request->input('jumlah_halaman'),
             'nama_pengarang' => $request->input('nama_pengarang'),
-            'foto_buku' => $request->input('foto_buku')
         ]);
+
+        if ($request->hasFile('foto_buku')) {
+            // Menghapus foto lama sebelum menyimpan foto baru
+            if ($book->foto_buku) {
+                Storage::delete('public/' . $book->foto_buku);
+            }
+
+            $image = $request->file('foto_buku');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $path = $image->storeAs('covers', $imageName, 'public');
+            $book->update(['foto_buku' => $path]);
+        }
 
         Alert::success('Sukses', 'Data buku berhasil di update');
         return redirect()->route('dashboard.buku');
     }
+
 
 
     public function destroy($id)
