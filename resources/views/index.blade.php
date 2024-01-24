@@ -7,7 +7,7 @@
 
 @section('main')
     {{-- Carousel --}}
-    <div class="carousel">
+    {{-- <div class="carousel">
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="5000">
@@ -57,7 +57,7 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-    </div>
+    </div> --}}
     {{-- Carousel End --}}
 
     <div class="container perkenalan">
@@ -68,7 +68,7 @@
             memperkaya pengalaman belajar setiap mahasiswa dan peneliti.</p>
     </div>
 
-    <div class="container">
+    {{-- <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1 blog-wrap">
                 <div class="flex-row">
@@ -83,7 +83,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     </div>
 @endsection
 
