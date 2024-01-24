@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <a href="#" class="btn btn-primary">Tambah Admin</a>
+                            <a href="{{ route('dashboard.admin.tambah') }}" class="btn btn-primary">Tambah Admin</a>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -71,13 +71,8 @@
                                         <td>{{ $administrator->no_telp ?? '-' }}</td>
                                         <td>{{ $administrator->user->role }}</td>
                                         <td>
-                                            <a href="#"
-                                                class="btn btn-edit btn-circle">
-                                                <i class="fas fa-pencil-alt"></i>
-                                            </a>
-
                                             <!-- Tambahkan form untuk menghapus pengguna -->
-                                            <form action="#" method="POST"
+                                            <form action="{{ route('dashboard.admin.delete', ['id' => $administrator->id]) }}" method="POST"
                                                 class="d-inline">
                                                 @csrf
                                                 @method('DELETE')

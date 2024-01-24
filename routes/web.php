@@ -110,6 +110,9 @@ Route::middleware(['auth', 'role:Administrator'])->group(function () {
 
     // Route Data Admin
     Route::get('/dashboard/data-admin', [AdminController::class, 'showDataAdmin'])->name('dashboard.admin');
+    Route::get('/dashboard/data-admin/tambah', [AdminController::class, 'showAddAdmin'])->name('dashboard.admin.tambah');
+    Route::post('/dashboard/data-admin/tambah/proses', [AdminController::class, 'storeAdmin'])->name('tambah.admin.proses');
+    Route::delete('/dashboard/data-admin/hapus/{id}', [AdminController::class, 'deleteAdmin'])->name('dashboard.admin.delete');
 
     // Route Edit Profile Admin
     Route::get('/dashboard/admin/edit', [AdminProfileController::class, 'showEditAdmin'])->name('admin.edit');
