@@ -74,9 +74,10 @@ class BookController extends Controller
 
     public function editBook($id)
     {
-        $book = Book::FindorFail($id);
+        $book = Book::with('kategori', 'penerbit')->findOrFail($id);
         $penerbits = Penerbit::all();
         $kategori = Kategori::all();
+
         return view('buku.edit', compact('book', 'penerbits', 'kategori'));
     }
 
