@@ -54,7 +54,7 @@
                                             <option value="Laki-Laki" {{ old('gender') == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki</option>
                                             <option value="Perempuan" {{ old('gender') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
                                         </select>
-                                    </div>>
+                                    </div>
                                     <div class="col-md-6">
                                         <label for="role" class="form-label">Role</label>
                                         <select class="form-select" id="role" name="role">
