@@ -13,7 +13,7 @@
                             @endforeach
                         </ul>
                     </div>
-                @endif  
+                @endif
                 <!-- Page title -->
                 <div class="my-5">
                     <h3>Tambah Pengguna</h3>
@@ -50,23 +50,15 @@
                                     <div class="col-md-6">
                                         <label for="gender" class="form-label">Jenis Kelamin</label>
                                         <select class="form-select" id="gender" name="gender">
-                                            <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
-                                            <option value="Laki-Laki">
-                                                Laki-Laki</option>
-                                            <option value="Perempuan">
-                                                Perempuan</option>
+                                            <option value="" selected disabled hidden>-- Pilih Jenis Kelamin --</option>
+                                            <option value="Laki-Laki" {{ old('gender') == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki</option>
+                                            <option value="Perempuan" {{ old('gender') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
                                         </select>
-                                    </div>
+                                    </div>>
                                     <div class="col-md-6">
                                         <label for="role" class="form-label">Role</label>
                                         <select class="form-select" id="role" name="role">
-                                            <option value="" selected disabled>-- Pilih Role Pengguna --</option>
-                                            <option value="Administrator">
-                                                Administrator</option>
-                                            <option value="Petugas">
-                                                Petugas</option>
-                                                <option value="Mahasiswa">
-                                                    Mahasiswa</option>
+                                            <option value="Mahasiswa" selected>Mahasiswa</option>
                                         </select>
                                     </div>
                                 </div> <!-- Row END -->
@@ -80,9 +72,8 @@
                                     <div class="text-center">
                                         <!-- Image upload -->
                                         <div class="square position-relative display-2 mb-3">
-                                            <img
-                                                src="{{ asset('storage/avatar/default_avatar.jpg') }}"
-                                                alt="Avatar" class="img-fluid">
+                                            <img src="{{ asset('storage/avatar/default_avatar.jpg') }}" alt="Avatar"
+                                                class="img-fluid">
                                         </div>
                                     </div>
                                 </div>

@@ -59,7 +59,7 @@
                                     <div class="row alig n-items-start">
                                         <div class="col-8">
                                             <h5 class="card-title mb-9 fw-semibold">Total<br> Peminjaman</h5>
-                                            <h4 class="fw-semibold mb-3">6</h4>
+                                            <h4 class="fw-semibold mb-3">0</h4>
 
                                         </div>
                                         <div class="col-4">
@@ -82,7 +82,7 @@
                                     <div class="row alig n-items-start">
                                         <div class="col-8">
                                             <h5 class="card-title mb-9 fw-semibold">Total <br> Terlambat</h5>
-                                            <h4 class="fw-semibold mb-3">3</h4>
+                                            <h4 class="fw-semibold mb-3">0</h4>
 
                                         </div>
                                         <div class="col-4">

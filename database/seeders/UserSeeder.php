@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin;
 use App\Models\Petugas;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -25,8 +26,31 @@ class UserSeeder extends Seeder
             'created_at' => now()
         ]);
 
-        Mahasiswa::Create([
+        Admin::Create([
             'user_id' => 1,
+            'nip' => '0000000000',
+            'alamat' => 'Unknown Street',
+            'gender' => 'Laki-Laki',
+            'no_telp' => '088888888888',
+            'avatar' => 'default_avatar.jpg',
+            'created_at' => now()
+        ]);
+
+        User::Create([
+            'name' => 'PETUGAS',
+            'email' => 'petugas@gmail.com',
+            'email_verified_at' => null,
+            'password' => Hash::make('12345678'),
+            'role' => 'Petugas',
+            'created_at' => now()
+        ]);
+
+        Petugas::Create([
+            'user_id' => 2,
+            'nip' => '200000',
+            'alamat_petugas' => 'Unknown Street',
+            'gender' => 'Laki-Laki',
+            'no_telp' => '088888888888',
             'avatar' => 'default_avatar.jpg',
             'created_at' => now()
         ]);
@@ -42,7 +66,7 @@ class UserSeeder extends Seeder
         ]);
 
         Mahasiswa::Create([
-            'user_id' => 2,
+            'user_id' => 3,
             'nim' => '220103000',
             'gender' => 'Laki-Laki',
             'prodi' => 'Teknik Informatika',
@@ -53,22 +77,6 @@ class UserSeeder extends Seeder
             'created_at' => now()
         ]);
 
-        User::Create([
-            'name' => 'PETUGAS',
-            'email' => 'petugas@gmail.com',
-            'email_verified_at' => null,
-            'password' => Hash::make('12345678'),
-            'role' => 'Petugas',
-            'created_at' => now()
-        ]);
-
-        Petugas::Create([
-            'user_id' => 3,
-            'nip' => '200000',
-            'alamat_petugas' => 'Jl. Nin aja dulu No. 53, Surakarta',
-            'no_telp' => '088888888888',
-            'avatar' => 'default_avatar.jpg',
-            'created_at' => now()
-        ]);
+        
     }
 }

@@ -8,10 +8,10 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between mb-9">
                         <div class="mb-3">
-                            <h5 class="card-title fw-semibold">Daftar Petugas</h5>
+                            <h5 class="card-title fw-semibold">Daftar Administrator</h5>
                             <div class="mt-3">
-                                <form action="{{ route('dashboard.petugas') }}" method="GET">
-                                    <input type="text" name="search" class="form-control" placeholder="Cari Petugas..."
+                                <form action="{{ route('dashboard.admin') }}" method="GET">
+                                    <input type="text" name="search" class="form-control" placeholder="Cari Admin..."
                                         value="{{ request('search') }}"> 
                                     <div class="mt-2">
                                         <button type="submit" class="btn btn-primary">Cari</button>
@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <a href="{{ route('dashboard.petugas.tambah') }}" class="btn btn-primary">Tambah Petugas</a>
+                            <a href="#" class="btn btn-primary">Tambah Admin</a>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -37,7 +37,7 @@
                                         <h6 class="fw-semibold mb-0">Foto Profil</h6>
                                     </th>
                                     <th class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0">Nama Petugas</h6>
+                                        <h6 class="fw-semibold mb-0">Nama admin</h6>
                                     </th>
                                     <th class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Jenis Kelamin</h6>
@@ -57,27 +57,27 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($petugas as $officer)
+                                @forelse ($admin as $administrator)
                                     <tr style="text-align: center;">
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $officer->nip }}</td>
+                                        <td>{{ $administrator->nip }}</td>
                                         <td>
-                                                <img src="{{ asset('storage/avatar/' . $officer->avatar) }}"
+                                                <img src="{{ asset('storage/avatar/' . $administrator->avatar) }}"
                                                     alt="Foto Profil" width="50" class="rounded-circle">    
                                         </td>
-                                        <td>{{ $officer->user->name }}</td>
-                                        <td>{{ $officer->gender }}</td>
-                                        <td>{{ $officer->alamat_petugas ?? '-' }}</td>
-                                        <td>{{ $officer->no_telp ?? '-' }}</td>
-                                        <td>{{ $officer->user->role }}</td>
+                                        <td>{{ $administrator->user->name }}</td>
+                                        <td>{{ $administrator->gender }}</td>
+                                        <td>{{ $administrator->alamat_admin ?? '-' }}</td>
+                                        <td>{{ $administrator->no_telp ?? '-' }}</td>
+                                        <td>{{ $administrator->user->role }}</td>
                                         <td>
-                                            <a href="{{ route('edit.petugas', $officer->id) }}"
+                                            <a href="#"
                                                 class="btn btn-edit btn-circle">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
 
                                             <!-- Tambahkan form untuk menghapus pengguna -->
-                                            <form action="{{ route('hapus.petugas', $officer->id) }}" method="POST"
+                                            <form action="#" method="POST"
                                                 class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
@@ -90,30 +90,30 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="9" class="text-center">Belum ada data petugas.</td>
+                                        <td colspan="9" class="text-center">Belum ada data admin.</td>
                                     </tr>
                                 @endforelse
                             </tbody>
                         </table>
                     </div>
                     <div class="mt-3">
-                        Halaman : {{ $petugas->currentPage() }} <br />
-                        Jumlah Data : {{ $petugas->total() }} <br />
-                        Data Per Halaman : {{ $petugas->perPage() }} <br />
+                        Halaman : {{ $admin->currentPage() }} <br />
+                        Jumlah Data : {{ $admin->total() }} <br />
+                        Data Per Halaman : {{ $admin->perPage() }} <br />
 
                         <div class="mt-3">
                             <div class="pagination-buttons">
-                                @if ($petugas->currentPage() > 1)
-                                    <a href="{{ $petugas->previousPageUrl() }}" class="btn btn-pagination">Previous</a>
+                                @if ($admin->currentPage() > 1)
+                                    <a href="{{ $admin->previousPageUrl() }}" class="btn btn-pagination">Previous</a>
                                 @endif
 
-                                @for ($i = 1; $i <= $petugas->lastPage(); $i++)
-                                    <a href="{{ $petugas->url($i) }}"
-                                        class="btn btn-pagination {{ $petugas->currentPage() == $i ? 'active' : '' }}">{{ $i }}</a>
+                                @for ($i = 1; $i <= $admin->lastPage(); $i++)
+                                    <a href="{{ $admin->url($i) }}"
+                                        class="btn btn-pagination {{ $admin->currentPage() == $i ? 'active' : '' }}">{{ $i }}</a>
                                 @endfor
 
-                                @if ($petugas->currentPage() < $petugas->lastPage())
-                                    <a href="{{ $petugas->nextPageUrl() }}" class="btn btn-pagination">Next</a>
+                                @if ($admin->currentPage() < $admin->lastPage())
+                                    <a href="{{ $admin->nextPageUrl() }}" class="btn btn-pagination">Next</a>
                                 @endif
                             </div>
                         </div>

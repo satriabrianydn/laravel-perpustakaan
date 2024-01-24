@@ -7,6 +7,7 @@ use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthController extends Controller
@@ -59,9 +60,7 @@ class AuthController extends Controller
             'avatar' => 'default_avatar.jpg',
         ]);
         
-        
-        Alert::success('Sukses', 'Registrasi berhasil! Silahkan masuk.');
-        return redirect()->route('auth.login'); //->with('success', 'Registrasi berhasil! Silahkan masuk.');
+        return redirect()->route('auth.login')->with('success', 'Registrasi berhasil! Silahkan masuk.');
     }
 
     // Login Controller
@@ -76,33 +75,37 @@ class AuthController extends Controller
     }
 
     public function processLogin(Request $request) {
-
         // Validasi Input
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'email' => 'required|email|exists:users,email',
             'password' => 'required|min:8',
         ], [
-            'email.required' => 'Email wajib diisi.',
+            'email.required' => 'Email wajib diisi!',
             'email.email' => 'Email harus berupa alamat email yang valid.',
             'email.exists' => 'Email tidak ditemukan.',
-            'password.required' => 'Password wajib diisi.',
+            'password.required' => 'Password wajib diisi!',
             'password.min' => 'Password minimal harus 8 karakter.',
         ]);
-
+    
+        if ($validator->fails()) {
+            return redirect()->route('auth.login')
+                ->withErrors($validator)
+                ->withInput();
+        }
+    
         $credentials = $request->only('email', 'password');
     
         if (Auth::attempt($credentials)) {
-            Alert::success('Sukses', 'Anda telah berhasil login.');
             return redirect()->route('dashboard.index');
         }
-
-        // Jika autentikasi gagal
-        Alert::error('Gagal', 'Login gagal. Email atau password tidak valid.');
-        
-        return redirect()->route('auth.login'); // ->with('error', 'Login gagal. Email atau password tidak valid.')
+    
+        return redirect()->route('auth.login')
+            ->with('error', 'Login gagal. Email atau password tidak valid.')
+            ->withInput();
     }
 
     public function logout() {
+        
         Auth::logout();
     
         Alert::success('Sukses', 'Anda telah berhasil logout.');
