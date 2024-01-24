@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\AdminProfileController;
@@ -97,6 +98,9 @@ Route::middleware(['auth', 'role:Administrator'])->group(function () {
   Route::post('/dashboard/data-petugas/edit/update/{id}', [PetugasController::class, 'processUpdatePetugas'])->name('update.petugas');
   Route::post('/dashboard/data-petugas/tambah/proses', [PetugasController::class, 'storePetugas'])->name('tambah.petugas.proses');
   Route::delete('dashboard/data-petugas/hapus/{id}', [PetugasController::class, 'deletePetugas'])->name('hapus.petugas');
+
+  // Route Data Admin
+  Route::get('/dashboard/data-admin', [AdminController::class, 'showDataAdmin'])->name('dashboard.admin');
 
   // Route Edit Profile Admin
   Route::get('/dashboard/admin/edit', [AdminProfileController::class, 'showEditAdmin'])->name('admin.edit');

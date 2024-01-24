@@ -30,6 +30,14 @@
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                         <span class="hide-menu">DATA MASTER</span>
                     </li>
+                    <li class="sidebar-item {{ request()->routeIs('dashboard.admin') ? 'active' : '' }}">
+                        <a class="sidebar-link" href="{{ route('dashboard.admin') }}" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-user"></i>
+                            </span>
+                            <span class="hide-menu">Data Admin</span>
+                        </a>
+                    </li>
                     <li class="sidebar-item {{ request()->routeIs('dashboard.petugas') ? 'active' : '' }}">
                         <a class="sidebar-link" href="{{ route('dashboard.petugas') }}" aria-expanded="false">
                             <span>
