@@ -8,7 +8,7 @@
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 @forelse ($books as $book)
                     <div class="col">
-                        <div class="card h-100 small-card">
+                        <div class="card h-100 small-card text-center" style="align-items: center">
                             <img src="{{ asset('storage/' . ($book->foto_buku ?? 'covers/no_image_available.png')) }}"
                                 class="card-img-center" alt="Cover Buku">
                             <div class="card-body">
@@ -16,7 +16,9 @@
                                 <p class="card-text">{{ $book->nama_pengarang }}</p>
                             </div>
                             <div class="card-footer">
-                                <p class="card-text">Deskripsi: {{ $book->deskripsi }}</p>
+                                <p class="card-text">
+                                    <p class="card-text">Deskripsi: {{ $book->deskripsi }}</p>
+                                </p>
                             </div>
                         </div>
                     </div>

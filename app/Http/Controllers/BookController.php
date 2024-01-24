@@ -34,27 +34,28 @@ class BookController extends Controller
 
     public function storeBook(Request $request)
     {
-        $request->validate([
-            'kode_buku' => 'required|string|max:255|unique:data_buku,kode_buku',
-            'nama_buku' => 'required|string|max:255',
-            'id_kategori' => 'nullable|exists:kategori,id',
-            'id_penerbit' => 'nullable|exists:penerbit,id',
-            'tanggal_terbit' => 'required|date',
-            'jumlah_halaman' => 'required|string|max:255',
-            'nama_pengarang' => 'required|string|max:255',
-            'foto_buku' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'deskripsi' => 'required|string',
-        ],
-        [
-            'kode_buku.required' => 'Kode Buku wajib di isi',
-            'kode_buku.unique' => 'Kode Buku sudah digunakan',
-            'nama_buku.required' => 'Nama Buku wajib di isi',
-            'tanggal_terbit.required' => 'Tanggal Terbit wajib di isi',
-            'jumlah_halaman.required' => 'Jumlah Halaman wajib di isi',
-            'nama_pengarang.required' => 'Nama Pengarang wajib di isi',
-            'deskripsi.required' => 'Deskripsi wajib di isi'
-        ]
-    );
+        $request->validate(
+            [
+                'kode_buku' => 'required|string|max:255|unique:data_buku,kode_buku',
+                'nama_buku' => 'required|string|max:255',
+                'id_kategori' => 'nullable|exists:kategori,id',
+                'id_penerbit' => 'nullable|exists:penerbit,id',
+                'tanggal_terbit' => 'required|date',
+                'jumlah_halaman' => 'required|string|max:255',
+                'nama_pengarang' => 'required|string|max:255',
+                'foto_buku' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'deskripsi' => 'required|string|max:500',
+            ],
+            [
+                'kode_buku.required' => 'Kode Buku wajib di isi',
+                'kode_buku.unique' => 'Kode Buku sudah digunakan',
+                'nama_buku.required' => 'Nama Buku wajib di isi',
+                'tanggal_terbit.required' => 'Tanggal Terbit wajib di isi',
+                'jumlah_halaman.required' => 'Jumlah Halaman wajib di isi',
+                'nama_pengarang.required' => 'Nama Pengarang wajib di isi',
+                'deskripsi.required' => 'Deskripsi wajib di isi. Deskripsi tidak boleh melebihi 500 karakter.',
+            ]
+        );
 
         $data = $request->all();
 
@@ -71,39 +72,51 @@ class BookController extends Controller
         return redirect()->route('dashboard.buku');
     }
 
-    public function edit(Book $book)
+    public function editBook($id)
     {
+        $book = Book::FindorFail($id);
         $penerbits = Penerbit::all();
         $kategori = Kategori::all();
         return view('buku.edit', compact('book', 'penerbits', 'kategori'));
     }
 
-    public function update(Request $request, Book $book)
+    public function updateBook(Request $request, $id)
     {
-        $request->validate([
-            'kode_buku' => 'required|string|max:255',
+        $book = Book::findOrFail($id);
+
+        $request->validate(
+        [
             'nama_buku' => 'required|string|max:255',
-            'id_kategori' => 'nullable|exists:kategori,id',
+            'id_kategori' => 'required',
+            'deskripsi' => 'required|string',
             'id_penerbit' => 'nullable|exists:penerbit,id',
-            'tanggal_terbit' => 'required|date',
             'jumlah_halaman' => 'required|string|max:255',
             'nama_pengarang' => 'required|string|max:255',
             'foto_buku' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ],[
+            'nama_buku.required' => 'Nama Buku wajib di isi',
+            'id_kategori.required' => 'Kategori tidak boleh kosong',
+            'deskripsi.required' => 'Deskripsi tidak boleh kosong',
+            'kode_buku.unique' => 'Kode Buku sudah digunakan',
+            'jumlah_halaman.required' => 'Jumlah Halaman wajib di isi',
+            'nama_pengarang.required' => 'Nama Pengarang wajib di isi',
+            'deskripsi.required' => 'Deskripsi wajib di isi. Deskripsi tidak boleh melebihi 500 karakter.',
         ]);
 
-        $data = $request->all();
+        $book->update([
+            'nama_buku' => $request->input('nama_buku'),
+            'id_kategori' => $request->input('id_kategori'),
+            'deskripsi' => $request->input('deskripsi'),
+            'id_penerbit' => $request->input('id_penerbit'),
+            'jumlah_halaman' => $request->input('jumlah_halaman'),
+            'nama_pengarang' => $request->input('nama_pengarang'),
+            'foto_buku' => $request->input('foto_buku')
+        ]);
 
-        if ($request->hasFile('foto_buku')) {
-            $image = $request->file('foto_buku');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
-            $data['foto_buku'] = $imageName;
-        }
-
-        $book->update($data);
-
-        return redirect()->route('books.index')->with('success', 'Buku berhasil diperbarui.');
+        Alert::success('Sukses', 'Data buku berhasil di update');
+        return redirect()->route('dashboard.buku');
     }
+
 
     public function destroy($id)
     {
@@ -120,7 +133,7 @@ class BookController extends Controller
         $book->delete();
 
         Alert::success('Sukses', 'Buku berhasil dihapus!');
-        
+
         return redirect()->route('dashboard.buku');
     }
 }

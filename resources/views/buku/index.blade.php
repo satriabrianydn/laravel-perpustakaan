@@ -85,7 +85,7 @@
                                         <td>{{ $book->deskripsi }}</td>
 
                                         <td>
-                                            <a href="#" class="btn btn-edit btn-circle">
+                                            <a href="{{ route('buku.edit', $book->id) }}" class="btn btn-edit btn-circle">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
                                             <form action="{{ route('hapus.buku', $book->id) }}" method="POST"

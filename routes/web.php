@@ -50,17 +50,17 @@ Route::post('/processLogin', [AuthController::class, 'processLogin']);
 Route::post('/processRegister', [AuthController::class, 'processRegister']);
 
 
-Route::middleware(['auth'])->group(function () {
-  // Route Dashboard
+Route::middleware(['auth'])->group(function () {// Route Dashboard
   Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard.index');
 });
 
-Route::middleware(['auth', 'role:Administrator'])->group(function () {
-  // Route Data Buku
+Route::middleware(['auth', 'role:Administrator'])->group(function () { // Route Data Buku
 Route::get('/dashboard/data-buku', [BookController::class, 'showBook'])->name('dashboard.buku');
 Route::get('/dashboard/data-buku/tambah', [BookController::class, 'createBook'])->name('dashboard.buku.tambah');
 Route::post('/dashboard/data-buku/tambah/simpan', [BookController::class, 'storeBook'])->name('storeBook');
-Route::delete('/dashboard/data-buku/hapus/{id}', [BookController::class, 'destroy'])->name('hapus.buku');
+Route::get('/dashboard/data-buku/edit/{id}', [BookController::class, 'editBook'])->name('buku.edit');
+Route::put('/dashboard/data-buku/edit/simpan/{id}', [BookController::class, 'updateBook'])->name('buku.update');
+Route::delete('/dashboard/data-buku/delete/{id}', [BookController::class, 'destroy'])->name('hapus.buku');
 
 // Route Data User
 Route::get('/dashboard/data-user', [DashboardController::class, 'showUser'])->name('dashboard.user');
@@ -86,7 +86,7 @@ Route::get('/dashboard/data-kategori/tambah', [KategoriController::class, 'addKa
 Route::post('/dashboard/data-kategori/tambah/proses', [KategoriController::class, 'processKategori'])->name('tambah.kategori.proses');
 Route::get('/dashboard/data-kategori/edit/{id}', [KategoriController::class, 'showEditKategori'])->name('dashboard.kategori.edit');
 Route::post('/dashboard/data-kategori/edit/update/{id}', [KategoriController::class, 'processUpdateKategori'])->name('update.kategori');
-Route::delete('/dashboard/data-kategori/hapus/{id}', [KategoriController::class, 'deleteKategori'])->name('delete.kategori');
+Route::delete('/dashboard/data-kategori/delete/{id}', [KategoriController::class, 'deleteKategori'])->name('delete.kategori');
 
 // Route Data Petugas
 Route::get('/dashboard/data-petugas', [PetugasController::class, 'showPetugas'])->name('dashboard.petugas');
@@ -94,7 +94,7 @@ Route::get('/dashboard/data-petugas/tambah', [PetugasController::class, 'showAdd
 Route::get('/dashboard/data-petugas/edit/{id}', [PetugasController::class, 'showUpdatePetugas'])->name('edit.petugas');
 Route::post('/dashboard/data-petugas/edit/update/{id}', [PetugasController::class, 'processUpdatePetugas'])->name('update.petugas');
 Route::post('/dashboard/data-petugas/tambah/proses', [PetugasController::class, 'storePetugas'])->name('tambah.petugas.proses');
-Route::delete('dashboard/data-petugas/hapus/{id}', [PetugasController::class, 'deletePetugas'])->name('hapus.petugas');
+Route::delete('dashboard/data-petugas/delete/{id}', [PetugasController::class, 'deletePetugas'])->name('hapus.petugas');
 });
 
 Route::middleware(['auth', 'role:Petugas,Mahasiswa'])->group(function () {

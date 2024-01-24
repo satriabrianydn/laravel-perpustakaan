@@ -76,69 +76,8 @@
                     <!-- Artikel Pertama -->
                     <div class="berita-box">
                         <article>
-                            <div class="row">
-                                <div class="col-sm-4 text-center">
-                                    <img src="Bagus_Adi.png" alt="Kepala Perpustakaan Photo" class="member-photo"
-                                        width="300" height="280">
-                                </div>
-                                <div class="col-sm-8">
-                                    <h6 class="category text-info">
-                                        <a href="#" rel="tag">
-                                            Kepala Perpustakaan
-                                        </a>
-                                    </h6>
-                                    <h2><a href="#">BAGUS ADI</a></h2>
-                                    <p class="meta" style="margin-bottom: 100px;">
-                                        <span class="author">NO.Telp: 082754265674</span>
-                                    </p>
-                                </div>
-                            </div>
+                            <div class="card-small-card" style="align-items: center">
                         </article>
-                        <!-- Anggota Pertama End -->
-
-                        <!-- Anggota Kedua -->
-                        <article>
-                            <div class="row">
-                                <div class="col-sm-4 text-center">
-                                    <img src="Asep_Bastian.png" alt="Anggota Kedua Photo" class="member-photo"
-                                        width="190" height="300">
-                                </div>
-                                <div class="col-sm-4">
-                                    <h6 class="category text-info">
-                                        <a href="#" rel="tag">
-                                            Penanggung Jawab
-                                        </a>
-                                    </h6>
-                                    <h2><a href="#">ASEP BASTIAN</a></h2>
-                                    <p class="meta" style="margin-bottom: 10px;">
-                                        <span class="author">NO.Telp: 085836427846</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Anggota Kedua End -->
-
-                        <!-- Anggota Ketiga -->
-                        <article>
-                            <div class="row">
-                                <div class="col-sm-4 text-center">
-                                    <img src="Joko_Slamet.png" alt="Anggota Ketiga Photo" class="member-photo"
-                                        width="220" height="280">
-                                </div>
-                                <div class="col-sm-4">
-                                    <h6 class="category text-info">
-                                        <a href="#" rel="tag">
-                                            Sekretaris
-                                        </a>
-                                    </h6>
-                                    <h2><a href="#">JOKO SLAMET</a></h2>
-                                    <p class="meta" style="margin-bottom: 10px;">
-                                        <span class="author">NO.Telp: 089675437556</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Anggota Ketiga End -->
                     </div>
 
                 </div>
@@ -147,3 +86,5 @@
     </div>
     </div>
 @endsection
+
+

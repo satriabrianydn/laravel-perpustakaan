@@ -200,7 +200,7 @@ footer {
 }
 
 .social-media-icons i:hover {
-    background-color: #FFC436; 
+    background-color: #FFC436;
     color: #112c63;
 }
 
@@ -329,7 +329,7 @@ footer {
     }
 
     .footer {
-        text-align: center; 
+        text-align: center;
     }
 
     .text-end h4 {
@@ -348,7 +348,7 @@ footer {
     .social-media-icons i {
         padding: 10px;
     }
-    
+
     .social-media-icons i:hover {
         background-color: #FFC436;
         color: #112c63;
@@ -393,3 +393,23 @@ footer {
         position: relative;
     }
 }
+
+.box-category {
+    width: 100%;
+}
+
+.card-img-center {
+    width: 200px;
+    height: 300px;
+    align-items: center;
+    object-fit: cover;
+}
+
+.berita-box {
+    width: 120%;
+}
+
+.card-title
+ {
+    align-items: center;
+ }
