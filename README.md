@@ -152,4 +152,4 @@ Password: 12345678
 	- Transaksi: 0% (Fitur Admin/Petugas)
 	- Transaksi User: 0%
 
-**Update: 23 January 2024**
+**Update: 1 August 2024**
