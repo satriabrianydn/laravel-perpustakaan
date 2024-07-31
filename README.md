@@ -68,7 +68,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ## Cara Untuk Menjalankan Project Ini
 1. Cloning project dengan mengetikkan perintah dibawah ini
 ```
-$ git clone https://github.com/satriabrianydn/laravel-perpustakaan
+$ git clone https://github.com/satriabrianydn/laravel-perpustakaan.git
 ```
 2. Masuk ke direktori project
 ```
