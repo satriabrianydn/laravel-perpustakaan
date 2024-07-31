@@ -86,7 +86,7 @@ $ composer install
 ```
 $ php artisan key:generate
 ```
-5. Setting nama database dibagian ```DB_DATABASE=``` dalam file .env menggunakan text editor (terserah memakai vs code ataupun text editor seperti sublime/notepad++
+5. Setting nama database dibagian ```DB_DATABASE=``` dalam file .env menggunakan text editor (terserah memakai vs code ataupun text editor seperti sublime/notepad++)
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -95,7 +95,7 @@ DB_DATABASE=laravel
 DB_USERNAME=root
 DB_PASSWORD=
 ```
-6. Start Webserver (Bisa menggunakan XAMPP/Laragon)
+6. Start Webserver + DB MySQL (Bisa menggunakan XAMPP/Laragon)
 7. Jalankan perintah migrate untuk mengisi table dalam database beserta dummy datanya
 ```
 $ php artisan migrate --seed
@@ -138,6 +138,7 @@ Password: 12345678
 ```
 
 ## PROGRESS PROJECT
+- Bug Fixed (?)
 - Halaman Utama: ?
 - Kategori: ?
 - Auth (Login, Register, Logout, Permission): 100%
