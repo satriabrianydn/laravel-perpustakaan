@@ -65,25 +65,65 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## Catatan Untuk Menggunakan Project Ini
-Setelah cloning project Laravel ini, lakukan langkah-langkah berikut:
-1. Masuk ke dalam folder project dengan mengetikkan perintah "cd laravel-perpustakaan"
-2. Jalankan perintah "cp .env.example .env"
-3. Kemudian jalankan perintah "composer install"
-4. Setelah itu jalankan perintah "php artisan key:generate"
-5. Setting nama database (terserah mau dinamain apa) di file .env (Buka dengan Visual Studio Code ataupun Text editor lainnya)
-6. Kemudian Jalankan perintah "php artisan migrate --seed"
-7. Setelah itu jalankan perintah "php artisan storage:link"
-8. Download untuk gambar Default Avatar [Disini](https://drive.google.com/file/d/15dyodlKak2tM-xqNZsi4nnw5q-grJGW1/view?usp=sharing)
-9. Download untuk gambar No Image Available untuk Cover Buku yang tidak ada [Disini](https://drive.google.com/file/d/159-LuvvpjGDPGJol6IkhkS-hubLA_RpB/view?usp=sharing)
-10. Paste gambar Default Avatar yang telah di download di "public/storage/avatar/" (Jika belum ada folder "avatar" buat dahulu secara manual)
-11. Paste gambar No Image Available yang telah di download di "public/storage/covers" (Jika belum ada folder "covers" buat dahulu secara manual)
-12. Setelah semua langkah diatas kira-kira sudah dilakukan, jalankan local server dengan menjalankan perintah "php artisan serve"
-13. Buka link http://127.0.0.1:8000
-14. Done!
+## Cara Untuk Menjalankan Project Ini
+1. Cloning project dengan mengetikkan perintah dibawah ini
+```
+$ git clone https://github.com/satriabrianydn/laravel-perpustakaan
+```
+2. Masuk ke direktori project
+```
+$ cd laravel-perpustakaan
+```
+3. Duplikat file .env.example menjadi .env (bisa dilakukan secara manual) atau mengetik perintah dibawah ini
+```
+$ cp .env.example .env
+```
+5. Jalankan perintah dibawah ini untuk menginstall dependencies
+```
+$ composer install
+```
+4. Jika sudah, jalankan perintah berikut untuk generate app key
+```
+$ php artisan key:generate
+```
+5. Setting nama database dibagian ```DB_DATABASE=``` dalam file .env menggunakan text editor (terserah memakai vs code ataupun text editor seperti sublime/notepad++
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+```
+6. Start Webserver (Bisa menggunakan XAMPP/Laragon)
+7. Jalankan perintah migrate untuk mengisi table dalam database beserta dummy datanya
+```
+$ php artisan migrate --seed
+```
+Atau bisa juga tanpa memasukkan dummy data kedalam table
+```
+$ php artisan migrate
+```
+8. Kemudian jalankan perintah dibawah untuk membuat symlink dari folder storage agar dapat terlink ke folder public
+```
+$ php artisan storage:link
+```
+9. Download file Default Avatar dari link dibawah ini kemudian paste ke folder ```public/storage/avatar``` (Jika belum ada folder avatar bisa dibuat secara manual)
+```
+https://drive.google.com/file/d/15dyodlKak2tM-xqNZsi4nnw5q-grJGW1/view?usp=sharing
+```
+10. Download file No Image Available dari link dibawah ini kemudian paste ke folder ```public/storage/covers``` (Jika belum ada folder covers bisa dibuat secara manual)
+```
+https://drive.google.com/file/d/159-LuvvpjGDPGJol6IkhkS-hubLA_RpB/view?usp=sharing
+```
+11. Setelah semua selesai dilakukan, jalankan server dengan mengetik perintah
+```
+$ php artisan serve
+```
 
-Default Login:
+## Default Login Credentials
 
+```
 Administrator
 Email: admin@gmail.com
 Password: 12345678
@@ -95,6 +135,7 @@ Password: 12345678
 Mahasiswa
 Email: mahasiswa@gmail.com
 Password: 12345678
+```
 
 ## PROGRESS PROJECT
 - Halaman Utama: ?
