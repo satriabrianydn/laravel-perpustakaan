@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Admin;
 use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminController extends Controller
 {
-    public function showDataAdmin(Request $request) {
+    public function showDataAdmin(Request $request)
+    {
         $search = $request->input('search');
 
         $admin = Admin::with('user')
@@ -52,6 +54,7 @@ class AdminController extends Controller
             'no_telp.required' => 'Nomor Telepon wajib di isi.',
             'alamat_petugas.required' => 'Alamat wajib di isi.',
             'new_password.required' => 'Password wajib di isi.',
+            'new_password.min' => 'Password minimal 8 karakter.',
             'new_password.confirmed' => 'Konfirmasi Password tidak sesuai.',
             'role.required' => 'Role wajib di isi.'
         ]);
@@ -79,7 +82,7 @@ class AdminController extends Controller
     public function deleteAdmin($id)
     {
         // Temukan petugas berdasarkan ID
-        $admin = Admin::find($id);
+        $admin = Admin::findOrFail($id);
 
         // Jika petugas tidak ditemukan, kembalikan response
         if (!$admin) {
@@ -97,10 +100,18 @@ class AdminController extends Controller
         }
 
         try {
-            // Hapus terlebih dahulu petugas
+            // Hapus file foto profil jika ada
+            if ($admin->avatar && $admin->avatar !== 'default_avatar.jpg') {
+                $avatarPath = 'avatar/' . $admin->avatar;
+                if (Storage::disk('public')->exists($avatarPath)) {
+                    Storage::disk('public')->delete($avatarPath);
+                }
+            }
+
+            // Hapus data admin dulu
             $admin->delete();
 
-            // Hapus pengguna setelahnya
+            // Hapus data user login setelahnya
             $user->delete();
 
             // Tampilkan pesan sukses
@@ -112,6 +123,4 @@ class AdminController extends Controller
 
         return redirect()->route('dashboard.admin');
     }
-
-    
 }

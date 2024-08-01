@@ -12,7 +12,7 @@
                             <div class="mt-3">
                                 <form action="{{ route('dashboard.admin') }}" method="GET">
                                     <input type="text" name="search" class="form-control" placeholder="Cari Admin..."
-                                        value="{{ request('search') }}"> 
+                                        value="{{ request('search') }}">
                                     <div class="mt-2">
                                         <button type="submit" class="btn btn-primary">Cari</button>
                                     </div>
@@ -62,8 +62,8 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $administrator->nip }}</td>
                                         <td>
-                                                <img src="{{ asset('storage/avatar/' . $administrator->avatar) }}"
-                                                    alt="Foto Profil" width="50" class="rounded-circle">    
+                                            <img src="{{ asset('storage/avatar/' . $administrator->avatar) }}"
+                                                alt="Foto Profil" width="50" class="rounded-circle">
                                         </td>
                                         <td>{{ $administrator->user->name }}</td>
                                         <td>{{ $administrator->gender }}</td>
@@ -71,16 +71,19 @@
                                         <td>{{ $administrator->no_telp ?? '-' }}</td>
                                         <td>{{ $administrator->user->role }}</td>
                                         <td>
-                                            <!-- Tambahkan form untuk menghapus pengguna -->
-                                            <form action="{{ route('dashboard.admin.delete', ['id' => $administrator->id]) }}" method="POST"
-                                                class="d-inline">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-delete btn-circle"
-                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus pengguna ini?')">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form>
+                                            @if (auth()->user()->id !== $administrator->user_id)
+                                                <!-- Tambahkan form untuk menghapus pengguna -->
+                                                <form
+                                                    action="{{ route('dashboard.admin.delete', ['id' => $administrator->id]) }}"
+                                                    method="POST" class="d-inline">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-delete btn-circle"
+                                                        onclick="return confirm('Apakah Anda yakin ingin menghapus pengguna ini?')">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            @endif
                                         </td>
                                     </tr>
                                 @empty

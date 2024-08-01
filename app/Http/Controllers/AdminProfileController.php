@@ -19,40 +19,44 @@ class AdminProfileController extends Controller
         return view('user.edit', compact('user'));
     }
 
-    public function showAddUser(){
-    
+    public function showAddUser()
+    {
+
         return view('user.tambah');
     }
 
-    public function saveUser (Request $request) {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'nim' => 'required|string|max:255',
-            'gender' => 'required|in:Laki-Laki,Perempuan',
-            'prodi' => 'required|string|max:255',
-            'no_telp' => 'required|string|max:13',
-            'kelas' => 'required|string|max:255',
-            'angkatan' => 'required|string|max:255',
-            'new_password' => 'required|string|min:8|confirmed',
-            'role' => 'required|in:Administrator,Petugas,Mahasiswa',
-        ],[
-            'name.required' => 'Nama Lengkap wajib di isi.',
-            'email.required' => 'Email wajib di isi.',
-            'email.email' => 'Jenis email tidak valid.',
-            'email.unique' => 'Email telah digunakan.',
-            'nim.required' => 'NIM wajib di isi.',
-            'gender.required' => 'Jenis Kelamin wajib di isi.',
-            'prodi.required' => 'Program Studi wajib di isi.',
-            'no_telp.required' => 'Nomor Telepon wajib di isi.',
-            'kelas.required' => 'Kelas wajib di isi',
-            'angkatan.required' => 'Angkatan wajib di isi.',
-            'new_password.required' => 'Password wajib di isi.',
-            'new_password.confirmed' => 'Konfirmasi Password tidak sesuai.',
-            'role.required' => 'Role wajib di isi.'
+    public function saveUser(Request $request)
+    {
+        $request->validate(
+            [
+                'name' => 'required|string|max:255',
+                'email' => 'required|email|unique:users,email',
+                'nim' => 'required|string|max:255',
+                'gender' => 'required|in:Laki-Laki,Perempuan',
+                'prodi' => 'required|string|max:255',
+                'no_telp' => 'required|string|max:13',
+                'kelas' => 'required|string|max:255',
+                'angkatan' => 'required|string|max:255',
+                'new_password' => 'required|string|min:8|confirmed',
+                'role' => 'required|in:Administrator,Petugas,Mahasiswa',
+            ],
+            [
+                'name.required' => 'Nama Lengkap wajib di isi.',
+                'email.required' => 'Email wajib di isi.',
+                'email.email' => 'Jenis email tidak valid.',
+                'email.unique' => 'Email telah digunakan.',
+                'nim.required' => 'NIM wajib di isi.',
+                'gender.required' => 'Jenis Kelamin wajib di isi.',
+                'prodi.required' => 'Program Studi wajib di isi.',
+                'no_telp.required' => 'Nomor Telepon wajib di isi.',
+                'kelas.required' => 'Kelas wajib di isi',
+                'angkatan.required' => 'Angkatan wajib di isi.',
+                'new_password.required' => 'Password wajib di isi.',
+                'new_password.confirmed' => 'Konfirmasi Password tidak sesuai.',
+                'role.required' => 'Role wajib di isi.'
 
-        ]
-    );
+            ]
+        );
 
         $user = User::create([
             'name' => $request->name,
@@ -82,24 +86,26 @@ class AdminProfileController extends Controller
         $mahasiswa = $user->mahasiswa;
 
         // Validasi data formulir
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'role' => 'required|in:Administrator,Petugas,Mahasiswa',
-            'no_telp' => 'nullable|string|max:20',
-            'gender' => 'required|in:Laki-Laki,Perempuan',
-            'nim' => 'required|string|max:20',
-            'prodi' => 'required|string|max:255',
-            'kelas' => 'required|string|max:20',
-            'angkatan' => 'required|string|max:4',
-        ], [
-            'name.required' => 'Nama Wajib Di isi',
-            'role.required' => 'Jenis Role Wajib Di isi',
-            'gender.required' => 'Jenis Kelamin Wajib Di isi',
-            'nim.required' => 'NIM Wajib Di isi',
-            'prodi.required' => 'Program Studi Wajib Di isi',
-            'kelas.required' => 'Kelas Wajib Di isi',
-            'angkatan.required' => 'Angkatan Wajib Di isi',
-        ]
+        $request->validate(
+            [
+                'name' => 'required|string|max:255',
+                'role' => 'required|in:Administrator,Petugas,Mahasiswa',
+                'no_telp' => 'nullable|string|max:20',
+                'gender' => 'required|in:Laki-Laki,Perempuan',
+                'nim' => 'required|string|max:20',
+                'prodi' => 'required|string|max:255',
+                'kelas' => 'required|string|max:20',
+                'angkatan' => 'required|string|max:4',
+            ],
+            [
+                'name.required' => 'Nama Wajib Di isi',
+                'role.required' => 'Jenis Role Wajib Di isi',
+                'gender.required' => 'Jenis Kelamin Wajib Di isi',
+                'nim.required' => 'NIM Wajib Di isi',
+                'prodi.required' => 'Program Studi Wajib Di isi',
+                'kelas.required' => 'Kelas Wajib Di isi',
+                'angkatan.required' => 'Angkatan Wajib Di isi',
+            ]
         );
 
         // Update data user
@@ -125,22 +131,25 @@ class AdminProfileController extends Controller
 
     public function adminDeleteUser($id)
     {
+        // Temukan pengguna berdasarkan ID
         $user = User::findOrFail($id);
 
-
+        // Jika pengguna terkait mahasiswa, hapus data mahasiswa terlebih dahulu
         if ($user->mahasiswa) {
-            $user->mahasiswa->delete();
-        }
+            // Hapus foto avatar jika ada
+            $avatarPath = 'public/avatar/' . $user->mahasiswa->avatar;
+            if ($user->mahasiswa->avatar && $user->mahasiswa->avatar !== 'default_avatar.jpg' && Storage::exists($avatarPath)) {
+                Storage::delete($avatarPath);
+            }
 
-        // Hapus foto avatar jika ada
-        $avatarPath = 'public/avatar/' . optional($user->mahasiswa)->avatar;
-        if ($avatarPath !== 'public/avatar/default_avatar.jpg' && Storage::exists($avatarPath)) {
-            Storage::delete($avatarPath);
+            // Hapus data mahasiswa
+            $user->mahasiswa->delete();
         }
 
         // Hapus data user (delete permanen)
         $user->delete();
 
+        // Tampilkan pesan sukses
         Alert::success('Sukses', 'Data User berhasil dihapus!');
 
         return redirect()->route('dashboard.user');
@@ -156,10 +165,11 @@ class AdminProfileController extends Controller
         return view('admin.edit', compact('user', 'admin'));
     }
 
-    public function editAdmin(Request $request, $id) {
+    public function editAdmin(Request $request, $id)
+    {
 
         $admin = Admin::find($id);
-        
+
         $user = User::find($admin->user_id);
 
         $request->validate([
@@ -188,8 +198,8 @@ class AdminProfileController extends Controller
         $user = auth()->user();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        
-        
+
+
         if ($request->filled('old_password') && !Hash::check($request->input('old_password'), $user->password)) {
             Alert::error('Error', 'Password lama tidak sesuai.');
             return redirect()->route('admin.edit');
@@ -223,5 +233,4 @@ class AdminProfileController extends Controller
         Alert::success('Success', 'Profil berhasil diperbarui!');
         return redirect()->route('admin.edit');
     }
-    
 }
