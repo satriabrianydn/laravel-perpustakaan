@@ -65,6 +65,18 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
+## Requirements
+PHP 8.2: [Download Here](https://www.php.net/)</br>
+XAMPP: [Download Here](https://www.apachefriends.org/download.html)</br>
+Also you can use Laragon for XAMPP Alternative: [Download Here](https://laragon.org/download/)</br>
+Composer: [Download Here](https://getcomposer.org/download/)</br>
+Git: [Download Here](https://git-scm.com/downloads)
+```
+Note: 
+MySQL is included on XAMPP or Laragon.
+Check your PHP version is 8.2 or not.
+```
+
 ## Cara Untuk Menjalankan Project Ini
 1. Cloning project dengan mengetikkan perintah dibawah ini
 ```
