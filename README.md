@@ -164,3 +164,5 @@ Password: 12345678
 	- CRUD Mahasiswa: 100% (Fitur Admin/Petugas)
 	- Transaksi: 0% (Fitur Admin/Petugas)
 	- Transaksi User: 0%
+
+### Note: Updated to Laravel 12
